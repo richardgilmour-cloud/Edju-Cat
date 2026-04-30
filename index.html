@@ -17,91 +17,117 @@
     height: 100%;
   }
 
+  /* HERO */
   .hero {
     height: 100vh;
     background: url("background.jpg") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
   }
 
-  /* LOGO */
   .logo {
     position: absolute;
     top: 6%;
     left: 50%;
     transform: translateX(-50%);
     width: clamp(160px, 20vw, 260px);
-    z-index: 3;
   }
 
-  /* CONTACT SECTION */
+  /* CONTACT SECTION (SEAMLESS) */
   .contact {
-    padding: 60px 20px;
-    background: #f5f5f5;
+    background: url("contact-background.jpg") center/cover no-repeat;
+    padding: 40px 20px 60px;
     text-align: center;
+    color: white;
+  }
+
+  .contact-inner {
+    max-width: 800px;
+    margin: auto;
   }
 
   .contact h2 {
-    margin-bottom: 10px;
     font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .contact p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 20px;
   }
 
   form {
-    max-width: 420px;
-    margin: 20px auto 0;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
   }
 
-  input, select, textarea {
+  input, select {
+    flex: 1 1 180px;
     padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
   }
 
   button {
-    padding: 14px;
-    background: black;
-    color: white;
+    margin-top: 10px;
+    padding: 14px 30px;
+    background: #22d3ee;
+    color: black;
     border: none;
-    border-radius: 8px;
+    border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
+    form {
+      flex-direction: column;
+    }
   }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
-
-  <!-- Logo -->
   <img src="logo-with-tag.png" class="logo" alt="Edju Cat Logo">
-
 </section>
 
-<section id="contact" class="contact">
-  <h2>Get in Touch</h2>
+<!-- CONTACT -->
+<section class="contact">
 
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
+  <div class="contact-inner">
+    <h2>Help Shape Edju Cat</h2>
+    <p>Parents, teachers, investors and creative talent — we’d love to hear from you.</p>
 
-    <select>
-      <option>I'm a Parent</option>
-      <option>I'm a Teacher</option>
-      <option>Investor</option>
-      <option>Other</option>
-    </select>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
 
-    <textarea placeholder="Message (optional)"></textarea>
+      <select>
+        <option>I’m a Parent</option>
+        <option>I’m a Teacher</option>
+        <option>Investor</option>
+        <option>Creative / Developer</option>
+        <option>Other</option>
+      </select>
 
-    <button type="submit">Send</button>
-  </form>
+      <textarea placeholder="Message (optional)"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
 </section>
 
 </body>
