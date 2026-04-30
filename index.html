@@ -13,13 +13,13 @@
     font-family: system-ui, -apple-system, Arial;
   }
 
-  body, html {
+  html, body {
     height: 100%;
   }
 
   .hero {
     height: 100vh;
-    background: url('background.jpg') center/cover no-repeat;
+    background: url("background.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,27 +28,29 @@
     position: relative;
   }
 
-  /* subtle dark overlay so text is readable */
-  .hero::after {
-    content: "";
+  /* LOGO */
+  .logo {
     position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(160px, 20vw, 260px);
+    z-index: 3;
   }
 
+  /* MAIN CONTENT */
   .content {
-    position: relative;
     z-index: 2;
   }
 
   h1 {
-    font-size: 56px;
+    font-size: clamp(36px, 6vw, 56px);
     letter-spacing: 3px;
   }
 
   p {
     margin-top: 12px;
-    font-size: 22px;
+    font-size: clamp(18px, 2.5vw, 22px);
   }
 
   .cta {
@@ -62,10 +64,15 @@
     display: inline-block;
   }
 
+  /* CONTACT SECTION */
   .contact {
     padding: 60px 20px;
     background: #f5f5f5;
     text-align: center;
+  }
+
+  .contact h2 {
+    margin-bottom: 10px;
   }
 
   form {
@@ -80,6 +87,7 @@
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 14px;
   }
 
   button {
@@ -89,6 +97,7 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
   }
 </style>
 </head>
@@ -96,11 +105,15 @@
 <body>
 
 <section class="hero">
+
+  <!-- Logo -->
+  <img src="logo-with-tag.png" class="logo" alt="Edju Cat Logo">
+
+  <!-- Main content -->
   <div class="content">
-    <h1>EDJU CAT</h1>
-    <p>What will you learn today?</p>
     <a href="#contact" class="cta">Get Early Access</a>
   </div>
+
 </section>
 
 <section id="contact" class="contact">
