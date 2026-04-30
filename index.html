@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edju Cat</title>
 
+<!-- Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
   * {
     margin: 0;
@@ -13,16 +16,12 @@
     font-family: system-ui, -apple-system, Arial, sans-serif;
   }
 
-  html, body {
-    min-height: 100%;
-  }
-
   body {
     background: #001827;
   }
 
   .page {
-    min-height: 145vh;
+    min-height: 150vh;
     background: url("background.jpg") top center / cover no-repeat;
     position: relative;
   }
@@ -33,66 +32,62 @@
     left: 50%;
     transform: translateX(-50%);
     width: clamp(190px, 24vw, 360px);
-    z-index: 2;
   }
 
+  /* LOWER + MORE COMPACT */
   .contact-wrap {
     position: absolute;
     left: 50%;
-    bottom: 8vh;
+    bottom: 5vh; /* pushed further down */
     transform: translateX(-50%);
-    width: min(92%, 760px);
-    z-index: 3;
+    width: min(92%, 700px); /* slightly smaller */
   }
 
   .contact-card {
-    background: rgba(2, 18, 32, 0.62);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-radius: 26px;
-    padding: 28px;
+    background: rgba(2, 18, 32, 0.5); /* reduced opacity */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    padding: 22px 22px 20px; /* tighter */
     color: white;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
   }
 
   .contact-card h2 {
-    font-size: clamp(26px, 4vw, 40px);
-    line-height: 1.05;
-    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3.5vw, 34px);
+    margin-bottom: 8px;
     text-align: center;
   }
 
   .contact-card p {
-    max-width: 620px;
-    margin: 0 auto 22px;
+    max-width: 580px;
+    margin: 0 auto 18px;
     text-align: center;
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.4;
     opacity: 0.9;
   }
 
   form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   input, select, textarea {
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.9);
     color: #07121f;
-    border-radius: 14px;
-    padding: 14px 15px;
-    font-size: 15px;
-    outline: none;
   }
 
   textarea {
     grid-column: 1 / -1;
-    min-height: 90px;
-    resize: vertical;
+    min-height: 70px; /* reduced height */
   }
 
   .full {
@@ -100,52 +95,35 @@
   }
 
   button {
-    justify-self: center;
     grid-column: 1 / -1;
+    justify-self: center;
     margin-top: 4px;
-    padding: 14px 34px;
+    padding: 12px 28px;
     background: #22d3ee;
     color: #001827;
     border: none;
     border-radius: 999px;
     cursor: pointer;
-    font-weight: 800;
-    font-size: 15px;
-    letter-spacing: 0.3px;
-    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
-  }
-
-  button:hover {
-    transform: translateY(-1px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.35);
   }
 
   @media (max-width: 700px) {
     .page {
-      min-height: 150vh;
-      background-position: top center;
-    }
-
-    .logo {
-      top: 5vh;
-      width: clamp(190px, 55vw, 300px);
+      min-height: 155vh;
     }
 
     .contact-wrap {
-      bottom: 5vh;
-    }
-
-    .contact-card {
-      padding: 22px;
-      border-radius: 22px;
+      bottom: 4vh;
     }
 
     form {
       grid-template-columns: 1fr;
     }
 
-    textarea,
-    .full,
-    button {
+    textarea, .full, button {
       grid-column: auto;
     }
   }
@@ -161,8 +139,9 @@
   <section class="contact-wrap">
     <div class="contact-card">
       <h2>Help Shape Edju Cat</h2>
+
       <p>
-        We’re speaking with parents, teachers, investors and creative talent as we build our first adventure-led learning experiences.
+        We’re building an adventure-led library of educational experiences designed to make learning more engaging, immersive and effective than anything currently available.
       </p>
 
       <form>
