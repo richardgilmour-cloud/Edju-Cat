@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edju Cat</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, Arial;
+  }
+
+  body, html {
+    height: 100%;
+  }
+
+  .hero {
+    height: 100vh;
+    background: url('background.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+
+  /* subtle dark overlay so text is readable */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    font-size: 56px;
+    letter-spacing: 3px;
+  }
+
+  p {
+    margin-top: 12px;
+    font-size: 22px;
+  }
+
+  .cta {
+    margin-top: 30px;
+    padding: 14px 28px;
+    background: #22d3ee;
+    color: black;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .contact {
+    padding: 60px 20px;
+    background: #f5f5f5;
+    text-align: center;
+  }
+
+  form {
+    max-width: 420px;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  input, select, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    padding: 14px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="content">
+    <h1>EDJU CAT</h1>
+    <p>What will you learn today?</p>
+    <a href="#contact" class="cta">Get Early Access</a>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Get in Touch</h2>
+
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+
+    <select>
+      <option>I'm a Parent</option>
+      <option>I'm a Teacher</option>
+      <option>Investor</option>
+      <option>Other</option>
+    </select>
+
+    <textarea placeholder="Message (optional)"></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+</body>
+</html>
