@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captain Hightides Test</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #020814;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .scene {
+      width: 100vw;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+      border-bottom: 2px solid #020814;
+    }
+
+    .viewer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 999;
+      overflow: auto;
+      display: none;
+    }
+
+    .viewer.active {
+      display: block;
+    }
+
+    .viewer img {
+      width: 5425px;
+      height: auto;
+      max-width: none;
+      display: block;
+      cursor: zoom-out;
+    }
+
+    .close {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      z-index: 1000;
+      color: white;
+      font-size: 32px;
+      line-height: 1;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 999px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <img class="scene" src="images/scene-1.jpg" alt="Scene 1" />
+  <img class="scene" src="images/scene-2.jpg" alt="Scene 2" />
+  <img class="scene" src="images/scene-3.jpg" alt="Scene 3" />
+  <img class="scene" src="images/scene-4.jpg" alt="Scene 4" />
+  <img class="scene" src="images/scene-5.jpg" alt="Scene 5" />
+
+  <div class="viewer" id="viewer">
+    <div class="close" id="close">×</div>
+    <img id="viewerImage" src="" alt="Expanded scene" />
+  </div>
+
+  <script>
+    const viewer = document.getElementById("viewer");
+    const viewerImage = document.getElementById("viewerImage");
+    const close = document.getElementById("close");
+
+    document.querySelectorAll(".scene").forEach((image) => {
+      image.addEventListener("click", () => {
+        viewerImage.src = image.src;
+        viewer.classList.add("active");
+
+        setTimeout(() => {
+          viewer.scrollLeft = 0;
+          viewer.scrollTop = 0;
+        }, 0);
+      });
+    });
+
+    function closeViewer() {
+      viewer.classList.remove("active");
+      viewerImage.src = "";
+    }
+
+    close.addEventListener("click", closeViewer);
+
+    viewerImage.addEventListener("click", closeViewer);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeViewer();
+    });
+  </script>
+</body>
+</html>
