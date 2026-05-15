@@ -34,21 +34,20 @@
     width: clamp(190px, 24vw, 360px);
   }
 
-  /* LOWER + MORE COMPACT */
   .contact-wrap {
     position: absolute;
     left: 50%;
-    bottom: 5vh; /* pushed further down */
+    bottom: 5vh;
     transform: translateX(-50%);
-    width: min(92%, 700px); /* slightly smaller */
+    width: min(92%, 700px);
   }
 
   .contact-card {
-    background: rgba(2, 18, 32, 0.4); /* reduced opacity */
+    background: rgba(2, 18, 32, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
     border-radius: 22px;
-    padding: 22px 22px 20px; /* tighter */
+    padding: 22px 22px 20px;
     color: white;
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
   }
@@ -76,18 +75,22 @@
     gap: 10px;
   }
 
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     border: none;
     border-radius: 12px;
     padding: 12px 14px;
     font-size: 14px;
     background: rgba(255,255,255,0.9);
     color: #07121f;
+    width: 100%;
   }
 
   textarea {
     grid-column: 1 / -1;
-    min-height: 70px; /* reduced height */
+    min-height: 70px;
+    resize: vertical;
   }
 
   .full {
@@ -107,7 +110,12 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 14px;
-    
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
   }
 
   @media (max-width: 700px) {
@@ -123,7 +131,9 @@
       grid-template-columns: 1fr;
     }
 
-    textarea, .full, button {
+    textarea,
+    .full,
+    button {
       grid-column: auto;
     }
   }
@@ -138,29 +148,68 @@
 
   <section class="contact-wrap">
     <div class="contact-card">
+
       <h2>Help Shape Edju Cat</h2>
 
       <p>
-        We’re building a new kind of learning platform powered by a library of immersive, story-driven adventures.</p>
+        We’re building a new kind of learning platform powered by a library of immersive, story-driven adventures.
+      </p>
 
-      <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
+      <form action="https://formsubmit.co/richard@edjucat.com" method="POST">
 
-        <select class="full" required>
+        <!-- Send copy to Steven -->
+        <input type="hidden" name="_cc" value="steven@edjucat.com">
+
+        <!-- Disable captcha -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Email subject -->
+        <input type="hidden" name="_subject" value="New Edju Cat Enquiry">
+
+        <!-- Optional redirect after submit -->
+        <!--
+        <input type="hidden" name="_next" value="https://edjucat.com/thanks.html">
+        -->
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        >
+
+        <select
+          class="full"
+          name="interest"
+          required
+        >
           <option value="">I’m interested as...</option>
-         <option>Investor</option>
-         <option>Parent</option>
+          <option>Investor</option>
+          <option>Parent</option>
           <option>Teacher / School</option>
           <option>Developer / Content Creator</option>
           <option>Partnership</option>
           <option>Other</option>
         </select>
 
-        <textarea placeholder="Short message (optional)"></textarea>
+        <textarea
+          name="message"
+          placeholder="Short message (optional)"
+        ></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit">
+          Send Message
+        </button>
+
       </form>
+
     </div>
   </section>
 
