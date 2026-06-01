@@ -170,7 +170,27 @@
 
   .stickerGrid{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:18px}
   .bookTabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
-  .bookTab{border-radius:18px;padding:14px;background:rgba(53,214,255,.1);border:1px solid rgba(53,214,255,.2);font-weight:900;text-align:center}
+  .bookTab{border-radius:18px;padding:14px;background:rgba(53,214,255,.1);border:1px solid rgba(53,214,255,.2);font-weight:900;text-align:center;cursor:pointer;color:var(--muted)}
+  .stickerPages input{display:none}
+  #book-intro:checked ~ .bookTabs label[for="book-intro"],
+  #book-museum:checked ~ .bookTabs label[for="book-museum"],
+  #book-reef:checked ~ .bookTabs label[for="book-reef"],
+  #book-pacific:checked ~ .bookTabs label[for="book-pacific"],
+  #book-arctic:checked ~ .bookTabs label[for="book-arctic"],
+  #book-indian:checked ~ .bookTabs label[for="book-indian"],
+  #book-atlantic:checked ~ .bookTabs label[for="book-atlantic"],
+  #book-rewards:checked ~ .bookTabs label[for="book-rewards"]{
+    background:linear-gradient(90deg,var(--cyan),var(--cyan2));color:#052053;
+  }
+  .bookPage{display:none}
+  #book-intro:checked ~ .bookContent .introPage,
+  #book-museum:checked ~ .bookContent .museumPage,
+  #book-reef:checked ~ .bookContent .reefPage,
+  #book-pacific:checked ~ .bookContent .pacificPage,
+  #book-arctic:checked ~ .bookContent .arcticPage,
+  #book-indian:checked ~ .bookContent .indianPage,
+  #book-atlantic:checked ~ .bookContent .atlanticPage,
+  #book-rewards:checked ~ .bookContent .rewardsPage{display:block}
   .sticker{
     min-height:210px;border-radius:24px;padding:18px;
     background:linear-gradient(160deg,rgba(53,214,255,.16),rgba(127,76,255,.18));
@@ -206,7 +226,7 @@
         <h1>Captain HighTides<br>Module Flow</h1>
         <p>An expandable production map for the Edjucat module: story, chapters, hidden-object gameplay, stickerbook, quizzes, rewards and content requirements.</p>
       </div>
-      
+     
     </header>
 
     <section class="hero">
@@ -451,28 +471,44 @@
           <h2>Stickerbook</h2>
           <p class="small">Stickerbook contains pages for Intro, each chapter, and Rewards. Tap behaviour is represented in each sticker card.</p>
 
-          <div class="bookTabs">
-            <div class="bookTab">Intro</div>
-            <div class="bookTab">Chapter 1</div>
-            <div class="bookTab">Chapter 2</div>
-            <div class="bookTab">Chapter 3</div>
-            <div class="bookTab">Chapter 4</div>
-            <div class="bookTab">Chapter 5</div>
-            <div class="bookTab">Chapter 6</div>
-            <div class="bookTab">Rewards</div>
-          </div>
 
-          <div class="stickerGrid">
+          <div class="stickerPages">
+            <input type="radio" id="book-intro" name="bookTabs" checked>
+            <input type="radio" id="book-museum" name="bookTabs">
+            <input type="radio" id="book-reef" name="bookTabs">
+            <input type="radio" id="book-pacific" name="bookTabs">
+            <input type="radio" id="book-arctic" name="bookTabs">
+            <input type="radio" id="book-indian" name="bookTabs">
+            <input type="radio" id="book-atlantic" name="bookTabs">
+            <input type="radio" id="book-rewards" name="bookTabs">
+
+            <div class="bookTabs">
+              <label class="bookTab" for="book-intro">Intro</label>
+              <label class="bookTab" for="book-museum">Nautical Museum</label>
+              <label class="bookTab" for="book-reef">Great Barrier Reef</label>
+              <label class="bookTab" for="book-pacific">Pacific Ocean</label>
+              <label class="bookTab" for="book-arctic">Arctic Ocean</label>
+              <label class="bookTab" for="book-indian">Indian Ocean</label>
+              <label class="bookTab" for="book-atlantic">Deep Atlantic</label>
+              <label class="bookTab" for="book-rewards">Rewards</label>
+            </div>
+
+            <div class="bookContent">
+
+              <div class="bookPage introPage">
+                <h3>Intro stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
             <details class="node sticker" open>
-              <summary>Sticker detail template</summary>
+              <summary>Intro Story</summary>
               <div class="nodeBody">
-                <div class="stickerArt">🐻‍❄️</div>
-                <h3>Polar Bear</h3>
-                <p>Large sticker view opens with an info slider containing around 8 facts.</p>
+                <div class="stickerArt">🎬</div>
+                <h3>Intro Story</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
                 <ul>
-                  <li>Fact carousel / slider</li>
-                  <li>Mini-game prompt</li>
-                  <li>Quick-fire true/false sorting game</li>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
                   <li>Completion upgrades Discovery → Gold</li>
                 </ul>
                 <div class="rarities">
@@ -483,33 +519,950 @@
               </div>
             </details>
 
-            <div class="sticker">
-              <div class="stickerArt">🧭</div>
-              <h3>Compass Rewards</h3>
-              <p class="small">Rewards page includes the restored compass and other hidden stickers.</p>
-              <div class="rarities">
-                <span class="rarity gold">Rare</span>
-                <span class="rarity discovery">Hidden</span>
+            <details class="node sticker">
+              <summary>Captain HighTides</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🧑‍✈️</div>
+                <h3>Captain HighTides</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
               </div>
-            </div>
+            </details>
 
-            <div class="sticker">
-              <div class="stickerArt">🎮</div>
-              <h3>Mini-game Upgrade</h3>
-              <p class="small">Each sticker can trigger a short mastery challenge to earn Gold.</p>
-              <div class="rarities">
-                <span class="rarity discovery">True / False</span>
-                <span class="rarity gold">Gold upgrade</span>
+            <details class="node sticker">
+              <summary>Ocean Compass</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🧭</div>
+                <h3>Ocean Compass</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
               </div>
-            </div>
+            </details>
 
-            <div class="sticker">
-              <div class="stickerArt">💎</div>
-              <h3>Gems</h3>
-              <p class="small">In-game currency awarded through reward nodes and completion milestones.</p>
-              <div class="rarities">
-                <span class="rarity discovery">Currency</span>
+            <details class="node sticker">
+              <summary>Nautical Museum</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🏛️</div>
+                <h3>Nautical Museum</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
               </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Module Map</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🗺️</div>
+                <h3>Module Map</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Intro Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Intro Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
+              <div class="bookPage museumPage">
+                <h3>Nautical Museum stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
+            <details class="node sticker" open>
+              <summary>Compass Painting</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🖼️</div>
+                <h3>Compass Painting</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Sail Boat</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⛵</div>
+                <h3>Sail Boat</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Lighthouse</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">💡</div>
+                <h3>Lighthouse</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Atmospheric Diving Suit</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🤿</div>
+                <h3>Atmospheric Diving Suit</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>World Map</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🗺️</div>
+                <h3>World Map</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Nautical Museum Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Nautical Museum Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
+              <div class="bookPage reefPage">
+                <h3>Great Barrier Reef stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
+            <details class="node sticker" open>
+              <summary>Coral</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🪸</div>
+                <h3>Coral</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Clownfish</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐠</div>
+                <h3>Clownfish</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Sea Turtle</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐢</div>
+                <h3>Sea Turtle</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Giant Clam</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐚</div>
+                <h3>Giant Clam</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Ocean Litter</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🥫</div>
+                <h3>Ocean Litter</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Great Barrier Reef Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Great Barrier Reef Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
+              <div class="bookPage pacificPage">
+                <h3>Pacific Ocean stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
+            <details class="node sticker" open>
+              <summary>Dolphin Pod</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐬</div>
+                <h3>Dolphin Pod</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Polynesian Tiki Statue</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🗿</div>
+                <h3>Polynesian Tiki Statue</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Humpback Whale</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐋</div>
+                <h3>Humpback Whale</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Volcanic Rock</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🌋</div>
+                <h3>Volcanic Rock</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Octopus</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐙</div>
+                <h3>Octopus</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Pacific Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Pacific Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
+              <div class="bookPage arcticPage">
+                <h3>Arctic Ocean stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
+            <details class="node sticker" open>
+              <summary>Polar Bear</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐻‍❄️</div>
+                <h3>Polar Bear</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Inuit Sled</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🛷</div>
+                <h3>Inuit Sled</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Seal</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🦭</div>
+                <h3>Seal</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Iceberg</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🧊</div>
+                <h3>Iceberg</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Northern Lights</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🌌</div>
+                <h3>Northern Lights</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Arctic Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Arctic Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
+              <div class="bookPage indianPage">
+                <h3>Indian Ocean stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
+            <details class="node sticker" open>
+              <summary>Manta Ray</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🌊</div>
+                <h3>Manta Ray</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Old Spice Crate</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">📦</div>
+                <h3>Old Spice Crate</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Anchor</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⚓</div>
+                <h3>Anchor</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Spiny Lobster</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🦞</div>
+                <h3>Spiny Lobster</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Whale Shark</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🦈</div>
+                <h3>Whale Shark</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Indian Ocean Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Indian Ocean Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
+              <div class="bookPage atlanticPage">
+                <h3>Deep Atlantic stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
+            <details class="node sticker" open>
+              <summary>Titanic Shipwreck</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🚢</div>
+                <h3>Titanic Shipwreck</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Anglerfish</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🐟</div>
+                <h3>Anglerfish</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>ROV Robot</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🤖</div>
+                <h3>ROV Robot</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Giant Squid</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🦑</div>
+                <h3>Giant Squid</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Glowing Jellyfish</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🪼</div>
+                <h3>Glowing Jellyfish</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Deep Atlantic Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Deep Atlantic Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
+              <div class="bookPage rewardsPage">
+                <h3>Reward stickers</h3>
+                <p class="small">6 stickers: 5 discovery items plus 1 chapter sticker.</p>
+                <div class="stickerGrid">
+
+            <details class="node sticker" open>
+              <summary>Restored Compass</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🧭</div>
+                <h3>Restored Compass</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Rare Sticker Reward</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">✨</div>
+                <h3>Rare Sticker Reward</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Gem Reward</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">💎</div>
+                <h3>Gem Reward</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Hidden Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">❔</div>
+                <h3>Hidden Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Completion Badge</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">🏅</div>
+                <h3>Completion Badge</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+
+            <details class="node sticker">
+              <summary>Bonus Chapter Sticker</summary>
+              <div class="nodeBody">
+                <div class="stickerArt">⭐</div>
+                <h3>Bonus Chapter Sticker</h3>
+                <p>Large sticker view with facts, rarity status and a mini-game option.</p>
+                <ul>
+                  <li>8-fact slider / info carousel</li>
+                  <li>Quick-fire true/false mini-game</li>
+                  <li>Completion upgrades Discovery → Gold</li>
+                </ul>
+                <div class="rarities">
+                  <span class="rarity discovery">Discovery</span>
+                  <span class="rarity gold">Gold</span>
+                  <span class="rarity epic">Epic later</span>
+                </div>
+              </div>
+            </details>
+</div>
+              </div>
+
             </div>
           </div>
 
