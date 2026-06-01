@@ -26,28 +26,26 @@
     font-family:Inter, Poppins, system-ui, -apple-system, Segoe UI, sans-serif;
     color:var(--white);
     background:
-      radial-gradient(circle at 15% 10%, rgba(53,214,255,.25), transparent 28%),
-      radial-gradient(circle at 85% 70%, rgba(127,76,255,.38), transparent 32%),
-      linear-gradient(135deg,#06134d 0%, #061b71 45%, #060527 100%);
+      radial-gradient(circle, rgba(150,158,178,.32) 1.4px, transparent 1.6px),
+      linear-gradient(#f8fafc,#eef2f7);
+    background-size:24px 24px, 100% 100%;
     min-height:100vh;
   }
   body:before{
     content:"";
     position:fixed; inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-    background-size:48px 48px;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(53,214,255,.11), transparent 30%),
+      radial-gradient(circle at 90% 65%, rgba(127,76,255,.08), transparent 34%);
     pointer-events:none;
-    mask-image:radial-gradient(circle at center, black, transparent 85%);
   }
   .wrap{max-width:1280px;margin:0 auto;padding:32px 24px 80px}
   header{
     display:flex;align-items:center;justify-content:space-between;gap:20px;
     margin-bottom:28px;
   }
-  .brand h1{font-size:clamp(30px,5vw,64px);line-height:.95;margin:0 0 10px;font-weight:900;letter-spacing:-.04em}
-  .brand p{margin:0;color:var(--muted);font-size:18px;max-width:680px}
+  .brand h1{font-size:clamp(30px,5vw,64px);line-height:.95;margin:0 0 10px;font-weight:900;letter-spacing:-.04em;color:#07154f}
+  .brand p{margin:0;color:#40506f;font-size:18px;max-width:680px}
   .pill{
     border:1px solid rgba(119,239,255,.35);
     background:rgba(8,25,95,.62);
@@ -166,6 +164,10 @@
   li{margin:7px 0;line-height:1.45}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .miniCard{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:14px}
+  .chapterStack{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+  .chapterStack .miniCard{width:100%}
+  .chapterStack ul{columns:1}
+
   .stickerGrid{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:18px}
   .bookTabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
   .bookTab{border-radius:18px;padding:14px;background:rgba(53,214,255,.1);border:1px solid rgba(53,214,255,.2);font-weight:900;text-align:center}
@@ -186,7 +188,7 @@
   .discovery{background:rgba(53,214,255,.16);color:var(--cyan2)}
   .gold{background:rgba(255,215,107,.18);color:var(--gold)}
   .epic{background:rgba(188,118,255,.18);color:#d9b6ff}
-  footer{margin-top:34px;color:var(--muted);text-align:center}
+  footer{margin-top:34px;color:#40506f;text-align:center}
   @media (max-width:1000px){
     .hero,.landing{grid-template-columns:1fr}
     .flow,.stickerGrid{grid-template-columns:repeat(2,1fr)}
@@ -204,7 +206,7 @@
         <h1>Captain HighTides<br>Module Flow</h1>
         <p>An expandable production map for the Edjucat module: story, chapters, hidden-object gameplay, stickerbook, quizzes, rewards and content requirements.</p>
       </div>
-      <div class="pill">Single HTML prototype</div>
+      
     </header>
 
     <section class="hero">
@@ -300,7 +302,7 @@
               <div class="nodeBody">
                 <span class="tag">Chapter</span><span class="tag">Unlocked</span>
                 <p><strong>Mission:</strong> find 5 learning items, one missing compass piece, and a mysterious note/clue.</p>
-                <div class="split">
+                <div class="chapterStack">
                   <div class="miniCard">
                     <h4>Learning items</h4>
                     <ul>
