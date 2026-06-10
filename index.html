@@ -13,11 +13,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, Arial, sans-serif;
   }
 
   body {
     background: #001827;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    overflow-x: hidden;
   }
 
   .page {
@@ -26,13 +27,55 @@
     position: relative;
   }
 
-  .logo {
+  /* =========================
+     HERO LOGO AREA
+  ========================== */
+
+  .hero-logo {
     position: absolute;
-    top: 6vh;
+    top: 5vh;
     left: 50%;
     transform: translateX(-50%);
-    width: clamp(190px, 24vw, 360px);
+    width: min(90%, 760px);
+    text-align: center;
   }
+
+  .logo-mark {
+    display: block;
+    width: clamp(320px, 52vw, 720px);
+    margin: 0 auto 24px;
+  }
+
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(92vw, 700px);
+
+    padding: 20px 38px;
+
+    background: #40efe6;
+
+    border-radius: 999px;
+
+    color: #03195f;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 2.2vw, 32px);
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-align: center;
+
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+
+  /* =========================
+     CONTACT CARD
+  ========================== */
 
   .contact-wrap {
     position: absolute;
@@ -43,31 +86,47 @@
   }
 
   .contact-card {
-    background: rgba(2, 18, 32, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    border-radius: 22px;
+    background: rgba(2, 18, 32, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+
+    border-radius: 24px;
+
     padding: 22px 22px 20px;
+
     color: white;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+
+    box-shadow:
+      0 18px 50px rgba(0, 0, 0, 0.35);
   }
 
   .contact-card h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
+
     font-size: clamp(24px, 3.5vw, 34px);
+
     margin-bottom: 8px;
+
     text-align: center;
   }
 
   .contact-card p {
     max-width: 580px;
+
     margin: 0 auto 18px;
+
     text-align: center;
+
     font-size: 14px;
-    line-height: 1.4;
-    opacity: 0.9;
+    line-height: 1.45;
+
+    opacity: 0.92;
   }
+
+  /* =========================
+     FORM
+  ========================== */
 
   form {
     display: grid;
@@ -79,17 +138,25 @@
   select,
   textarea {
     border: none;
+
     border-radius: 12px;
+
     padding: 12px 14px;
+
     font-size: 14px;
-    background: rgba(255,255,255,0.9);
+
+    background: rgba(255,255,255,0.92);
+
     color: #07121f;
+
     width: 100%;
   }
 
   textarea {
     grid-column: 1 / -1;
+
     min-height: 70px;
+
     resize: vertical;
   }
 
@@ -99,18 +166,30 @@
 
   button {
     grid-column: 1 / -1;
+
     justify-self: center;
+
     margin-top: 4px;
+
     padding: 12px 28px;
-    background: #00ffea;
+
+    background: #40efe6;
+
     color: #04165b;
+
     border: none;
+
     border-radius: 999px;
+
     cursor: pointer;
+
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 14px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
   }
 
   button:hover {
@@ -118,9 +197,30 @@
     opacity: 0.95;
   }
 
+  /* =========================
+     MOBILE
+  ========================== */
+
   @media (max-width: 700px) {
+
     .page {
-      min-height: 155vh;
+      min-height: 160vh;
+    }
+
+    .hero-logo {
+      top: 4vh;
+      width: 94%;
+    }
+
+    .logo-mark {
+      width: min(92vw, 560px);
+      margin-bottom: 18px;
+    }
+
+    .tag-pill {
+      padding: 16px 22px;
+      font-size: clamp(15px, 4vw, 22px);
+      letter-spacing: 0.04em;
     }
 
     .contact-wrap {
@@ -137,6 +237,7 @@
       grid-column: auto;
     }
   }
+
 </style>
 </head>
 
@@ -144,9 +245,30 @@
 
 <main class="page">
 
-  <img src="logo-with-tag.png" class="logo" alt="Edju Cat">
+  <!-- =========================
+       LOGO + TAGLINE
+  ========================== -->
+
+  <div class="hero-logo">
+
+    <img
+      src="edju-cat-type-logo-svg.svg"
+      class="logo-mark"
+      alt="Edju Cat"
+    >
+
+    <div class="tag-pill">
+      WHAT WILL YOU LEARN TODAY?
+    </div>
+
+  </div>
+
+  <!-- =========================
+       CONTACT SECTION
+  ========================== -->
 
   <section class="contact-wrap">
+
     <div class="contact-card">
 
       <h2>Help Shape Edju Cat</h2>
@@ -211,6 +333,7 @@
       </form>
 
     </div>
+
   </section>
 
 </main>
