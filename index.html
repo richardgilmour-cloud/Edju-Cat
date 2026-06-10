@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
+
   * {
     margin: 0;
     padding: 0;
@@ -23,71 +24,99 @@
 
   .page {
     min-height: 150vh;
-    background: url("background.jpg") top center / cover no-repeat;
+    background: url("background.jpg") center top / cover no-repeat;
     position: relative;
   }
 
-  /* =========================
-     HERO LOGO AREA
-  ========================== */
+  /* ====================================
+     HERO AREA
+  ==================================== */
 
   .hero-logo {
     position: absolute;
-    top: 5vh;
+
+    top: 3vh;
     left: 50%;
+
     transform: translateX(-50%);
-    width: min(90%, 760px);
+
+    width: 100%;
+
     text-align: center;
+
+    z-index: 5;
   }
 
   .logo-mark {
     display: block;
-    width: clamp(320px, 52vw, 720px);
-    margin: 0 auto 24px;
+
+    width: min(88vw, 820px);
+
+    height: auto;
+
+    max-height: 42vh;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
   }
 
   .tag-pill {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
-    width: min(92vw, 700px);
+    margin-top: 12px;
 
-    padding: 20px 38px;
+    width: min(90vw, 680px);
 
-    background: #40efe6;
+    padding: 18px 34px;
+
+    background: #45E7E3;
 
     border-radius: 999px;
 
-    color: #03195f;
+    color: #001E70;
 
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: clamp(18px, 2.2vw, 32px);
+
+    font-size: clamp(16px, 2vw, 30px);
+
     letter-spacing: 0.06em;
+
     line-height: 1;
+
     text-align: center;
 
     box-shadow:
-      0 12px 30px rgba(0,0,0,0.18),
+      0 12px 30px rgba(0,0,0,0.22),
       inset 0 1px 0 rgba(255,255,255,0.25);
   }
 
-  /* =========================
+  /* ====================================
      CONTACT CARD
-  ========================== */
+  ==================================== */
 
   .contact-wrap {
     position: absolute;
+
     left: 50%;
     bottom: 5vh;
+
     transform: translateX(-50%);
+
     width: min(92%, 700px);
   }
 
   .contact-card {
     background: rgba(2, 18, 32, 0.42);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255,255,255,0.16);
+
     backdrop-filter: blur(10px);
 
     border-radius: 24px;
@@ -97,7 +126,7 @@
     color: white;
 
     box-shadow:
-      0 18px 50px rgba(0, 0, 0, 0.35);
+      0 18px 50px rgba(0,0,0,0.35);
   }
 
   .contact-card h2 {
@@ -119,18 +148,21 @@
     text-align: center;
 
     font-size: 14px;
+
     line-height: 1.45;
 
     opacity: 0.92;
   }
 
-  /* =========================
+  /* ====================================
      FORM
-  ========================== */
+  ==================================== */
 
   form {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 10px;
   }
 
@@ -173,9 +205,9 @@
 
     padding: 12px 28px;
 
-    background: #40efe6;
+    background: #45E7E3;
 
-    color: #04165b;
+    color: #001E70;
 
     border: none;
 
@@ -184,7 +216,9 @@
     cursor: pointer;
 
     font-family: 'Poppins', sans-serif;
+
     font-weight: 700;
+
     font-size: 14px;
 
     transition:
@@ -197,9 +231,9 @@
     opacity: 0.95;
   }
 
-  /* =========================
+  /* ====================================
      MOBILE
-  ========================== */
+  ==================================== */
 
   @media (max-width: 700px) {
 
@@ -208,18 +242,21 @@
     }
 
     .hero-logo {
-      top: 4vh;
-      width: 94%;
+      top: 2vh;
     }
 
     .logo-mark {
-      width: min(92vw, 560px);
-      margin-bottom: 18px;
+      width: 92vw;
+      max-height: 34vh;
     }
 
     .tag-pill {
-      padding: 16px 22px;
-      font-size: clamp(15px, 4vw, 22px);
+      width: 92vw;
+
+      padding: 16px 18px;
+
+      font-size: clamp(14px, 4vw, 22px);
+
       letter-spacing: 0.04em;
     }
 
@@ -245,9 +282,9 @@
 
 <main class="page">
 
-  <!-- =========================
-       LOGO + TAGLINE
-  ========================== -->
+  <!-- ====================================
+       HERO LOGO
+  ==================================== -->
 
   <div class="hero-logo">
 
@@ -263,9 +300,9 @@
 
   </div>
 
-  <!-- =========================
-       CONTACT SECTION
-  ========================== -->
+  <!-- ====================================
+       CONTACT FORM
+  ==================================== -->
 
   <section class="contact-wrap">
 
@@ -287,11 +324,6 @@
 
         <!-- Email subject -->
         <input type="hidden" name="_subject" value="New Edju Cat Enquiry">
-
-        <!-- Optional redirect after submit -->
-        <!--
-        <input type="hidden" name="_next" value="https://edjucat.com/thanks.html">
-        -->
 
         <input
           type="text"
