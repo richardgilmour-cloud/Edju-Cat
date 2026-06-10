@@ -5,275 +5,278 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edju Cat</title>
 
-<!-- Poppins -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    background: #001827;
-    font-family: system-ui, -apple-system, Arial, sans-serif;
-    overflow-x: hidden;
-  }
+body {
+  background: #001827;
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.page {
+  min-height: 150vh;
+  background: url("background.jpg") center top / cover no-repeat;
+  position: relative;
+}
+
+/* ====================================
+   HERO AREA
+==================================== */
+
+.hero-logo {
+  position: absolute;
+
+  top: 3vh;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  text-align: center;
+
+  z-index: 5;
+}
+
+.logo-mark {
+  display: block;
+
+  width: min(44vw, 390px);
+
+  height: auto;
+
+  max-height: 22vh;
+
+  margin: 0 auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
+}
+
+.tag-pill {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 4px;
+
+  width: auto;
+
+  min-width: 420px;
+
+  padding: 12px 24px;
+
+  background: #45E7E3;
+
+  border-radius: 999px;
+
+  color: #001E70;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+
+  font-size: clamp(13px, 1.25vw, 18px);
+
+  letter-spacing: 0.05em;
+
+  line-height: 1;
+
+  text-align: center;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* ====================================
+   CONTACT CARD
+==================================== */
+
+.contact-wrap {
+  position: absolute;
+
+  left: 50%;
+  bottom: 5vh;
+
+  transform: translateX(-50%);
+
+  width: min(92%, 700px);
+}
+
+.contact-card {
+  background: rgba(2, 18, 32, 0.42);
+
+  border: 1px solid rgba(255,255,255,0.16);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 24px;
+
+  padding: 22px 22px 20px;
+
+  color: white;
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.35);
+}
+
+.contact-card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+
+  font-size: clamp(24px, 3.5vw, 34px);
+
+  margin-bottom: 8px;
+
+  text-align: center;
+}
+
+.contact-card p {
+  max-width: 580px;
+
+  margin: 0 auto 18px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  line-height: 1.45;
+
+  opacity: 0.92;
+}
+
+/* ====================================
+   FORM
+==================================== */
+
+form {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+input,
+select,
+textarea {
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 12px 14px;
+
+  font-size: 14px;
+
+  background: rgba(255,255,255,0.92);
+
+  color: #07121f;
+
+  width: 100%;
+}
+
+textarea {
+  grid-column: 1 / -1;
+
+  min-height: 70px;
+
+  resize: vertical;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+button {
+  grid-column: 1 / -1;
+
+  justify-self: center;
+
+  margin-top: 4px;
+
+  padding: 12px 28px;
+
+  background: #45E7E3;
+
+  color: #001E70;
+
+  border: none;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 700;
+
+  font-size: 14px;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media (max-width: 700px) {
 
   .page {
-    min-height: 150vh;
-    background: url("background.jpg") center top / cover no-repeat;
-    position: relative;
+    min-height: 160vh;
   }
 
-  /* ====================================
-     HERO AREA
-  ==================================== */
-
   .hero-logo {
-    position: absolute;
-
-    top: 3vh;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 100%;
-
-    text-align: center;
-
-    z-index: 5;
+    top: 2vh;
   }
 
   .logo-mark {
-    display: block;
-
-    width: min(58vw, 520px);
-
-    height: auto;
-
-    max-height: 28vh;
-
-    margin: 0 auto;
-
-    object-fit: contain;
-
-    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
+    width: 64vw;
+    max-height: 18vh;
   }
 
   .tag-pill {
-    display: inline-flex;
+    min-width: unset;
 
-    align-items: center;
-    justify-content: center;
+    width: auto;
 
-    margin-top: 6px;
+    padding: 10px 16px;
 
-    width: min(62vw, 560px);
+    font-size: clamp(12px, 3.8vw, 16px);
 
-    padding: 14px 28px;
-
-    background: #45E7E3;
-
-    border-radius: 999px;
-
-    color: #001E70;
-
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-
-    font-size: clamp(14px, 1.55vw, 22px);
-
-    letter-spacing: 0.06em;
-
-    line-height: 1;
-
-    text-align: center;
-
-    box-shadow:
-      0 12px 30px rgba(0,0,0,0.22),
-      inset 0 1px 0 rgba(255,255,255,0.25);
+    letter-spacing: 0.03em;
   }
-
-  /* ====================================
-     CONTACT CARD
-  ==================================== */
 
   .contact-wrap {
-    position: absolute;
-
-    left: 50%;
-    bottom: 5vh;
-
-    transform: translateX(-50%);
-
-    width: min(92%, 700px);
+    bottom: 4vh;
   }
-
-  .contact-card {
-    background: rgba(2, 18, 32, 0.42);
-
-    border: 1px solid rgba(255,255,255,0.16);
-
-    backdrop-filter: blur(10px);
-
-    border-radius: 24px;
-
-    padding: 22px 22px 20px;
-
-    color: white;
-
-    box-shadow:
-      0 18px 50px rgba(0,0,0,0.35);
-  }
-
-  .contact-card h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-
-    font-size: clamp(24px, 3.5vw, 34px);
-
-    margin-bottom: 8px;
-
-    text-align: center;
-  }
-
-  .contact-card p {
-    max-width: 580px;
-
-    margin: 0 auto 18px;
-
-    text-align: center;
-
-    font-size: 14px;
-
-    line-height: 1.45;
-
-    opacity: 0.92;
-  }
-
-  /* ====================================
-     FORM
-  ==================================== */
 
   form {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
+    grid-template-columns: 1fr;
   }
 
-  input,
-  select,
-  textarea {
-    border: none;
-
-    border-radius: 12px;
-
-    padding: 12px 14px;
-
-    font-size: 14px;
-
-    background: rgba(255,255,255,0.92);
-
-    color: #07121f;
-
-    width: 100%;
-  }
-
-  textarea {
-    grid-column: 1 / -1;
-
-    min-height: 70px;
-
-    resize: vertical;
-  }
-
-  .full {
-    grid-column: 1 / -1;
-  }
-
+  textarea,
+  .full,
   button {
-    grid-column: 1 / -1;
-
-    justify-self: center;
-
-    margin-top: 4px;
-
-    padding: 12px 28px;
-
-    background: #45E7E3;
-
-    color: #001E70;
-
-    border: none;
-
-    border-radius: 999px;
-
-    cursor: pointer;
-
-    font-family: 'Poppins', sans-serif;
-
-    font-weight: 700;
-
-    font-size: 14px;
-
-    transition:
-      transform 0.2s ease,
-      opacity 0.2s ease;
+    grid-column: auto;
   }
-
-  button:hover {
-    transform: translateY(-1px);
-    opacity: 0.95;
-  }
-
-  /* ====================================
-     MOBILE
-  ==================================== */
-
-  @media (max-width: 700px) {
-
-    .page {
-      min-height: 160vh;
-    }
-
-    .hero-logo {
-      top: 2vh;
-    }
-
-    .logo-mark {
-      width: 82vw;
-      max-height: 22vh;
-    }
-
-    .tag-pill {
-      width: 88vw;
-
-      padding: 14px 16px;
-
-      font-size: clamp(13px, 4vw, 18px);
-
-      letter-spacing: 0.04em;
-    }
-
-    .contact-wrap {
-      bottom: 4vh;
-    }
-
-    form {
-      grid-template-columns: 1fr;
-    }
-
-    textarea,
-    .full,
-    button {
-      grid-column: auto;
-    }
-  }
+}
 
 </style>
 </head>
@@ -316,13 +319,8 @@
 
       <form action="https://formsubmit.co/richard@edjucat.com" method="POST">
 
-        <!-- Send copy to Steven -->
         <input type="hidden" name="_cc" value="steven@edjucat.com">
-
-        <!-- Disable captcha -->
         <input type="hidden" name="_captcha" value="false">
-
-        <!-- Email subject -->
         <input type="hidden" name="_subject" value="New Edju Cat Enquiry">
 
         <input
