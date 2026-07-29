@@ -171,6 +171,102 @@
     }
 
     /* ====================================
+       SUCCESS POP-UP
+    ==================================== */
+
+    .success-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0, 10, 22, 0.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .success-overlay.is-visible {
+      display: flex;
+    }
+
+    .success-dialog {
+      position: relative;
+      width: min(92vw, 480px);
+      padding: 34px 30px 30px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 26px;
+      background: rgba(2, 24, 42, 0.96);
+      color: white;
+      text-align: center;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      animation: successAppear 0.3s ease-out;
+    }
+
+    .success-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: #45e7e3;
+      color: #001e70;
+      font-family: "Poppins", sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+    }
+
+    .success-dialog h2 {
+      margin-bottom: 10px;
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(25px, 5vw, 34px);
+      font-weight: 700;
+    }
+
+    .success-dialog p {
+      max-width: 380px;
+      margin: 0 auto 22px;
+      font-size: 15px;
+      line-height: 1.55;
+      opacity: 0.9;
+    }
+
+    .success-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 999px;
+      background: #45e7e3;
+      color: #001e70;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .success-close:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    @keyframes successAppear {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ====================================
        MOBILE
     ==================================== */
 
@@ -318,6 +414,78 @@
     </section>
 
   </main>
+
+  <div
+    id="success-overlay"
+    class="success-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="success-title"
+    aria-describedby="success-message"
+  >
+    <div class="success-dialog">
+
+      <div class="success-icon" aria-hidden="true">
+        ✓
+      </div>
+
+      <h2 id="success-title">
+        Message Sent
+      </h2>
+
+      <p id="success-message">
+        Thank you for getting in touch. We’ve received your message and someone
+        from the Edju Cat team will get back to you soon.
+      </p>
+
+      <button
+        id="success-close"
+        class="success-close"
+        type="button"
+      >
+        Continue Exploring
+      </button>
+
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const successOverlay = document.getElementById("success-overlay");
+    const successClose = document.getElementById("success-close");
+
+    function closeSuccessMessage() {
+      successOverlay.classList.remove("is-visible");
+
+      const cleanUrl =
+        window.location.pathname +
+        window.location.hash;
+
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+
+    if (params.get("sent") === "true") {
+      successOverlay.classList.add("is-visible");
+      successClose.focus();
+    }
+
+    successClose.addEventListener("click", closeSuccessMessage);
+
+    successOverlay.addEventListener("click", function (event) {
+      if (event.target === successOverlay) {
+        closeSuccessMessage();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (
+        event.key === "Escape" &&
+        successOverlay.classList.contains("is-visible")
+      ) {
+        closeSuccessMessage();
+      }
+    });
+  </script>
 
 </body>
 </html>
