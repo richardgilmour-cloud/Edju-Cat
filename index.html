@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
   <title>Edju Cat</title>
 
@@ -12,106 +16,335 @@
   >
 
   <style>
+    /* ====================================
+       BASE
+    ==================================== */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      min-height: 100%;
+    }
+
     body {
+      min-height: 100%;
       background: #001827;
+      color: white;
       font-family: system-ui, -apple-system, Arial, sans-serif;
       overflow-x: hidden;
     }
 
-    .page {
-      min-height: 150vh;
-      background: url("background.jpg") center top / cover no-repeat;
-      position: relative;
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: none;
     }
 
     /* ====================================
-       HERO AREA
+       HERO
     ==================================== */
+
+    .page {
+      position: relative;
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 10, 30, 0.02) 55%,
+          rgba(0, 15, 29, 0.5) 100%
+        ),
+        url("background.jpg") center top / cover no-repeat;
+
+      overflow: hidden;
+    }
 
     .hero-logo {
       position: absolute;
-      top: 3vh;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      text-align: center;
       z-index: 5;
+
+      top: clamp(18px, 3vh, 34px);
+      left: 50%;
+
+      width: 100%;
+
+      text-align: center;
+
+      transform: translateX(-50%);
+      pointer-events: none;
     }
 
     .logo-mark {
       display: block;
+
       width: min(44vw, 390px);
       height: auto;
       max-height: 22vh;
+
       margin: 0 auto;
+
       object-fit: contain;
-      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+
+      filter:
+        drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
     }
 
     .tag-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 4px;
+
       min-width: 420px;
+
+      margin-top: 4px;
       padding: 12px 24px;
-      background: #45e7e3;
+
       border-radius: 999px;
+
+      background: #45e7e3;
       color: #001e70;
+
       font-family: "Poppins", sans-serif;
-      font-weight: 700;
       font-size: clamp(13px, 1.25vw, 18px);
-      letter-spacing: 0.05em;
+      font-weight: 700;
+
       line-height: 1;
+      letter-spacing: 0.05em;
       text-align: center;
+
       box-shadow:
         0 12px 30px rgba(0, 0, 0, 0.22),
         inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
 
     /* ====================================
-       CONTACT CARD
+       COMPACT CONTACT CTA
     ==================================== */
 
-    .contact-wrap {
+    .contact-cta-wrap {
       position: absolute;
+      z-index: 10;
+
       left: 50%;
-      bottom: 5vh;
+      bottom: clamp(18px, 3.5vh, 40px);
+
+      width: min(92%, 780px);
+
       transform: translateX(-50%);
-      width: min(92%, 700px);
     }
 
-    .contact-card {
-      background: rgba(2, 18, 32, 0.42);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(10px);
+    .contact-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      padding: 18px 20px 18px 26px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 24px;
-      padding: 22px 22px 20px;
-      color: white;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+
+      background: rgba(2, 22, 38, 0.72);
+
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
-    .contact-card h2 {
+    .contact-cta-copy {
+      min-width: 0;
+    }
+
+    .contact-cta h2 {
+      margin-bottom: 3px;
+
       font-family: "Poppins", sans-serif;
+      font-size: clamp(20px, 2.1vw, 28px);
       font-weight: 700;
-      font-size: clamp(24px, 3.5vw, 34px);
-      margin-bottom: 8px;
-      text-align: center;
+
+      line-height: 1.15;
     }
 
-    .contact-card p {
-      max-width: 580px;
-      margin: 0 auto 18px;
-      text-align: center;
+    .contact-cta p {
+      max-width: 520px;
+
       font-size: 14px;
       line-height: 1.45;
-      opacity: 0.92;
+
+      opacity: 0.9;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 150px;
+
+      padding: 13px 24px;
+
+      border-radius: 999px;
+
+      background: #45e7e3;
+      color: #001e70;
+
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+    }
+
+    .primary-button:focus-visible,
+    .modal-close:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid rgba(69, 231, 227, 0.65);
+      outline-offset: 3px;
+    }
+
+    /* ====================================
+       CONTACT MODAL
+    ==================================== */
+
+    .modal-overlay {
+      position: fixed;
+      z-index: 1000;
+
+      inset: 0;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        max(18px, env(safe-area-inset-top))
+        max(18px, env(safe-area-inset-right))
+        max(18px, env(safe-area-inset-bottom))
+        max(18px, env(safe-area-inset-left));
+
+      background: rgba(0, 10, 22, 0.8);
+
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+
+      overflow-y: auto;
+    }
+
+    .modal-overlay.is-visible {
+      display: flex;
+    }
+
+    .contact-modal {
+      position: relative;
+
+      width: min(94vw, 660px);
+      max-height: calc(100svh - 36px);
+
+      padding: 30px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+
+      background: rgba(2, 24, 42, 0.97);
+      color: white;
+
+      box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.55);
+
+      overflow-y: auto;
+
+      animation: modalAppear 0.28s ease-out;
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+
+      font-size: 25px;
+      line-height: 1;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.17);
+      transform: scale(1.04);
+    }
+
+    .contact-modal-header {
+      padding-right: 42px;
+      margin-bottom: 22px;
+    }
+
+    .contact-modal h2 {
+      margin-bottom: 7px;
+
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+
+      line-height: 1.15;
+    }
+
+    .contact-modal-header p {
+      max-width: 540px;
+
+      font-size: 14px;
+      line-height: 1.55;
+
+      opacity: 0.88;
     }
 
     /* ====================================
@@ -120,26 +353,42 @@
 
     form {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+
+      gap: 12px;
     }
 
     input,
     select,
     textarea {
-      border: none;
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 14px;
-      background: rgba(255, 255, 255, 0.92);
-      color: #07121f;
       width: 100%;
-      font-family: inherit;
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 13px;
+
+      padding: 13px 15px;
+
+      background: rgba(255, 255, 255, 0.95);
+      color: #07121f;
+
+      font-size: 14px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #47515d;
+    }
+
+    select {
+      cursor: pointer;
     }
 
     textarea {
       grid-column: 1 / -1;
-      min-height: 80px;
+
+      min-height: 110px;
+
       resize: vertical;
     }
 
@@ -147,27 +396,13 @@
       grid-column: 1 / -1;
     }
 
-    button {
+    .submit-button {
       grid-column: 1 / -1;
       justify-self: center;
-      margin-top: 4px;
-      padding: 12px 28px;
-      background: #45e7e3;
-      color: #001e70;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-    }
 
-    button:hover {
-      transform: translateY(-1px);
-      opacity: 0.95;
+      min-width: 170px;
+
+      margin-top: 4px;
     }
 
     /* ====================================
@@ -176,14 +411,20 @@
 
     .success-overlay {
       position: fixed;
+      z-index: 1100;
+
       inset: 0;
-      z-index: 1000;
+
       display: none;
       align-items: center;
       justify-content: center;
+
       padding: 24px;
-      background: rgba(0, 10, 22, 0.78);
-      backdrop-filter: blur(10px);
+
+      background: rgba(0, 10, 22, 0.82);
+
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
     }
 
     .success-overlay.is-visible {
@@ -191,28 +432,39 @@
     }
 
     .success-dialog {
-      position: relative;
       width: min(92vw, 480px);
-      padding: 34px 30px 30px;
+
+      padding: 36px 30px 30px;
+
       border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 26px;
-      background: rgba(2, 24, 42, 0.96);
+      border-radius: 28px;
+
+      background: rgba(2, 24, 42, 0.98);
       color: white;
+
       text-align: center;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
-      animation: successAppear 0.3s ease-out;
+
+      box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.55);
+
+      animation: modalAppear 0.28s ease-out;
     }
 
     .success-icon {
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 72px;
       height: 72px;
+
       margin: 0 auto 18px;
+
       border-radius: 50%;
+
       background: #45e7e3;
       color: #001e70;
+
       font-family: "Poppins", sans-serif;
       font-size: 38px;
       font-weight: 700;
@@ -220,41 +472,24 @@
 
     .success-dialog h2 {
       margin-bottom: 10px;
+
       font-family: "Poppins", sans-serif;
-      font-size: clamp(25px, 5vw, 34px);
+      font-size: clamp(26px, 5vw, 34px);
       font-weight: 700;
     }
 
     .success-dialog p {
-      max-width: 380px;
-      margin: 0 auto 22px;
+      max-width: 390px;
+
+      margin: 0 auto 24px;
+
       font-size: 15px;
       line-height: 1.55;
+
       opacity: 0.9;
     }
 
-    .success-close {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 12px 28px;
-      border: none;
-      border-radius: 999px;
-      background: #45e7e3;
-      color: #001e70;
-      font-family: "Poppins", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .success-close:hover {
-      transform: translateY(-1px);
-      opacity: 0.95;
-    }
-
-    @keyframes successAppear {
+    @keyframes modalAppear {
       from {
         opacity: 0;
         transform: translateY(16px) scale(0.97);
@@ -267,33 +502,109 @@
     }
 
     /* ====================================
+       TABLET / SHORT SCREENS
+    ==================================== */
+
+    @media (max-height: 760px) and (min-width: 701px) {
+      .hero-logo {
+        top: 14px;
+      }
+
+      .logo-mark {
+        width: min(34vw, 310px);
+        max-height: 18vh;
+      }
+
+      .tag-pill {
+        padding: 10px 22px;
+      }
+
+      .contact-cta-wrap {
+        bottom: 16px;
+      }
+
+      .contact-cta {
+        padding: 14px 18px 14px 22px;
+      }
+    }
+
+    /* ====================================
        MOBILE
     ==================================== */
 
     @media (max-width: 700px) {
       .page {
-        min-height: 160vh;
+        min-height: 100vh;
+        min-height: 100svh;
+
+        background-position: center top;
       }
 
       .hero-logo {
-        top: 2vh;
+        top: 16px;
       }
 
       .logo-mark {
-        width: 64vw;
+        width: min(64vw, 300px);
         max-height: 18vh;
       }
 
       .tag-pill {
         min-width: unset;
-        width: auto;
-        padding: 10px 16px;
-        font-size: clamp(12px, 3.8vw, 16px);
+        max-width: 88vw;
+
+        padding: 10px 17px;
+
+        font-size: clamp(12px, 3.8vw, 15px);
         letter-spacing: 0.03em;
       }
 
-      .contact-wrap {
-        bottom: 4vh;
+      .contact-cta-wrap {
+        bottom:
+          max(
+            14px,
+            calc(env(safe-area-inset-bottom) + 10px)
+          );
+
+        width: min(94%, 520px);
+      }
+
+      .contact-cta {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 12px;
+
+        padding: 16px;
+
+        text-align: center;
+      }
+
+      .contact-cta h2 {
+        font-size: 20px;
+      }
+
+      .contact-cta p {
+        font-size: 13px;
+      }
+
+      .contact-cta .primary-button {
+        align-self: center;
+
+        width: min(100%, 260px);
+      }
+
+      .contact-modal {
+        width: 100%;
+        max-height: calc(100svh - 24px);
+
+        padding: 27px 18px 22px;
+
+        border-radius: 24px;
+      }
+
+      .contact-modal-header {
+        padding-right: 38px;
       }
 
       form {
@@ -302,14 +613,66 @@
 
       textarea,
       .full,
-      button {
+      .submit-button {
         grid-column: auto;
+      }
+
+      .submit-button {
+        width: 100%;
+      }
+    }
+
+    /* ====================================
+       VERY SMALL MOBILE HEIGHT
+    ==================================== */
+
+    @media (max-width: 700px) and (max-height: 690px) {
+      .hero-logo {
+        top: 10px;
+      }
+
+      .logo-mark {
+        width: min(48vw, 220px);
+        max-height: 15vh;
+      }
+
+      .tag-pill {
+        margin-top: 1px;
+        padding: 8px 14px;
+      }
+
+      .contact-cta {
+        gap: 8px;
+        padding: 13px;
+      }
+
+      .contact-cta p {
+        display: none;
+      }
+    }
+
+    /* ====================================
+       REDUCED MOTION
+    ==================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- ====================================
+       FULL-SCREEN HERO
+  ==================================== -->
 
   <main class="page">
 
@@ -327,93 +690,185 @@
 
     </div>
 
-    <section class="contact-wrap">
+    <!-- Compact contact panel -->
 
-      <div class="contact-card">
+    <section
+      class="contact-cta-wrap"
+      aria-labelledby="contact-cta-title"
+    >
 
-        <h2>Help Shape Edju Cat</h2>
+      <div class="contact-cta">
 
-        <p>
-          We’re building a new kind of learning platform powered by a library
-          of immersive, story-driven adventures.
-        </p>
+        <div class="contact-cta-copy">
 
-        <form
-          action="https://formsubmit.co/steven@edjucat.com"
-          method="POST"
+          <h2 id="contact-cta-title">
+            Help Shape Edju Cat
+          </h2>
+
+          <p>
+            Join us as an investor, educator, parent or creative partner.
+          </p>
+
+        </div>
+
+        <button
+          id="open-contact"
+          class="primary-button"
+          type="button"
         >
-
-          <input
-            type="hidden"
-            name="_captcha"
-            value="false"
-          >
-
-          <input
-            type="hidden"
-            name="_subject"
-            value="New Edju Cat Enquiry"
-          >
-
-          <input
-            type="hidden"
-            name="_next"
-            value="https://www.edjucat.com/?sent=true"
-          >
-
-          <input
-            type="hidden"
-            name="_template"
-            value="table"
-          >
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            required
-          >
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-          >
-
-          <select
-            class="full"
-            name="interest"
-            required
-          >
-            <option value="">I’m interested as...</option>
-            <option value="Investor">Investor</option>
-            <option value="Parent">Parent</option>
-            <option value="Teacher / School">Teacher / School</option>
-            <option value="Developer / Content Creator">
-              Developer / Content Creator
-            </option>
-            <option value="Partnership">Partnership</option>
-            <option value="Other">Other</option>
-          </select>
-
-          <textarea
-            name="message"
-            placeholder="Short message"
-            required
-          ></textarea>
-
-          <button type="submit">
-            Send Message
-          </button>
-
-        </form>
+          Get in touch
+        </button>
 
       </div>
 
     </section>
 
   </main>
+
+  <!-- ====================================
+       CONTACT FORM MODAL
+  ==================================== -->
+
+  <div
+    id="contact-overlay"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contact-title"
+    aria-describedby="contact-description"
+    aria-hidden="true"
+  >
+
+    <div class="contact-modal">
+
+      <button
+        id="close-contact"
+        class="modal-close"
+        type="button"
+        aria-label="Close contact form"
+      >
+        ×
+      </button>
+
+      <div class="contact-modal-header">
+
+        <h2 id="contact-title">
+          Help Shape Edju Cat
+        </h2>
+
+        <p id="contact-description">
+          We’re building a new kind of learning platform powered by a library
+          of immersive, story-driven adventures. Tell us how you would like
+          to get involved.
+        </p>
+
+      </div>
+
+      <form
+        action="https://formsubmit.co/steven@edjucat.com"
+        method="POST"
+      >
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="false"
+        >
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Edju Cat Enquiry"
+        >
+
+        <input
+          type="hidden"
+          name="_next"
+          value="https://www.edjucat.com/?sent=true"
+        >
+
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        >
+
+        <input
+          id="contact-name"
+          type="text"
+          name="name"
+          placeholder="Name"
+          autocomplete="name"
+          maxlength="100"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          autocomplete="email"
+          maxlength="200"
+          required
+        >
+
+        <select
+          class="full"
+          name="interest"
+          required
+        >
+          <option value="">
+            I’m interested as...
+          </option>
+
+          <option value="Investor">
+            Investor
+          </option>
+
+          <option value="Parent">
+            Parent
+          </option>
+
+          <option value="Teacher / School">
+            Teacher / School
+          </option>
+
+          <option value="Developer / Content Creator">
+            Developer / Content Creator
+          </option>
+
+          <option value="Partnership">
+            Partnership
+          </option>
+
+          <option value="Other">
+            Other
+          </option>
+        </select>
+
+        <textarea
+          name="message"
+          placeholder="Short message"
+          maxlength="3000"
+          required
+        ></textarea>
+
+        <button
+          class="primary-button submit-button"
+          type="submit"
+        >
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- ====================================
+       SUCCESS MESSAGE
+  ==================================== -->
 
   <div
     id="success-overlay"
@@ -422,10 +877,15 @@
     aria-modal="true"
     aria-labelledby="success-title"
     aria-describedby="success-message"
+    aria-hidden="true"
   >
+
     <div class="success-dialog">
 
-      <div class="success-icon" aria-hidden="true">
+      <div
+        class="success-icon"
+        aria-hidden="true"
+      >
         ✓
       </div>
 
@@ -434,57 +894,166 @@
       </h2>
 
       <p id="success-message">
-        Thank you for getting in touch. We’ve received your message and someone
-        from the Edju Cat team will get back to you soon.
+        Thank you for getting in touch. We’ve received your message and
+        someone from the Edju Cat team will get back to you soon.
       </p>
 
       <button
         id="success-close"
-        class="success-close"
+        class="primary-button"
         type="button"
       >
         Continue Exploring
       </button>
 
     </div>
+
   </div>
 
+  <!-- ====================================
+       INTERACTIONS
+  ==================================== -->
+
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const successOverlay = document.getElementById("success-overlay");
-    const successClose = document.getElementById("success-close");
+    const openContactButton =
+      document.getElementById("open-contact");
+
+    const closeContactButton =
+      document.getElementById("close-contact");
+
+    const contactOverlay =
+      document.getElementById("contact-overlay");
+
+    const contactName =
+      document.getElementById("contact-name");
+
+    const successOverlay =
+      document.getElementById("success-overlay");
+
+    const successClose =
+      document.getElementById("success-close");
+
+    const urlParams =
+      new URLSearchParams(window.location.search);
+
+    let lastFocusedElement = null;
+
+    function lockPage() {
+      document.body.classList.add("modal-open");
+    }
+
+    function unlockPage() {
+      document.body.classList.remove("modal-open");
+    }
+
+    function openContactModal() {
+      lastFocusedElement = document.activeElement;
+
+      contactOverlay.classList.add("is-visible");
+      contactOverlay.setAttribute("aria-hidden", "false");
+
+      lockPage();
+
+      window.setTimeout(function () {
+        contactName.focus();
+      }, 50);
+    }
+
+    function closeContactModal() {
+      contactOverlay.classList.remove("is-visible");
+      contactOverlay.setAttribute("aria-hidden", "true");
+
+      unlockPage();
+
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    function showSuccessMessage() {
+      successOverlay.classList.add("is-visible");
+      successOverlay.setAttribute("aria-hidden", "false");
+
+      lockPage();
+
+      window.setTimeout(function () {
+        successClose.focus();
+      }, 50);
+    }
 
     function closeSuccessMessage() {
       successOverlay.classList.remove("is-visible");
+      successOverlay.setAttribute("aria-hidden", "true");
+
+      unlockPage();
 
       const cleanUrl =
         window.location.pathname +
         window.location.hash;
 
-      window.history.replaceState({}, document.title, cleanUrl);
+      window.history.replaceState(
+        {},
+        document.title,
+        cleanUrl
+      );
     }
 
-    if (params.get("sent") === "true") {
-      successOverlay.classList.add("is-visible");
-      successClose.focus();
+    openContactButton.addEventListener(
+      "click",
+      openContactModal
+    );
+
+    closeContactButton.addEventListener(
+      "click",
+      closeContactModal
+    );
+
+    contactOverlay.addEventListener(
+      "click",
+      function (event) {
+        if (event.target === contactOverlay) {
+          closeContactModal();
+        }
+      }
+    );
+
+    successClose.addEventListener(
+      "click",
+      closeSuccessMessage
+    );
+
+    successOverlay.addEventListener(
+      "click",
+      function (event) {
+        if (event.target === successOverlay) {
+          closeSuccessMessage();
+        }
+      }
+    );
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+        if (
+          event.key === "Escape" &&
+          successOverlay.classList.contains("is-visible")
+        ) {
+          closeSuccessMessage();
+          return;
+        }
+
+        if (
+          event.key === "Escape" &&
+          contactOverlay.classList.contains("is-visible")
+        ) {
+          closeContactModal();
+        }
+      }
+    );
+
+    if (urlParams.get("sent") === "true") {
+      showSuccessMessage();
     }
-
-    successClose.addEventListener("click", closeSuccessMessage);
-
-    successOverlay.addEventListener("click", function (event) {
-      if (event.target === successOverlay) {
-        closeSuccessMessage();
-      }
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (
-        event.key === "Escape" &&
-        successOverlay.classList.contains("is-visible")
-      ) {
-        closeSuccessMessage();
-      }
-    });
   </script>
 
 </body>
