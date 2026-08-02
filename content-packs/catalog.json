@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T18:02:40.152Z",
+  "packs": {
+    "ocean-compass-en": {
+      "archiveBytes": 720877943,
+      "downloadUrl": "https://github.com/richardgilmour-cloud/Edju-Cat/releases/download/ocean-compass-v1.1.0/ocean-compass-en-v1.1.2.zip",
+      "fileCount": 515,
+      "language": "en",
+      "md5": "e75af45e3765487a10b752581fad5ebb",
+      "minimumAppVersion": "1.0.1",
+      "moduleId": "ocean-compass",
+      "packId": "ocean-compass-en",
+      "sha256": "7ce9351a4efff339451eac0fa33fbf12af585c369006e9cfb1034b75c9cf26ae",
+      "unpackedBytes": 723285881,
+      "version": "1.1.2"
+    }
+  }
+}
