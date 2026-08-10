@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     permissions:
-      contents: read
+      contents: write
     defaults:
       run:
         working-directory: tools/studios-dlc-packager
@@ -31,6 +31,7 @@ jobs:
       R2_SECRET_ACCESS_KEY: ${{ secrets.R2_PACKAGER_SECRET_ACCESS_KEY }}
       STUDIOS_BUCKET: edju-cat-studios-assets
       DLC_BUCKET: edjucat-modules
+      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - name: Check out packager
         uses: actions/checkout@v4
