@@ -10,7 +10,8 @@ import { GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3
 
 const requiredEnvironment = [
   'RELEASE_ID', 'CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_API_TOKEN',
-  'CLOUDFLARE_D1_DATABASE_ID', 'R2_ACCESS_KEY_ID', 'R2_SECRET_ACCESS_KEY'
+  'CLOUDFLARE_D1_DATABASE_ID', 'R2_ACCESS_KEY_ID', 'R2_SECRET_ACCESS_KEY',
+  'GITHUB_REPOSITORY', 'GITHUB_TOKEN'
 ];
 for (const name of requiredEnvironment) {
   if (!process.env[name]) throw new Error(`Missing required environment variable: ${name}`);
@@ -21,6 +22,9 @@ const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
 const databaseId = process.env.CLOUDFLARE_D1_DATABASE_ID;
 const studiosBucket = process.env.STUDIOS_BUCKET || 'edju-cat-studios-assets';
 const dlcBucket = process.env.DLC_BUCKET || 'edjucat-modules';
+const githubRepository = process.env.GITHUB_REPOSITORY;
+const githubToken = process.env.GITHUB_TOKEN;
+const githubBranch = process.env.GITHUB_REF_NAME || 'main';
 const endpoint = `https://${accountId}.r2.cloudflarestorage.com`;
 const s3 = new S3Client({
   region: 'auto', endpoint,
@@ -121,6 +125,62 @@ async function setFailed(message) {
   ).catch((error) => console.error('Unable to report failed build:', error));
 }
 
+function compareVersions(left, right) {
+  const parse = (value) => value.split('-', 1)[0].split('.').map(Number);
+  const leftParts = parse(left);
+  const rightParts = parse(right);
+  for (let index = 0; index < 3; index += 1) {
+    const difference = (leftParts[index] || 0) - (rightParts[index] || 0);
+    if (difference !== 0) return Math.sign(difference);
+  }
+  return 0;
+}
+
+async function publishCatalogDescriptor(descriptor) {
+  const catalogPath = 'content-packs/catalog.json';
+  const endpoint = `https://api.github.com/repos/${githubRepository}/contents/${catalogPath}`;
+  const headers = {
+    Accept: 'application/vnd.github+json',
+    Authorization: `Bearer ${githubToken}`,
+    'User-Agent': 'edju-cat-studios-packager',
+    'X-GitHub-Api-Version': '2022-11-28'
+  };
+  const currentResponse = await fetch(`${endpoint}?ref=${encodeURIComponent(githubBranch)}`, { headers });
+  if (!currentResponse.ok) {
+    throw new Error(`Unable to read the app content catalogue (${currentResponse.status}).`);
+  }
+  const currentFile = await currentResponse.json();
+  const catalog = JSON.parse(Buffer.from(currentFile.content, 'base64').toString('utf8'));
+  if (catalog.schemaVersion !== 1 || !catalog.packs || typeof catalog.packs !== 'object') {
+    throw new Error('The app content catalogue has an unsupported structure.');
+  }
+  const currentDescriptor = catalog.packs[descriptor.packId];
+  if (currentDescriptor?.version && compareVersions(currentDescriptor.version, descriptor.version) > 0) {
+    console.log(`Catalogue already contains newer ${descriptor.packId} v${currentDescriptor.version}; leaving it unchanged.`);
+    return;
+  }
+  const nextCatalog = {
+    ...catalog,
+    generatedAt: new Date().toISOString(),
+    packs: { ...catalog.packs, [descriptor.packId]: descriptor }
+  };
+  const updateResponse = await fetch(endpoint, {
+    method: 'PUT',
+    headers: { ...headers, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      message: `Publish ${descriptor.packId} v${descriptor.version}`,
+      content: Buffer.from(`${JSON.stringify(nextCatalog, null, 2)}\n`).toString('base64'),
+      sha: currentFile.sha,
+      branch: githubBranch
+    })
+  });
+  if (!updateResponse.ok) {
+    const detail = await updateResponse.text();
+    throw new Error(`Unable to publish the app content catalogue (${updateResponse.status}): ${detail.slice(0, 300)}`);
+  }
+  console.log(`Published ${descriptor.packId} v${descriptor.version} to the app content catalogue.`);
+}
+
 const workRoot = await mkdtemp(path.join(os.tmpdir(), `edju-dlc-${releaseId}-`));
 const packRoot = path.join(workRoot, 'pack');
 try {
@@ -201,6 +261,19 @@ try {
     ContentType: 'application/zip', ContentDisposition: `attachment; filename="${archiveName}"`,
     Metadata: { releaseid: releaseId, moduleid: contract.moduleId, version: contract.version, sha256, md5 }
   }));
+  await publishCatalogDescriptor({
+    archiveBytes: archiveStat.size,
+    downloadUrl: `https://dlc.edjucat.com/${packageKey}`,
+    fileCount: manifest.fileCount,
+    language: contract.language,
+    md5,
+    minimumAppVersion: contract.minimumAppVersion,
+    moduleId: contract.moduleId,
+    packId: contract.packId,
+    sha256,
+    unpackedBytes: manifest.unpackedBytes,
+    version: contract.version
+  });
   const now = new Date().toISOString();
   await d1(
     `UPDATE module_releases SET status='ready', package_object_key=?, package_byte_size=?,
