@@ -1,0 +1,10 @@
+{
+  "name": "edju-cat-studios-dlc-packager",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.864.0",
+    "archiver": "^7.0.1"
+  }
+}
