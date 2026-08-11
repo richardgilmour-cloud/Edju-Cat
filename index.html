@@ -35,14 +35,16 @@
       box-sizing: border-box;
     }
 
+
     html {
       min-height: 100%;
       scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
     }
+
 
     body {
       min-height: 100%;
+
       background: #001827;
       color: white;
 
@@ -58,9 +60,11 @@
       overflow-x: hidden;
     }
 
+
     body.modal-open {
       overflow: hidden;
     }
+
 
     button,
     input,
@@ -69,13 +73,16 @@
       font: inherit;
     }
 
+
     button {
       border: none;
     }
 
+
     img {
       display: block;
     }
+
 
 
     /* =========================================================
@@ -91,10 +98,8 @@
       min-height: 100svh;
 
       overflow: hidden;
-
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
     }
+
 
 
     /* =========================================================
@@ -119,6 +124,7 @@
     }
 
 
+
     /* =========================================================
        HERO LOGO
        ========================================================= */
@@ -139,6 +145,7 @@
       pointer-events: none;
     }
 
+
     .logo-mark {
       display: block;
 
@@ -157,6 +164,7 @@
           rgba(0, 0, 0, 0.25)
         );
     }
+
 
     .tag-pill {
       display: inline-flex;
@@ -199,8 +207,9 @@
     }
 
 
+
     /* =========================================================
-       SCROLL BUTTON
+       FIND OUT MORE BUTTON
        ========================================================= */
 
     .scroll-control {
@@ -208,23 +217,40 @@
       z-index: 10;
 
       left: 50%;
-      bottom: clamp(20px, 4vh, 42px);
+
+      bottom:
+        clamp(
+          20px,
+          4vh,
+          42px
+        );
 
       width: 126px;
       height: 126px;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
       border-radius: 50%;
 
       cursor: pointer;
 
       background:
-        rgba(0, 24, 43, 0.48);
+        rgba(
+          0,
+          24,
+          43,
+          0.48
+        );
 
       border:
         1px solid
-        rgba(69, 231, 227, 0.42);
+        rgba(
+          69,
+          231,
+          227,
+          0.42
+        );
 
       -webkit-backdrop-filter:
         blur(12px);
@@ -245,17 +271,29 @@
         background 0.25s ease;
     }
 
+
     .scroll-control:hover {
       transform:
         translateX(-50%)
         scale(1.05);
 
       border-color:
-        rgba(69, 231, 227, 0.9);
+        rgba(
+          69,
+          231,
+          227,
+          0.9
+        );
 
       background:
-        rgba(0, 31, 57, 0.65);
+        rgba(
+          0,
+          31,
+          57,
+          0.65
+        );
     }
+
 
     .scroll-control-inner {
       position: absolute;
@@ -271,9 +309,9 @@
     }
 
 
+
     /* =========================================================
-       SOFT CENTRE PULSE
-       No stroked ring, so it cannot overlap the text
+       CENTRE GLOW
        ========================================================= */
 
     .scroll-pulse {
@@ -299,10 +337,6 @@
           transparent 72%
         );
 
-      box-shadow:
-        0 0 24px
-        rgba(69, 231, 227, 0.08);
-
       animation:
         softPulse
         3.4s
@@ -314,11 +348,13 @@
       z-index: 1;
     }
 
+
     @keyframes softPulse {
 
       0%,
       100% {
         opacity: 0.55;
+
         transform:
           translate(-50%, -50%)
           scale(0.92);
@@ -326,6 +362,7 @@
 
       50% {
         opacity: 1;
+
         transform:
           translate(-50%, -50%)
           scale(1.18);
@@ -334,8 +371,9 @@
     }
 
 
+
     /* =========================================================
-       FIXED CENTRE ARROW
+       FIXED ARROW
        ========================================================= */
 
     .scroll-arrow {
@@ -361,14 +399,16 @@
         );
     }
 
+
     .scroll-arrow svg {
       width: 100%;
       height: 100%;
     }
 
 
+
     /* =========================================================
-       ROTATING ARC TEXT
+       ROTATING TEXT
        ========================================================= */
 
     .scroll-text {
@@ -394,6 +434,7 @@
       z-index: 4;
     }
 
+
     .scroll-text text {
       fill:
         rgba(
@@ -412,6 +453,7 @@
       text-transform: uppercase;
     }
 
+
     @keyframes rotateScrollText {
 
       from {
@@ -423,6 +465,7 @@
       }
 
     }
+
 
 
     /* =========================================================
@@ -439,9 +482,9 @@
 
         linear-gradient(
           90deg,
-          rgba(0, 11, 29, 0.52) 0%,
-          rgba(0, 13, 31, 0.14) 50%,
-          rgba(0, 10, 27, 0.15) 100%
+          rgba(0, 11, 29, 0.54) 0%,
+          rgba(0, 13, 31, 0.13) 50%,
+          rgba(0, 10, 27, 0.12) 100%
         ),
 
         url("fold2-background.jpg")
@@ -450,9 +493,33 @@
         no-repeat;
     }
 
+
+
+    /* subtle ambient light */
+
+    .platform-fold::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 73% 48%,
+          rgba(40, 120, 255, 0.08),
+          transparent 33%
+        );
+
+      opacity: 0.8;
+    }
+
+
+
     .platform-inner {
       position: relative;
-
       z-index: 2;
 
       display: grid;
@@ -482,13 +549,19 @@
       margin: 0 auto;
 
       padding:
-        clamp(70px, 9vh, 110px)
+        clamp(
+          70px,
+          9vh,
+          110px
+        )
         0;
     }
 
 
+
     /* =========================================================
        FOLD 2 COPY
+       INITIAL ANIMATION STATES
        ========================================================= */
 
     .platform-copy {
@@ -498,6 +571,197 @@
 
       max-width: 650px;
     }
+
+
+    .platform-eyebrow,
+    .platform-title,
+    .platform-description,
+    .platform-point {
+
+      opacity: 0;
+
+      will-change:
+        opacity,
+        transform;
+    }
+
+
+    .platform-eyebrow {
+      transform:
+        translateY(12px);
+    }
+
+
+    .platform-title {
+      transform:
+        translateY(26px);
+    }
+
+
+    .platform-description {
+      transform:
+        translateY(20px);
+    }
+
+
+    .platform-point {
+      transform:
+        translateY(16px);
+    }
+
+
+
+    /* =========================================================
+       ACTIVE COPY ANIMATIONS
+       ========================================================= */
+
+    .platform-fold.is-active
+    .platform-eyebrow {
+
+      animation:
+        copyReveal
+        0.65s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        0.10s
+        forwards;
+    }
+
+
+    .platform-fold.is-active
+    .platform-title {
+
+      animation:
+        copyReveal
+        0.85s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        0.22s
+        forwards;
+    }
+
+
+    .platform-fold.is-active
+    .platform-description {
+
+      animation:
+        copyReveal
+        0.8s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        0.43s
+        forwards;
+    }
+
+
+    .platform-fold.is-active
+    .platform-point:nth-child(1) {
+
+      animation:
+        pointReveal
+        0.65s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        0.68s
+        forwards;
+    }
+
+
+    .platform-fold.is-active
+    .platform-point:nth-child(2) {
+
+      animation:
+        pointReveal
+        0.65s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        0.79s
+        forwards;
+    }
+
+
+    .platform-fold.is-active
+    .platform-point:nth-child(3) {
+
+      animation:
+        pointReveal
+        0.65s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        0.90s
+        forwards;
+    }
+
+
+
+    @keyframes copyReveal {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+
+    }
+
+
+    @keyframes pointReveal {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(16px)
+          scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+    }
+
+
+
+    /* =========================================================
+       FOLD 2 TYPOGRAPHY
+       ========================================================= */
 
     .platform-eyebrow {
       display: inline-flex;
@@ -524,6 +788,7 @@
       text-transform: uppercase;
     }
 
+
     .platform-eyebrow::after {
       content: "";
 
@@ -537,6 +802,7 @@
           transparent
         );
     }
+
 
     .platform-title {
       max-width: 680px;
@@ -561,9 +827,11 @@
       text-wrap: balance;
     }
 
+
     .platform-title span {
       color: #45e7e3;
     }
+
 
     .platform-description {
       max-width: 600px;
@@ -589,8 +857,9 @@
     }
 
 
+
     /* =========================================================
-       FOLD 2 SUPPORT POINTS
+       SUPPORT POINTS
        ========================================================= */
 
     .platform-points {
@@ -608,6 +877,7 @@
           46px
         );
     }
+
 
     .platform-point {
       display: flex;
@@ -645,7 +915,35 @@
 
       backdrop-filter:
         blur(8px);
+
+      transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
     }
+
+
+    .platform-point:hover {
+      border-color:
+        rgba(
+          69,
+          231,
+          227,
+          0.48
+        );
+
+      background:
+        rgba(
+          0,
+          31,
+          58,
+          0.52
+        );
+
+      transform:
+        translateY(-3px);
+    }
+
 
     .platform-point-icon {
       display: flex;
@@ -682,6 +980,7 @@
       font-size: 17px;
     }
 
+
     .platform-point span {
       color:
         rgba(
@@ -699,8 +998,9 @@
     }
 
 
+
     /* =========================================================
-       IPAD MOCKUP
+       IPAD
        ========================================================= */
 
     .platform-device-wrap {
@@ -712,7 +1012,71 @@
       justify-content: center;
 
       width: 100%;
+
+      opacity: 0;
+
+      transform:
+        translateX(
+          min(
+            45vw,
+            700px
+          )
+        );
+
+      will-change:
+        opacity,
+        transform;
     }
+
+
+
+    /* Slide in from off-screen right */
+
+    .platform-fold.is-active
+    .platform-device-wrap {
+
+      animation:
+        ipadEnter
+        1.35s
+        cubic-bezier(
+          0.16,
+          1,
+          0.3,
+          1
+        )
+        0.16s
+        forwards;
+    }
+
+
+    @keyframes ipadEnter {
+
+      0% {
+        opacity: 0;
+
+        transform:
+          translateX(
+            min(
+              45vw,
+              700px
+            )
+          );
+      }
+
+      68% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+
+        transform:
+          translateX(0);
+      }
+
+    }
+
+
 
     .platform-device-glow {
       position: absolute;
@@ -743,10 +1107,75 @@
       pointer-events: none;
     }
 
-    .platform-device {
+
+
+    /*
+      Separate floating wrapper means the entrance animation
+      and zero-gravity animation do not fight over transform.
+    */
+
+    .platform-device-float {
       position: relative;
 
       z-index: 2;
+
+      width: 100%;
+    }
+
+
+    .platform-fold.is-active
+    .platform-device-float {
+
+      animation:
+        zeroGravity
+        8s
+        ease-in-out
+        1.55s
+        infinite;
+    }
+
+
+    @keyframes zeroGravity {
+
+      0%,
+      100% {
+
+        transform:
+          translateY(0)
+          rotate(0deg);
+
+      }
+
+      25% {
+
+        transform:
+          translateY(-5px)
+          rotate(-0.18deg);
+
+      }
+
+      50% {
+
+        transform:
+          translateY(-9px)
+          rotate(0deg);
+
+      }
+
+      75% {
+
+        transform:
+          translateY(-4px)
+          rotate(0.18deg);
+
+      }
+
+    }
+
+
+
+    .platform-device {
+      position: relative;
 
       width:
         min(
@@ -755,6 +1184,8 @@
         );
 
       height: auto;
+
+      margin: 0 auto;
 
       object-fit: contain;
 
@@ -769,6 +1200,7 @@
           rgba(0, 104, 255, 0.08)
         );
     }
+
 
 
     /* =========================================================
@@ -797,6 +1229,7 @@
         );
     }
 
+
     .contact-fold::before {
       content: "";
 
@@ -813,7 +1246,6 @@
             0.4
           )
           0.7px,
-
           transparent 0.8px
         );
 
@@ -825,9 +1257,9 @@
       pointer-events: none;
     }
 
+
     .contact-section-inner {
       position: relative;
-
       z-index: 2;
 
       width:
@@ -842,6 +1274,7 @@
       text-align: center;
     }
 
+
     .contact-section-eyebrow {
       margin-bottom: 15px;
 
@@ -855,6 +1288,7 @@
 
       text-transform: uppercase;
     }
+
 
     .contact-section-title {
       max-width: 800px;
@@ -875,6 +1309,7 @@
 
       letter-spacing: -0.035em;
     }
+
 
     .contact-section-copy {
       max-width: 690px;
@@ -899,6 +1334,7 @@
 
       line-height: 1.6;
     }
+
 
 
     /* =========================================================
@@ -945,6 +1381,7 @@
         box-shadow 0.2s ease;
     }
 
+
     .primary-button:hover {
       transform:
         translateY(-2px);
@@ -958,6 +1395,7 @@
         0 0 25px
         rgba(69, 231, 227, 0.10);
     }
+
 
 
     /* =========================================================
@@ -981,17 +1419,14 @@
           18px,
           env(safe-area-inset-top)
         )
-
         max(
           18px,
           env(safe-area-inset-right)
         )
-
         max(
           18px,
           env(safe-area-inset-bottom)
         )
-
         max(
           18px,
           env(safe-area-inset-left)
@@ -1014,9 +1449,11 @@
       overflow-y: auto;
     }
 
+
     .modal-overlay.is-visible {
       display: flex;
     }
+
 
     .contact-modal {
       position: relative;
@@ -1072,6 +1509,7 @@
         ease-out;
     }
 
+
     .modal-close {
       position: absolute;
 
@@ -1109,6 +1547,7 @@
         transform 0.2s ease;
     }
 
+
     .modal-close:hover {
       background:
         rgba(
@@ -1122,11 +1561,13 @@
         scale(1.04);
     }
 
+
     .contact-modal-header {
       padding-right: 42px;
 
       margin-bottom: 22px;
     }
+
 
     .contact-modal h2 {
       margin-bottom: 7px;
@@ -1143,6 +1584,7 @@
       line-height: 1.15;
     }
 
+
     .contact-modal-header p {
       max-width: 540px;
 
@@ -1152,6 +1594,7 @@
 
       opacity: 0.88;
     }
+
 
 
     /* =========================================================
@@ -1166,6 +1609,7 @@
 
       gap: 12px;
     }
+
 
     input,
     select,
@@ -1199,14 +1643,17 @@
       font-size: 14px;
     }
 
+
     input::placeholder,
     textarea::placeholder {
       color: #47515d;
     }
 
+
     select {
       cursor: pointer;
     }
+
 
     textarea {
       grid-column:
@@ -1217,10 +1664,12 @@
       resize: vertical;
     }
 
+
     .full {
       grid-column:
         1 / -1;
     }
+
 
     .submit-button {
       grid-column:
@@ -1232,6 +1681,7 @@
 
       margin-top: 4px;
     }
+
 
 
     /* =========================================================
@@ -1267,9 +1717,11 @@
         blur(12px);
     }
 
+
     .success-overlay.is-visible {
       display: flex;
     }
+
 
     .success-dialog {
       width:
@@ -1319,6 +1771,7 @@
         ease-out;
     }
 
+
     .success-icon {
       display: flex;
 
@@ -1342,6 +1795,7 @@
       font-weight: 700;
     }
 
+
     .success-dialog h2 {
       margin-bottom: 10px;
 
@@ -1355,6 +1809,7 @@
       font-weight: 700;
     }
 
+
     .success-dialog p {
       max-width: 390px;
 
@@ -1367,6 +1822,7 @@
 
       opacity: 0.9;
     }
+
 
     @keyframes modalAppear {
 
@@ -1389,6 +1845,7 @@
     }
 
 
+
     /* =========================================================
        FOCUS
        ========================================================= */
@@ -1399,6 +1856,7 @@
     input:focus-visible,
     select:focus-visible,
     textarea:focus-visible {
+
       outline:
         3px solid
         rgba(
@@ -1410,6 +1868,7 @@
 
       outline-offset: 3px;
     }
+
 
 
     /* =========================================================
@@ -1425,6 +1884,7 @@
         top: 14px;
       }
 
+
       .logo-mark {
         width:
           min(
@@ -1435,9 +1895,12 @@
         max-height: 18vh;
       }
 
+
       .tag-pill {
-        padding: 10px 22px;
+        padding:
+          10px 22px;
       }
+
 
       .scroll-control {
         width: 104px;
@@ -1446,18 +1909,23 @@
         bottom: 14px;
       }
 
+
       .scroll-text text {
         font-size: 10.5px;
       }
+
 
       .scroll-pulse {
         width: 44px;
         height: 44px;
       }
 
+
       .platform-inner {
-        padding: 48px 0;
+        padding:
+          48px 0;
       }
+
 
       .platform-title {
         font-size:
@@ -1468,6 +1936,7 @@
           );
       }
 
+
       .platform-description {
         font-size:
           clamp(
@@ -1477,11 +1946,13 @@
           );
       }
 
+
       .platform-points {
         margin-top: 23px;
       }
 
     }
+
 
 
     /* =========================================================
@@ -1497,12 +1968,12 @@
             300px,
             0.9fr
           )
-
           minmax(
             430px,
             1.1fr
           );
       }
+
 
       .platform-points {
         grid-template-columns:
@@ -1511,11 +1982,13 @@
         max-width: 340px;
       }
 
+
       .platform-point {
         min-height: unset;
       }
 
     }
+
 
 
     /* =========================================================
@@ -1525,11 +1998,6 @@
     @media
     (max-width: 700px) {
 
-      html {
-        scroll-snap-type:
-          y proximity;
-      }
-
       .hero-fold {
         min-height: 100svh;
 
@@ -1537,9 +2005,11 @@
           center top;
       }
 
+
       .hero-logo {
         top: 16px;
       }
+
 
       .logo-mark {
         width:
@@ -1550,6 +2020,7 @@
 
         max-height: 18vh;
       }
+
 
       .tag-pill {
         min-width: unset;
@@ -1569,6 +2040,7 @@
         letter-spacing: 0.03em;
       }
 
+
       .scroll-control {
         width: 104px;
         height: 104px;
@@ -1586,14 +2058,17 @@
           );
       }
 
+
       .scroll-text text {
         font-size: 10px;
       }
+
 
       .scroll-pulse {
         width: 44px;
         height: 44px;
       }
+
 
 
       /* Fold 2 */
@@ -1604,6 +2079,7 @@
         background-position:
           center center;
       }
+
 
       .platform-inner {
         display: flex;
@@ -1620,17 +2096,20 @@
         gap: 30px;
       }
 
+
       .platform-copy {
         width: 100%;
 
         text-align: left;
       }
 
+
       .platform-eyebrow {
         margin-bottom: 16px;
 
         font-size: 11px;
       }
+
 
       .platform-title {
         margin-bottom: 18px;
@@ -1645,6 +2124,7 @@
         line-height: 1.02;
       }
 
+
       .platform-description {
         max-width: 100%;
 
@@ -1658,19 +2138,62 @@
         line-height: 1.55;
       }
 
+
       .platform-points {
         display: none;
       }
+
 
       .platform-device-wrap {
         width: 112%;
 
         margin-left: -6%;
+
+        transform:
+          translateX(110vw);
       }
+
+
+      .platform-fold.is-active
+      .platform-device-wrap {
+
+        animation:
+          ipadEnterMobile
+          1.15s
+          cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+          )
+          0.25s
+          forwards;
+      }
+
+
+      @keyframes ipadEnterMobile {
+
+        from {
+          opacity: 0;
+
+          transform:
+            translateX(110vw);
+        }
+
+        to {
+          opacity: 1;
+
+          transform:
+            translateX(0);
+        }
+
+      }
+
 
       .platform-device {
         width: 100%;
       }
+
 
 
       /* Contact */
@@ -1680,6 +2203,7 @@
           70px 22px;
       }
 
+
       .contact-section-title {
         font-size:
           clamp(
@@ -1688,6 +2212,7 @@
             54px
           );
       }
+
 
 
       /* Modal */
@@ -1706,13 +2231,17 @@
         border-radius: 24px;
       }
 
+
       .contact-modal-header {
         padding-right: 38px;
       }
 
+
       form {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
+
 
       textarea,
       .full,
@@ -1720,11 +2249,13 @@
         grid-column: auto;
       }
 
+
       .submit-button {
         width: 100%;
       }
 
     }
+
 
 
     /* =========================================================
@@ -1740,6 +2271,7 @@
         top: 10px;
       }
 
+
       .logo-mark {
         width:
           min(
@@ -1750,6 +2282,7 @@
         max-height: 15vh;
       }
 
+
       .tag-pill {
         margin-top: 1px;
 
@@ -1757,10 +2290,12 @@
           8px 14px;
       }
 
+
       .scroll-control {
         width: 88px;
         height: 88px;
       }
+
 
       .scroll-text text {
         font-size: 9.6px;
@@ -1768,10 +2303,12 @@
         letter-spacing: 1.5px;
       }
 
+
       .scroll-arrow {
         width: 27px;
         height: 27px;
       }
+
 
       .scroll-pulse {
         width: 38px;
@@ -1779,6 +2316,7 @@
       }
 
     }
+
 
 
     /* =========================================================
@@ -1790,10 +2328,8 @@
 
       html {
         scroll-behavior: auto;
-
-        scroll-snap-type:
-          y proximity;
       }
+
 
       *,
       *::before,
@@ -1806,6 +2342,19 @@
 
         transition-duration:
           0.01ms !important;
+      }
+
+
+      .platform-eyebrow,
+      .platform-title,
+      .platform-description,
+      .platform-point,
+      .platform-device-wrap {
+
+        opacity: 1 !important;
+
+        transform:
+          none !important;
       }
 
     }
@@ -1843,9 +2392,6 @@
     </div>
 
 
-    <!-- =====================================================
-         FIND OUT MORE BUTTON
-         ===================================================== -->
 
     <button
       class="scroll-control"
@@ -1858,21 +2404,18 @@
       <div class="scroll-control-inner">
 
 
-        <!-- soft pulse sits well inside the text path -->
-
         <div
           class="scroll-pulse"
           aria-hidden="true"
         ></div>
 
 
-        <!-- rotating arc text -->
-
         <svg
           class="scroll-text"
           viewBox="0 0 120 120"
           aria-hidden="true"
         >
+
 
           <defs>
 
@@ -1903,12 +2446,12 @@
         </svg>
 
 
-        <!-- fixed arrow -->
 
         <div
           class="scroll-arrow"
           aria-hidden="true"
         >
+
 
           <svg
             viewBox="0 0 40 40"
@@ -1932,6 +2475,7 @@
             />
 
           </svg>
+
 
         </div>
 
@@ -1959,7 +2503,7 @@
     <div class="platform-inner">
 
 
-      <!-- LEFT COPY -->
+      <!-- LEFT SIDE -->
 
       <div class="platform-copy">
 
@@ -1989,6 +2533,7 @@
         </p>
 
 
+
         <div class="platform-points">
 
 
@@ -2009,6 +2554,7 @@
           </div>
 
 
+
           <div class="platform-point">
 
             <div
@@ -2024,6 +2570,7 @@
             </span>
 
           </div>
+
 
 
           <div class="platform-point">
@@ -2049,7 +2596,8 @@
       </div>
 
 
-      <!-- IPAD MOCKUP -->
+
+      <!-- IPAD -->
 
       <div class="platform-device-wrap">
 
@@ -2060,11 +2608,15 @@
         ></div>
 
 
-        <img
-          src="ipad-mockup.png"
-          class="platform-device"
-          alt="Edju Cat displayed on a tablet"
-        >
+        <div class="platform-device-float">
+
+          <img
+            src="ipad-mockup.png"
+            class="platform-device"
+            alt="Edju Cat displayed on a tablet"
+          >
+
+        </div>
 
 
       </div>
@@ -2128,7 +2680,7 @@
 
 
   <!-- =======================================================
-       CONTACT FORM MODAL
+       CONTACT MODAL
        ======================================================= -->
 
   <div
@@ -2173,6 +2725,7 @@
 
 
       </div>
+
 
 
       <form
@@ -2236,6 +2789,7 @@
           required
         >
 
+
           <option value="">
             I’m interested as...
           </option>
@@ -2263,6 +2817,7 @@
           <option value="Other">
             Other
           </option>
+
 
         </select>
 
@@ -2357,12 +2912,20 @@
 
 
     /* =======================================================
-       FOLD 1 BUTTON
+       FOLD REFERENCES
        ======================================================= */
 
-    const scrollToPlatformButton =
+    const folds =
+      Array.from(
+        document.querySelectorAll(
+          ".fold"
+        )
+      );
+
+
+    const heroSection =
       document.getElementById(
-        "scroll-to-platform"
+        "hero"
       );
 
 
@@ -2372,11 +2935,150 @@
       );
 
 
-    scrollToPlatformButton.addEventListener(
-      "click",
-      function () {
+    const scrollToPlatformButton =
+      document.getElementById(
+        "scroll-to-platform"
+      );
 
-        platformSection.scrollIntoView({
+
+
+    /* =======================================================
+       FULL-FOLD SMOOTH NAVIGATION
+       ======================================================= */
+
+    let isFoldScrolling = false;
+
+    let currentFoldIndex = 0;
+
+    let wheelAccumulator = 0;
+
+    let wheelResetTimer = null;
+
+    let foldScrollUnlockTimer = null;
+
+
+
+    function getNearestFoldIndex() {
+
+      let nearestIndex = 0;
+
+      let nearestDistance =
+        Infinity;
+
+
+      folds.forEach(
+
+        function (
+          fold,
+          index
+        ) {
+
+          const distance =
+            Math.abs(
+              fold
+                .getBoundingClientRect()
+                .top
+            );
+
+
+          if (
+            distance <
+            nearestDistance
+          ) {
+
+            nearestDistance =
+              distance;
+
+            nearestIndex =
+              index;
+
+          }
+
+        }
+
+      );
+
+
+      return nearestIndex;
+
+    }
+
+
+
+    function activateFoldAnimations(
+      index
+    ) {
+
+      /*
+        Replay Fold 2's intro whenever
+        the user genuinely navigates back
+        into it.
+      */
+
+      if (
+        folds[index] ===
+        platformSection
+      ) {
+
+        platformSection
+          .classList
+          .remove(
+            "is-active"
+          );
+
+
+        /*
+          Force the browser to register
+          the reset before re-adding.
+        */
+
+        void platformSection
+          .offsetWidth;
+
+
+        platformSection
+          .classList
+          .add(
+            "is-active"
+          );
+
+      }
+
+    }
+
+
+
+    function scrollToFold(
+      index
+    ) {
+
+      if (
+        index < 0 ||
+        index >= folds.length
+      ) {
+        return;
+      }
+
+
+      if (
+        isFoldScrolling
+      ) {
+        return;
+      }
+
+
+      isFoldScrolling = true;
+
+      currentFoldIndex = index;
+
+
+      activateFoldAnimations(
+        index
+      );
+
+
+      folds[index]
+        .scrollIntoView({
 
           behavior: "smooth",
 
@@ -2384,8 +3086,309 @@
 
         });
 
+
+      clearTimeout(
+        foldScrollUnlockTimer
+      );
+
+
+      foldScrollUnlockTimer =
+        window.setTimeout(
+
+          function () {
+
+            isFoldScrolling =
+              false;
+
+          },
+
+          1050
+
+        );
+
+    }
+
+
+
+    /* =======================================================
+       FIND OUT MORE BUTTON
+       ======================================================= */
+
+    scrollToPlatformButton
+      .addEventListener(
+
+        "click",
+
+        function () {
+
+          scrollToFold(1);
+
+        }
+
+      );
+
+
+
+    /* =======================================================
+       MOUSEWHEEL FULL-FOLD NAVIGATION
+       ======================================================= */
+
+    window.addEventListener(
+
+      "wheel",
+
+      function (event) {
+
+
+        /*
+          Do not interfere while
+          a modal is open.
+        */
+
+        if (
+          document.body
+            .classList
+            .contains(
+              "modal-open"
+            )
+        ) {
+
+          return;
+
+        }
+
+
+        /*
+          Keep normal native touch/mobile
+          scrolling behaviour.
+        */
+
+        if (
+          window.innerWidth <=
+          700
+        ) {
+
+          return;
+
+        }
+
+
+        event.preventDefault();
+
+
+        if (
+          isFoldScrolling
+        ) {
+
+          return;
+
+        }
+
+
+        wheelAccumulator +=
+          event.deltaY;
+
+
+        clearTimeout(
+          wheelResetTimer
+        );
+
+
+        wheelResetTimer =
+          window.setTimeout(
+
+            function () {
+
+              wheelAccumulator = 0;
+
+            },
+
+            180
+
+          );
+
+
+        /*
+          Enough input to count as
+          intentional wheel navigation.
+        */
+
+        const threshold = 48;
+
+
+        if (
+          Math.abs(
+            wheelAccumulator
+          )
+          <
+          threshold
+        ) {
+
+          return;
+
+        }
+
+
+        currentFoldIndex =
+          getNearestFoldIndex();
+
+
+        if (
+          wheelAccumulator > 0
+        ) {
+
+          scrollToFold(
+            currentFoldIndex + 1
+          );
+
+        } else {
+
+          scrollToFold(
+            currentFoldIndex - 1
+          );
+
+        }
+
+
+        wheelAccumulator = 0;
+
+      },
+
+      {
+        passive: false
       }
+
     );
+
+
+
+    /* =======================================================
+       KEYBOARD NAVIGATION
+       ======================================================= */
+
+    document.addEventListener(
+
+      "keydown",
+
+      function (event) {
+
+
+        if (
+          document.body
+            .classList
+            .contains(
+              "modal-open"
+            )
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          event.key ===
+          "ArrowDown"
+          ||
+          event.key ===
+          "PageDown"
+        ) {
+
+          event.preventDefault();
+
+          currentFoldIndex =
+            getNearestFoldIndex();
+
+
+          scrollToFold(
+            currentFoldIndex + 1
+          );
+
+        }
+
+
+        if (
+          event.key ===
+          "ArrowUp"
+          ||
+          event.key ===
+          "PageUp"
+        ) {
+
+          event.preventDefault();
+
+          currentFoldIndex =
+            getNearestFoldIndex();
+
+
+          scrollToFold(
+            currentFoldIndex - 1
+          );
+
+        }
+
+      }
+
+    );
+
+
+
+    /* =======================================================
+       TOUCH / NORMAL SCROLL ANIMATION DETECTION
+
+       IntersectionObserver means Fold 2
+       also animates if reached without
+       wheel navigation.
+       ======================================================= */
+
+    const platformObserver =
+      new IntersectionObserver(
+
+        function (
+          entries
+        ) {
+
+          entries.forEach(
+
+            function (
+              entry
+            ) {
+
+              if (
+                entry.isIntersecting
+                &&
+                entry.intersectionRatio >
+                0.55
+              ) {
+
+                platformSection
+                  .classList
+                  .add(
+                    "is-active"
+                  );
+
+              }
+
+            }
+
+          );
+
+        },
+
+        {
+          threshold:
+            [
+              0.55
+            ]
+        }
+
+      );
+
+
+    platformObserver
+      .observe(
+        platformSection
+      );
 
 
 
@@ -2435,15 +3438,18 @@
       );
 
 
-    let lastFocusedElement = null;
+    let lastFocusedElement =
+      null;
 
 
 
     function lockPage() {
 
-      document.body.classList.add(
-        "modal-open"
-      );
+      document.body
+        .classList
+        .add(
+          "modal-open"
+        );
 
     }
 
@@ -2451,9 +3457,11 @@
 
     function unlockPage() {
 
-      document.body.classList.remove(
-        "modal-open"
-      );
+      document.body
+        .classList
+        .remove(
+          "modal-open"
+        );
 
     }
 
@@ -2465,15 +3473,18 @@
         document.activeElement;
 
 
-      contactOverlay.classList.add(
-        "is-visible"
-      );
+      contactOverlay
+        .classList
+        .add(
+          "is-visible"
+        );
 
 
-      contactOverlay.setAttribute(
-        "aria-hidden",
-        "false"
-      );
+      contactOverlay
+        .setAttribute(
+          "aria-hidden",
+          "false"
+        );
 
 
       lockPage();
@@ -2497,23 +3508,29 @@
 
     function closeContactModal() {
 
-      contactOverlay.classList.remove(
-        "is-visible"
-      );
+      contactOverlay
+        .classList
+        .remove(
+          "is-visible"
+        );
 
 
-      contactOverlay.setAttribute(
-        "aria-hidden",
-        "true"
-      );
+      contactOverlay
+        .setAttribute(
+          "aria-hidden",
+          "true"
+        );
 
 
       unlockPage();
 
 
-      if (lastFocusedElement) {
+      if (
+        lastFocusedElement
+      ) {
 
-        lastFocusedElement.focus();
+        lastFocusedElement
+          .focus();
 
       }
 
@@ -2523,15 +3540,18 @@
 
     function showSuccessMessage() {
 
-      successOverlay.classList.add(
-        "is-visible"
-      );
+      successOverlay
+        .classList
+        .add(
+          "is-visible"
+        );
 
 
-      successOverlay.setAttribute(
-        "aria-hidden",
-        "false"
-      );
+      successOverlay
+        .setAttribute(
+          "aria-hidden",
+          "false"
+        );
 
 
       lockPage();
@@ -2541,7 +3561,8 @@
 
         function () {
 
-          successClose.focus();
+          successClose
+            .focus();
 
         },
 
@@ -2555,15 +3576,18 @@
 
     function closeSuccessMessage() {
 
-      successOverlay.classList.remove(
-        "is-visible"
-      );
+      successOverlay
+        .classList
+        .remove(
+          "is-visible"
+        );
 
 
-      successOverlay.setAttribute(
-        "aria-hidden",
-        "true"
-      );
+      successOverlay
+        .setAttribute(
+          "aria-hidden",
+          "true"
+        );
 
 
       unlockPage();
@@ -2575,103 +3599,123 @@
         window.location.hash;
 
 
-      window.history.replaceState(
+      window.history
+        .replaceState(
 
-        {},
+          {},
 
-        document.title,
+          document.title,
 
-        cleanUrl
+          cleanUrl
 
-      );
+        );
 
     }
 
 
 
-    openContactButton.addEventListener(
+    openContactButton
+      .addEventListener(
 
-      "click",
+        "click",
 
-      openContactModal
+        openContactModal
 
-    );
-
-
-    closeContactButton.addEventListener(
-
-      "click",
-
-      closeContactModal
-
-    );
+      );
 
 
-    contactOverlay.addEventListener(
+    closeContactButton
+      .addEventListener(
 
-      "click",
+        "click",
 
-      function (event) {
+        closeContactModal
 
-        if (
-          event.target ===
-          contactOverlay
+      );
+
+
+    contactOverlay
+      .addEventListener(
+
+        "click",
+
+        function (
+          event
         ) {
 
-          closeContactModal();
+          if (
+            event.target ===
+            contactOverlay
+          ) {
+
+            closeContactModal();
+
+          }
 
         }
 
-      }
-
-    );
+      );
 
 
-    successClose.addEventListener(
+    successClose
+      .addEventListener(
 
-      "click",
+        "click",
 
-      closeSuccessMessage
+        closeSuccessMessage
 
-    );
+      );
 
 
-    successOverlay.addEventListener(
+    successOverlay
+      .addEventListener(
 
-      "click",
+        "click",
 
-      function (event) {
-
-        if (
-          event.target ===
-          successOverlay
+        function (
+          event
         ) {
 
-          closeSuccessMessage();
+          if (
+            event.target ===
+            successOverlay
+          ) {
+
+            closeSuccessMessage();
+
+          }
 
         }
 
-      }
+      );
 
-    );
 
+
+    /* =======================================================
+       ESCAPE
+       ======================================================= */
 
     document.addEventListener(
 
       "keydown",
 
-      function (event) {
+      function (
+        event
+      ) {
 
 
         if (
 
-          event.key === "Escape"
+          event.key ===
+          "Escape"
 
           &&
 
-          successOverlay.classList.contains(
-            "is-visible"
-          )
+          successOverlay
+            .classList
+            .contains(
+              "is-visible"
+            )
 
         ) {
 
@@ -2684,13 +3728,16 @@
 
         if (
 
-          event.key === "Escape"
+          event.key ===
+          "Escape"
 
           &&
 
-          contactOverlay.classList.contains(
-            "is-visible"
-          )
+          contactOverlay
+            .classList
+            .contains(
+              "is-visible"
+            )
 
         ) {
 
@@ -2706,11 +3753,13 @@
 
 
     /* =======================================================
-       FORM SUCCESS REDIRECT
+       FORM SUCCESS
        ======================================================= */
 
     if (
-      urlParams.get("sent")
+      urlParams.get(
+        "sent"
+      )
       ===
       "true"
     ) {
