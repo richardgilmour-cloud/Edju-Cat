@@ -35,14 +35,24 @@
       box-sizing: border-box;
     }
 
+
     html {
+
       min-height: 100%;
+
       scroll-behavior: smooth;
+
+      scroll-snap-type: y mandatory;
+
     }
 
+
     body {
+
       min-height: 100%;
+
       background: #001827;
+
       color: white;
 
       font-family:
@@ -55,11 +65,14 @@
         sans-serif;
 
       overflow-x: hidden;
+
     }
+
 
     body.modal-open {
       overflow: hidden;
     }
+
 
     button,
     input,
@@ -68,28 +81,38 @@
       font: inherit;
     }
 
+
     button {
       border: none;
     }
+
 
     img {
       display: block;
     }
 
 
+
     /* =========================================================
-       SHARED FOLD
+       FULL SCREEN FOLDS
        ========================================================= */
 
     .fold {
+
       position: relative;
 
       width: 100%;
+
       min-height: 100vh;
       min-height: 100svh;
 
       overflow: hidden;
+
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+
     }
+
 
 
     /* =========================================================
@@ -115,17 +138,19 @@
     }
 
 
+
     /* =========================================================
        HERO LOGO
-       Keeps current placement
        ========================================================= */
 
     .hero-logo {
 
       position: absolute;
+
       z-index: 5;
 
       top: clamp(18px, 3vh, 34px);
+
       left: 50%;
 
       width: 100%;
@@ -135,6 +160,7 @@
       transform: translateX(-50%);
 
       pointer-events: none;
+
     }
 
 
@@ -143,6 +169,7 @@
       display: block;
 
       width: min(44vw, 390px);
+
       height: auto;
 
       max-height: 22vh;
@@ -156,6 +183,7 @@
           0 10px 25px
           rgba(0, 0, 0, 0.25)
         );
+
     }
 
 
@@ -175,6 +203,7 @@
       border-radius: 999px;
 
       background: #45e7e3;
+
       color: #001e70;
 
       font-size:
@@ -193,24 +222,29 @@
       text-align: center;
 
       box-shadow:
+
         0 12px 30px
         rgba(0, 0, 0, 0.22),
 
         inset 0 1px 0
         rgba(255, 255, 255, 0.25);
+
     }
 
 
+
     /* =========================================================
-       SCROLL CONTROL
+       SCROLL BUTTON
        ========================================================= */
 
     .scroll-control {
 
       position: absolute;
+
       z-index: 10;
 
       left: 50%;
+
       bottom: clamp(20px, 4vh, 42px);
 
       width: 126px;
@@ -244,8 +278,11 @@
         rgba(69, 231, 227, 0.04);
 
       transition:
+
         transform 0.25s ease,
+
         border-color 0.25s ease,
+
         background 0.25s ease;
 
     }
@@ -282,7 +319,10 @@
     }
 
 
-    /* fixed arrow */
+
+    /* =========================================================
+       FIXED CENTRE ARROW
+       ========================================================= */
 
     .scroll-arrow {
 
@@ -318,7 +358,10 @@
     }
 
 
-    /* rotating circular text */
+
+    /* =========================================================
+       ROTATING ARC TEXT
+       ========================================================= */
 
     .scroll-text {
 
@@ -334,7 +377,7 @@
 
       animation:
         rotateScrollText
-        12s
+        24s
         linear
         infinite;
 
@@ -346,12 +389,19 @@
 
     .scroll-text text {
 
-      fill: rgba(255, 255, 255, 0.92);
+      fill:
+        rgba(
+          255,
+          255,
+          255,
+          0.94
+        );
 
-      font-size: 10.4px;
+      font-size: 11px;
+
       font-weight: 600;
 
-      letter-spacing: 1.65px;
+      letter-spacing: 2px;
 
       text-transform: uppercase;
 
@@ -371,7 +421,8 @@
     }
 
 
-    /* subtle pulse ring */
+
+    /* inner decorative ring */
 
     .scroll-control::after {
 
@@ -389,9 +440,11 @@
 
       animation:
         scrollPulse
-        2.4s
+        2.8s
         ease-in-out
         infinite;
+
+      pointer-events: none;
 
     }
 
@@ -402,23 +455,28 @@
       100% {
 
         opacity: 0.4;
-        transform: scale(0.94);
+
+        transform:
+          scale(0.94);
 
       }
 
       50% {
 
         opacity: 0.9;
-        transform: scale(1.04);
+
+        transform:
+          scale(1.04);
 
       }
 
     }
 
 
+
     /* =========================================================
        FOLD 2
-       GAMIFIED LEARNING UNIVERSE
+       PLATFORM
        ========================================================= */
 
     .platform-fold {
@@ -444,9 +502,11 @@
     }
 
 
+
     .platform-inner {
 
       position: relative;
+
       z-index: 2;
 
       display: grid;
@@ -482,7 +542,10 @@
     }
 
 
-    /* text side */
+
+    /* =========================================================
+       FOLD 2 COPY
+       ========================================================= */
 
     .platform-copy {
 
@@ -567,9 +630,7 @@
 
 
     .platform-title span {
-
       color: #45e7e3;
-
     }
 
 
@@ -599,7 +660,10 @@
     }
 
 
-    /* small proposition cards */
+
+    /* =========================================================
+       FOLD 2 SUPPORT POINTS
+       ========================================================= */
 
     .platform-points {
 
@@ -718,7 +782,10 @@
     }
 
 
-    /* iPad artwork */
+
+    /* =========================================================
+       IPAD MOCKUP
+       ========================================================= */
 
     .platform-device-wrap {
 
@@ -752,6 +819,7 @@
       border-radius: 50%;
 
       background:
+
         radial-gradient(
           ellipse at center,
           rgba(0, 133, 255, 0.20) 0%,
@@ -769,6 +837,7 @@
     .platform-device {
 
       position: relative;
+
       z-index: 2;
 
       width:
@@ -796,8 +865,10 @@
     }
 
 
+
     /* =========================================================
-       CONTACT FOLD
+       FOLD 3
+       CONTACT
        ========================================================= */
 
     .contact-fold {
@@ -842,6 +913,7 @@
             0.4
           )
           0.7px,
+
           transparent 0.8px
         );
 
@@ -858,6 +930,7 @@
     .contact-section-inner {
 
       position: relative;
+
       z-index: 2;
 
       width:
@@ -881,6 +954,7 @@
       color: #45e7e3;
 
       font-size: 13px;
+
       font-weight: 700;
 
       letter-spacing: 0.1em;
@@ -940,6 +1014,11 @@
     }
 
 
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
     .primary-button {
 
       display: inline-flex;
@@ -955,6 +1034,7 @@
       border-radius: 999px;
 
       background: #45e7e3;
+
       color: #001e70;
 
       font-family:
@@ -962,6 +1042,7 @@
         sans-serif;
 
       font-size: 14px;
+
       font-weight: 700;
 
       cursor: pointer;
@@ -977,7 +1058,9 @@
       transition:
 
         transform 0.2s ease,
+
         opacity 0.2s ease,
+
         box-shadow 0.2s ease;
 
     }
@@ -985,7 +1068,8 @@
 
     .primary-button:hover {
 
-      transform: translateY(-2px);
+      transform:
+        translateY(-2px);
 
       opacity: 0.96;
 
@@ -1000,6 +1084,7 @@
     }
 
 
+
     /* =========================================================
        CONTACT MODAL
        ========================================================= */
@@ -1007,6 +1092,7 @@
     .modal-overlay {
 
       position: fixed;
+
       z-index: 1000;
 
       inset: 0;
@@ -1058,9 +1144,7 @@
 
 
     .modal-overlay.is-visible {
-
       display: flex;
-
     }
 
 
@@ -1157,6 +1241,7 @@
       transition:
 
         background 0.2s ease,
+
         transform 0.2s ease;
 
     }
@@ -1172,7 +1257,8 @@
           0.17
         );
 
-      transform: scale(1.04);
+      transform:
+        scale(1.04);
 
     }
 
@@ -1215,6 +1301,7 @@
       opacity: 0.88;
 
     }
+
 
 
     /* =========================================================
@@ -1270,9 +1357,7 @@
 
     input::placeholder,
     textarea::placeholder {
-
       color: #47515d;
-
     }
 
 
@@ -1315,6 +1400,7 @@
     }
 
 
+
     /* =========================================================
        SUCCESS POPUP
        ========================================================= */
@@ -1322,6 +1408,7 @@
     .success-overlay {
 
       position: fixed;
+
       z-index: 1100;
 
       inset: 0;
@@ -1351,9 +1438,7 @@
 
 
     .success-overlay.is-visible {
-
       display: flex;
-
     }
 
 
@@ -1424,9 +1509,11 @@
       border-radius: 50%;
 
       background: #45e7e3;
+
       color: #001e70;
 
       font-size: 38px;
+
       font-weight: 700;
 
     }
@@ -1489,6 +1576,7 @@
     }
 
 
+
     /* =========================================================
        FOCUS
        ========================================================= */
@@ -1514,6 +1602,7 @@
     }
 
 
+
     /* =========================================================
        SHORT DESKTOP / TABLET
        ========================================================= */
@@ -1527,6 +1616,7 @@
         top: 14px;
       }
 
+
       .logo-mark {
 
         width:
@@ -1539,12 +1629,11 @@
 
       }
 
+
       .tag-pill {
-
-        padding:
-          10px 22px;
-
+        padding: 10px 22px;
       }
+
 
       .scroll-control {
 
@@ -1555,16 +1644,16 @@
 
       }
 
+
       .scroll-text text {
-        font-size: 9.7px;
+        font-size: 10.5px;
       }
+
 
       .platform-inner {
-
-        padding:
-          48px 0;
-
+        padding: 48px 0;
       }
+
 
       .platform-title {
 
@@ -1577,6 +1666,7 @@
 
       }
 
+
       .platform-description {
 
         font-size:
@@ -1588,13 +1678,13 @@
 
       }
 
+
       .platform-points {
-
         margin-top: 23px;
-
       }
 
     }
+
 
 
     /* =========================================================
@@ -1607,16 +1697,19 @@
       .platform-inner {
 
         grid-template-columns:
+
           minmax(
             300px,
             0.9fr
           )
+
           minmax(
             430px,
             1.1fr
           );
 
       }
+
 
       .platform-points {
 
@@ -1627,13 +1720,13 @@
 
       }
 
+
       .platform-point {
-
         min-height: unset;
-
       }
 
     }
+
 
 
     /* =========================================================
@@ -1642,6 +1735,14 @@
 
     @media
     (max-width: 700px) {
+
+      html {
+
+        scroll-snap-type:
+          y proximity;
+
+      }
+
 
       .hero-fold {
 
@@ -1674,6 +1775,7 @@
       .tag-pill {
 
         min-width: unset;
+
         max-width: 88vw;
 
         padding:
@@ -1686,8 +1788,7 @@
             15px
           );
 
-        letter-spacing:
-          0.03em;
+        letter-spacing: 0.03em;
 
       }
 
@@ -1713,11 +1814,12 @@
 
 
       .scroll-text text {
-        font-size: 9.7px;
+        font-size: 10px;
       }
 
 
-      /* Fold 2 becomes vertical */
+
+      /* Fold 2 */
 
       .platform-fold {
 
@@ -1798,9 +1900,7 @@
 
 
       .platform-points {
-
         display: none;
-
       }
 
 
@@ -1814,11 +1914,12 @@
 
 
       .platform-device {
-
         width: 100%;
-
       }
 
+
+
+      /* Contact */
 
       .contact-section-inner {
 
@@ -1839,6 +1940,9 @@
 
       }
 
+
+
+      /* modal */
 
       .contact-modal {
 
@@ -1863,29 +1967,23 @@
 
 
       form {
-
-        grid-template-columns:
-          1fr;
-
+        grid-template-columns: 1fr;
       }
 
 
       textarea,
       .full,
       .submit-button {
-
         grid-column: auto;
-
       }
 
 
       .submit-button {
-
         width: 100%;
-
       }
 
     }
+
 
 
     /* =========================================================
@@ -1901,6 +1999,7 @@
         top: 10px;
       }
 
+
       .logo-mark {
 
         width:
@@ -1913,6 +2012,7 @@
 
       }
 
+
       .tag-pill {
 
         margin-top: 1px;
@@ -1922,6 +2022,7 @@
 
       }
 
+
       .scroll-control {
 
         width: 88px;
@@ -1929,12 +2030,15 @@
 
       }
 
+
       .scroll-text text {
 
-        font-size: 9.1px;
-        letter-spacing: 1.2px;
+        font-size: 9.6px;
+
+        letter-spacing: 1.5px;
 
       }
+
 
       .scroll-arrow {
 
@@ -1946,6 +2050,7 @@
     }
 
 
+
     /* =========================================================
        REDUCED MOTION
        ========================================================= */
@@ -1954,8 +2059,14 @@
     (prefers-reduced-motion: reduce) {
 
       html {
+
         scroll-behavior: auto;
+
+        scroll-snap-type:
+          y proximity;
+
       }
+
 
       *,
       *::before,
@@ -1984,7 +2095,6 @@
 
   <!-- =======================================================
        FOLD 1
-       BRAND HERO
        ======================================================= -->
 
   <section
@@ -1995,34 +2105,47 @@
 
     <div class="hero-logo">
 
+
       <img
         src="edju-cat-type-logo-svg.svg"
         class="logo-mark"
         alt="Edju Cat"
       >
 
+
       <div class="tag-pill">
         WHAT WILL YOU LEARN TODAY?
       </div>
 
+
     </div>
 
 
-    <!--
-      Circular scroll button
-      Outer text rotates.
-      Arrow stays fixed.
-    -->
+
+    <!-- =====================================================
+         FIND OUT MORE BUTTON
+         ===================================================== -->
 
     <button
       class="scroll-control"
       id="scroll-to-platform"
       type="button"
-      aria-label="Scroll to find out more"
+      aria-label="Find out more"
     >
+
 
       <div class="scroll-control-inner">
 
+
+        <!--
+          The text occupies only a small section
+          of the circumference.
+
+          The entire SVG rotates slowly.
+
+          The centre arrow is outside this SVG,
+          so remains fixed.
+        -->
 
         <svg
           class="scroll-text"
@@ -2030,38 +2153,48 @@
           aria-hidden="true"
         >
 
+
           <defs>
+
 
             <path
               id="scroll-text-path"
               d="
-                M 60,60
-                m -47,0
-                a 47,47 0 1,1 94,0
-                a 47,47 0 1,1 -94,0
+                M 17,60
+                A 43,43 0 0,1 103,60
               "
             />
 
+
           </defs>
+
 
           <text>
 
+
             <textPath
               href="#scroll-text-path"
-              startOffset="0%"
+              startOffset="50%"
+              text-anchor="middle"
             >
-              SCROLL TO FIND OUT MORE • SCROLL TO FIND OUT MORE •
+              FIND OUT MORE
             </textPath>
+
 
           </text>
 
+
         </svg>
 
+
+
+        <!-- FIXED DOWN ARROW -->
 
         <div
           class="scroll-arrow"
           aria-hidden="true"
         >
+
 
           <svg
             viewBox="0 0 40 40"
@@ -2069,12 +2202,14 @@
             xmlns="http://www.w3.org/2000/svg"
           >
 
+
             <path
               d="M20 7V30"
               stroke="currentColor"
               stroke-width="3"
               stroke-linecap="round"
             />
+
 
             <path
               d="M10.5 21.5L20 31L29.5 21.5"
@@ -2084,12 +2219,15 @@
               stroke-linejoin="round"
             />
 
+
           </svg>
+
 
         </div>
 
 
       </div>
+
 
     </button>
 
@@ -2100,7 +2238,6 @@
 
   <!-- =======================================================
        FOLD 2
-       PLATFORM EXPLANATION
        ======================================================= -->
 
   <section
@@ -2110,6 +2247,7 @@
 
 
     <div class="platform-inner">
+
 
 
       <!-- LEFT COPY -->
@@ -2142,12 +2280,14 @@
         </p>
 
 
-        <!-- optional support points -->
+
+        <!-- SUPPORT POINTS -->
 
         <div class="platform-points">
 
 
           <div class="platform-point">
+
 
             <div
               class="platform-point-icon"
@@ -2156,15 +2296,19 @@
               ◈
             </div>
 
+
             <span>
               Platform,<br>
               not one game
             </span>
 
+
           </div>
 
 
+
           <div class="platform-point">
+
 
             <div
               class="platform-point-icon"
@@ -2173,15 +2317,19 @@
               ◎
             </div>
 
+
             <span>
               Subjects<br>
               become planets
             </span>
 
+
           </div>
 
 
+
           <div class="platform-point">
+
 
             <div
               class="platform-point-icon"
@@ -2190,10 +2338,12 @@
               ★
             </div>
 
+
             <span>
               Progression,<br>
               rewards, discovery
             </span>
+
 
           </div>
 
@@ -2204,9 +2354,11 @@
       </div>
 
 
-      <!-- RIGHT DEVICE -->
+
+      <!-- IPAD -->
 
       <div class="platform-device-wrap">
+
 
         <div
           class="platform-device-glow"
@@ -2219,6 +2371,7 @@
           class="platform-device"
           alt="Edju Cat displayed on a tablet"
         >
+
 
       </div>
 
@@ -2328,6 +2481,7 @@
       </div>
 
 
+
       <form
         action="https://formsubmit.co/steven@edjucat.com"
         method="POST"
@@ -2389,33 +2543,41 @@
           required
         >
 
+
           <option value="">
             I’m interested as...
           </option>
+
 
           <option value="Investor">
             Investor
           </option>
 
+
           <option value="Parent">
             Parent
           </option>
+
 
           <option value="Teacher / School">
             Teacher / School
           </option>
 
+
           <option value="Developer / Content Creator">
             Developer / Content Creator
           </option>
+
 
           <option value="Partnership">
             Partnership
           </option>
 
+
           <option value="Other">
             Other
           </option>
+
 
         </select>
 
@@ -2509,9 +2671,9 @@
   <script>
 
 
-    /* -------------------------------------------------------
-       Fold 1 scroll control
-       ------------------------------------------------------- */
+    /* =======================================================
+       FOLD 1 BUTTON
+       ======================================================= */
 
     const scrollToPlatformButton =
       document.getElementById(
@@ -2529,21 +2691,24 @@
       "click",
       function () {
 
+
         platformSection.scrollIntoView({
 
           behavior: "smooth",
+
           block: "start"
 
         });
+
 
       }
     );
 
 
 
-    /* -------------------------------------------------------
-       Contact modal
-       ------------------------------------------------------- */
+    /* =======================================================
+       CONTACT MODAL
+       ======================================================= */
 
     const openContactButton =
       document.getElementById(
@@ -2632,12 +2797,15 @@
 
 
       window.setTimeout(
+
         function () {
 
           contactName.focus();
 
         },
+
         50
+
       );
 
     }
@@ -2687,12 +2855,15 @@
 
 
       window.setTimeout(
+
         function () {
 
           successClose.focus();
 
         },
+
         50
+
       );
 
     }
@@ -2716,8 +2887,11 @@
 
 
       const cleanUrl =
+
         window.location.pathname
+
         +
+
         window.location.hash;
 
 
@@ -2736,14 +2910,20 @@
 
 
     openContactButton.addEventListener(
+
       "click",
+
       openContactModal
+
     );
 
 
     closeContactButton.addEventListener(
+
       "click",
+
       closeContactModal
+
     );
 
 
@@ -2752,6 +2932,7 @@
       "click",
 
       function (event) {
+
 
         if (
           event.target ===
@@ -2762,14 +2943,18 @@
 
         }
 
+
       }
 
     );
 
 
     successClose.addEventListener(
+
       "click",
+
       closeSuccessMessage
+
     );
 
 
@@ -2779,6 +2964,7 @@
 
       function (event) {
 
+
         if (
           event.target ===
           successOverlay
@@ -2787,6 +2973,7 @@
           closeSuccessMessage();
 
         }
+
 
       }
 
@@ -2840,6 +3027,11 @@
 
     );
 
+
+
+    /* =======================================================
+       FORM SUCCESS REDIRECT
+       ======================================================= */
 
     if (
       urlParams.get("sent")
