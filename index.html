@@ -35,24 +35,15 @@
       box-sizing: border-box;
     }
 
-
     html {
-
       min-height: 100%;
-
       scroll-behavior: smooth;
-
       scroll-snap-type: y mandatory;
-
     }
 
-
     body {
-
       min-height: 100%;
-
       background: #001827;
-
       color: white;
 
       font-family:
@@ -65,14 +56,11 @@
         sans-serif;
 
       overflow-x: hidden;
-
     }
-
 
     body.modal-open {
       overflow: hidden;
     }
-
 
     button,
     input,
@@ -81,16 +69,13 @@
       font: inherit;
     }
 
-
     button {
       border: none;
     }
 
-
     img {
       display: block;
     }
-
 
 
     /* =========================================================
@@ -98,7 +83,6 @@
        ========================================================= */
 
     .fold {
-
       position: relative;
 
       width: 100%;
@@ -110,9 +94,7 @@
 
       scroll-snap-align: start;
       scroll-snap-stop: always;
-
     }
-
 
 
     /* =========================================================
@@ -134,9 +116,7 @@
         center top /
         cover
         no-repeat;
-
     }
-
 
 
     /* =========================================================
@@ -144,13 +124,10 @@
        ========================================================= */
 
     .hero-logo {
-
       position: absolute;
-
       z-index: 5;
 
       top: clamp(18px, 3vh, 34px);
-
       left: 50%;
 
       width: 100%;
@@ -160,16 +137,12 @@
       transform: translateX(-50%);
 
       pointer-events: none;
-
     }
 
-
     .logo-mark {
-
       display: block;
 
       width: min(44vw, 390px);
-
       height: auto;
 
       max-height: 22vh;
@@ -183,12 +156,9 @@
           0 10px 25px
           rgba(0, 0, 0, 0.25)
         );
-
     }
 
-
     .tag-pill {
-
       display: inline-flex;
 
       align-items: center;
@@ -203,7 +173,6 @@
       border-radius: 999px;
 
       background: #45e7e3;
-
       color: #001e70;
 
       font-size:
@@ -222,15 +191,12 @@
       text-align: center;
 
       box-shadow:
-
         0 12px 30px
         rgba(0, 0, 0, 0.22),
 
         inset 0 1px 0
         rgba(255, 255, 255, 0.25);
-
     }
-
 
 
     /* =========================================================
@@ -238,13 +204,10 @@
        ========================================================= */
 
     .scroll-control {
-
       position: absolute;
-
       z-index: 10;
 
       left: 50%;
-
       bottom: clamp(20px, 4vh, 42px);
 
       width: 126px;
@@ -270,7 +233,6 @@
         blur(12px);
 
       box-shadow:
-
         0 14px 40px
         rgba(0, 0, 0, 0.35),
 
@@ -278,18 +240,12 @@
         rgba(69, 231, 227, 0.04);
 
       transition:
-
         transform 0.25s ease,
-
         border-color 0.25s ease,
-
         background 0.25s ease;
-
     }
 
-
     .scroll-control:hover {
-
       transform:
         translateX(-50%)
         scale(1.05);
@@ -299,12 +255,9 @@
 
       background:
         rgba(0, 31, 57, 0.65);
-
     }
 
-
     .scroll-control-inner {
-
       position: absolute;
 
       inset: 0;
@@ -315,9 +268,70 @@
       justify-content: center;
 
       border-radius: 50%;
-
     }
 
+
+    /* =========================================================
+       SOFT CENTRE PULSE
+       No stroked ring, so it cannot overlap the text
+       ========================================================= */
+
+    .scroll-pulse {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 52px;
+      height: 52px;
+
+      transform:
+        translate(-50%, -50%);
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(69, 231, 227, 0.18) 0%,
+          rgba(69, 231, 227, 0.10) 35%,
+          rgba(69, 231, 227, 0.03) 58%,
+          transparent 72%
+        );
+
+      box-shadow:
+        0 0 24px
+        rgba(69, 231, 227, 0.08);
+
+      animation:
+        softPulse
+        3.4s
+        ease-in-out
+        infinite;
+
+      pointer-events: none;
+
+      z-index: 1;
+    }
+
+    @keyframes softPulse {
+
+      0%,
+      100% {
+        opacity: 0.55;
+        transform:
+          translate(-50%, -50%)
+          scale(0.92);
+      }
+
+      50% {
+        opacity: 1;
+        transform:
+          translate(-50%, -50%)
+          scale(1.18);
+      }
+
+    }
 
 
     /* =========================================================
@@ -325,7 +339,6 @@
        ========================================================= */
 
     .scroll-arrow {
-
       position: absolute;
 
       left: 50%;
@@ -346,17 +359,12 @@
           0 3px 10px
           rgba(69, 231, 227, 0.3)
         );
-
     }
-
 
     .scroll-arrow svg {
-
       width: 100%;
       height: 100%;
-
     }
-
 
 
     /* =========================================================
@@ -364,7 +372,6 @@
        ========================================================= */
 
     .scroll-text {
-
       position: absolute;
 
       inset: 7px;
@@ -384,11 +391,10 @@
       transform-origin:
         50% 50%;
 
+      z-index: 4;
     }
 
-
     .scroll-text text {
-
       fill:
         rgba(
           255,
@@ -404,9 +410,7 @@
       letter-spacing: 2px;
 
       text-transform: uppercase;
-
     }
-
 
     @keyframes rotateScrollText {
 
@@ -421,66 +425,12 @@
     }
 
 
-
-    /* inner decorative ring */
-
-    .scroll-control::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 22px;
-
-      border-radius: 50%;
-
-      border:
-        1px solid
-        rgba(69, 231, 227, 0.35);
-
-      animation:
-        scrollPulse
-        2.8s
-        ease-in-out
-        infinite;
-
-      pointer-events: none;
-
-    }
-
-
-    @keyframes scrollPulse {
-
-      0%,
-      100% {
-
-        opacity: 0.4;
-
-        transform:
-          scale(0.94);
-
-      }
-
-      50% {
-
-        opacity: 0.9;
-
-        transform:
-          scale(1.04);
-
-      }
-
-    }
-
-
-
     /* =========================================================
        FOLD 2
        PLATFORM
        ========================================================= */
 
     .platform-fold {
-
       display: flex;
 
       align-items: center;
@@ -498,13 +448,9 @@
         center center /
         cover
         no-repeat;
-
     }
 
-
-
     .platform-inner {
-
       position: relative;
 
       z-index: 2;
@@ -538,9 +484,7 @@
       padding:
         clamp(70px, 9vh, 110px)
         0;
-
     }
-
 
 
     /* =========================================================
@@ -548,18 +492,14 @@
        ========================================================= */
 
     .platform-copy {
-
       position: relative;
 
       z-index: 4;
 
       max-width: 650px;
-
     }
 
-
     .platform-eyebrow {
-
       display: inline-flex;
 
       align-items: center;
@@ -582,12 +522,9 @@
       letter-spacing: 0.08em;
 
       text-transform: uppercase;
-
     }
 
-
     .platform-eyebrow::after {
-
       content: "";
 
       width: 74px;
@@ -599,12 +536,9 @@
           #45e7e3,
           transparent
         );
-
     }
 
-
     .platform-title {
-
       max-width: 680px;
 
       margin-bottom: 25px;
@@ -625,17 +559,13 @@
       letter-spacing: -0.045em;
 
       text-wrap: balance;
-
     }
-
 
     .platform-title span {
       color: #45e7e3;
     }
 
-
     .platform-description {
-
       max-width: 600px;
 
       color:
@@ -656,9 +586,7 @@
       font-weight: 400;
 
       line-height: 1.6;
-
     }
-
 
 
     /* =========================================================
@@ -666,7 +594,6 @@
        ========================================================= */
 
     .platform-points {
-
       display: grid;
 
       grid-template-columns:
@@ -680,12 +607,9 @@
           4vh,
           46px
         );
-
     }
 
-
     .platform-point {
-
       display: flex;
 
       align-items: center;
@@ -721,12 +645,9 @@
 
       backdrop-filter:
         blur(8px);
-
     }
 
-
     .platform-point-icon {
-
       display: flex;
 
       flex: 0 0 auto;
@@ -759,12 +680,9 @@
       color: #45e7e3;
 
       font-size: 17px;
-
     }
 
-
     .platform-point span {
-
       color:
         rgba(
           255,
@@ -778,9 +696,7 @@
       font-weight: 600;
 
       line-height: 1.25;
-
     }
-
 
 
     /* =========================================================
@@ -788,7 +704,6 @@
        ========================================================= */
 
     .platform-device-wrap {
-
       position: relative;
 
       display: flex;
@@ -797,12 +712,9 @@
       justify-content: center;
 
       width: 100%;
-
     }
 
-
     .platform-device-glow {
-
       position: absolute;
 
       z-index: 0;
@@ -819,7 +731,6 @@
       border-radius: 50%;
 
       background:
-
         radial-gradient(
           ellipse at center,
           rgba(0, 133, 255, 0.20) 0%,
@@ -830,12 +741,9 @@
       filter: blur(35px);
 
       pointer-events: none;
-
     }
 
-
     .platform-device {
-
       position: relative;
 
       z-index: 2;
@@ -851,7 +759,6 @@
       object-fit: contain;
 
       filter:
-
         drop-shadow(
           0 28px 35px
           rgba(0, 0, 0, 0.42)
@@ -861,9 +768,7 @@
           0 0 26px
           rgba(0, 104, 255, 0.08)
         );
-
     }
-
 
 
     /* =========================================================
@@ -872,7 +777,6 @@
        ========================================================= */
 
     .contact-fold {
-
       display: flex;
 
       align-items: center;
@@ -891,12 +795,9 @@
           #00182b 0%,
           #00111f 100%
         );
-
     }
 
-
     .contact-fold::before {
-
       content: "";
 
       position: absolute;
@@ -904,7 +805,6 @@
       inset: 0;
 
       background-image:
-
         radial-gradient(
           rgba(
             255,
@@ -923,12 +823,9 @@
       opacity: 0.13;
 
       pointer-events: none;
-
     }
 
-
     .contact-section-inner {
-
       position: relative;
 
       z-index: 2;
@@ -943,12 +840,9 @@
         80px 0;
 
       text-align: center;
-
     }
 
-
     .contact-section-eyebrow {
-
       margin-bottom: 15px;
 
       color: #45e7e3;
@@ -960,12 +854,9 @@
       letter-spacing: 0.1em;
 
       text-transform: uppercase;
-
     }
 
-
     .contact-section-title {
-
       max-width: 800px;
 
       margin:
@@ -983,12 +874,9 @@
       line-height: 1.05;
 
       letter-spacing: -0.035em;
-
     }
 
-
     .contact-section-copy {
-
       max-width: 690px;
 
       margin:
@@ -1010,9 +898,7 @@
         );
 
       line-height: 1.6;
-
     }
-
 
 
     /* =========================================================
@@ -1020,7 +906,6 @@
        ========================================================= */
 
     .primary-button {
-
       display: inline-flex;
 
       align-items: center;
@@ -1048,7 +933,6 @@
       cursor: pointer;
 
       box-shadow:
-
         0 10px 25px
         rgba(0, 0, 0, 0.2),
 
@@ -1056,33 +940,24 @@
         rgba(255, 255, 255, 0.3);
 
       transition:
-
         transform 0.2s ease,
-
         opacity 0.2s ease,
-
         box-shadow 0.2s ease;
-
     }
 
-
     .primary-button:hover {
-
       transform:
         translateY(-2px);
 
       opacity: 0.96;
 
       box-shadow:
-
         0 15px 34px
         rgba(0, 0, 0, 0.28),
 
         0 0 25px
         rgba(69, 231, 227, 0.10);
-
     }
-
 
 
     /* =========================================================
@@ -1090,7 +965,6 @@
        ========================================================= */
 
     .modal-overlay {
-
       position: fixed;
 
       z-index: 1000;
@@ -1103,7 +977,6 @@
       justify-content: center;
 
       padding:
-
         max(
           18px,
           env(safe-area-inset-top)
@@ -1139,17 +1012,13 @@
         blur(12px);
 
       overflow-y: auto;
-
     }
-
 
     .modal-overlay.is-visible {
       display: flex;
     }
 
-
     .contact-modal {
-
       position: relative;
 
       width:
@@ -1201,12 +1070,9 @@
         modalAppear
         0.28s
         ease-out;
-
     }
 
-
     .modal-close {
-
       position: absolute;
 
       top: 15px;
@@ -1239,16 +1105,11 @@
       cursor: pointer;
 
       transition:
-
         background 0.2s ease,
-
         transform 0.2s ease;
-
     }
 
-
     .modal-close:hover {
-
       background:
         rgba(
           255,
@@ -1259,21 +1120,15 @@
 
       transform:
         scale(1.04);
-
     }
 
-
     .contact-modal-header {
-
       padding-right: 42px;
 
       margin-bottom: 22px;
-
     }
 
-
     .contact-modal h2 {
-
       margin-bottom: 7px;
 
       font-size:
@@ -1286,12 +1141,9 @@
       font-weight: 700;
 
       line-height: 1.15;
-
     }
 
-
     .contact-modal-header p {
-
       max-width: 540px;
 
       font-size: 14px;
@@ -1299,9 +1151,7 @@
       line-height: 1.55;
 
       opacity: 0.88;
-
     }
-
 
 
     /* =========================================================
@@ -1309,21 +1159,17 @@
        ========================================================= */
 
     form {
-
       display: grid;
 
       grid-template-columns:
         1fr 1fr;
 
       gap: 12px;
-
     }
-
 
     input,
     select,
     textarea {
-
       width: 100%;
 
       border:
@@ -1351,43 +1197,32 @@
       color: #07121f;
 
       font-size: 14px;
-
     }
-
 
     input::placeholder,
     textarea::placeholder {
       color: #47515d;
     }
 
-
     select {
       cursor: pointer;
     }
 
-
     textarea {
-
       grid-column:
         1 / -1;
 
       min-height: 110px;
 
       resize: vertical;
-
     }
-
 
     .full {
-
       grid-column:
         1 / -1;
-
     }
 
-
     .submit-button {
-
       grid-column:
         1 / -1;
 
@@ -1396,9 +1231,7 @@
       min-width: 170px;
 
       margin-top: 4px;
-
     }
-
 
 
     /* =========================================================
@@ -1406,7 +1239,6 @@
        ========================================================= */
 
     .success-overlay {
-
       position: fixed;
 
       z-index: 1100;
@@ -1433,17 +1265,13 @@
 
       backdrop-filter:
         blur(12px);
-
     }
-
 
     .success-overlay.is-visible {
       display: flex;
     }
 
-
     .success-dialog {
-
       width:
         min(
           92vw,
@@ -1489,12 +1317,9 @@
         modalAppear
         0.28s
         ease-out;
-
     }
 
-
     .success-icon {
-
       display: flex;
 
       align-items: center;
@@ -1515,12 +1340,9 @@
       font-size: 38px;
 
       font-weight: 700;
-
     }
 
-
     .success-dialog h2 {
-
       margin-bottom: 10px;
 
       font-size:
@@ -1531,12 +1353,9 @@
         );
 
       font-weight: 700;
-
     }
 
-
     .success-dialog p {
-
       max-width: 390px;
 
       margin:
@@ -1547,34 +1366,27 @@
       line-height: 1.55;
 
       opacity: 0.9;
-
     }
-
 
     @keyframes modalAppear {
 
       from {
-
         opacity: 0;
 
         transform:
           translateY(16px)
           scale(0.97);
-
       }
 
       to {
-
         opacity: 1;
 
         transform:
           translateY(0)
           scale(1);
-
       }
 
     }
-
 
 
     /* =========================================================
@@ -1587,7 +1399,6 @@
     input:focus-visible,
     select:focus-visible,
     textarea:focus-visible {
-
       outline:
         3px solid
         rgba(
@@ -1598,9 +1409,7 @@
         );
 
       outline-offset: 3px;
-
     }
-
 
 
     /* =========================================================
@@ -1616,9 +1425,7 @@
         top: 14px;
       }
 
-
       .logo-mark {
-
         width:
           min(
             34vw,
@@ -1626,65 +1433,55 @@
           );
 
         max-height: 18vh;
-
       }
-
 
       .tag-pill {
         padding: 10px 22px;
       }
 
-
       .scroll-control {
-
         width: 104px;
         height: 104px;
 
         bottom: 14px;
-
       }
-
 
       .scroll-text text {
         font-size: 10.5px;
       }
 
+      .scroll-pulse {
+        width: 44px;
+        height: 44px;
+      }
 
       .platform-inner {
         padding: 48px 0;
       }
 
-
       .platform-title {
-
         font-size:
           clamp(
             40px,
             4.5vw,
             66px
           );
-
       }
 
-
       .platform-description {
-
         font-size:
           clamp(
             14px,
             1.2vw,
             18px
           );
-
       }
-
 
       .platform-points {
         margin-top: 23px;
       }
 
     }
-
 
 
     /* =========================================================
@@ -1695,9 +1492,7 @@
     (max-width: 1100px) {
 
       .platform-inner {
-
         grid-template-columns:
-
           minmax(
             300px,
             0.9fr
@@ -1707,26 +1502,20 @@
             430px,
             1.1fr
           );
-
       }
 
-
       .platform-points {
-
         grid-template-columns:
           1fr;
 
         max-width: 340px;
-
       }
-
 
       .platform-point {
         min-height: unset;
       }
 
     }
-
 
 
     /* =========================================================
@@ -1737,30 +1526,22 @@
     (max-width: 700px) {
 
       html {
-
         scroll-snap-type:
           y proximity;
-
       }
 
-
       .hero-fold {
-
         min-height: 100svh;
 
         background-position:
           center top;
-
       }
-
 
       .hero-logo {
         top: 16px;
       }
 
-
       .logo-mark {
-
         width:
           min(
             64vw,
@@ -1768,12 +1549,9 @@
           );
 
         max-height: 18vh;
-
       }
 
-
       .tag-pill {
-
         min-width: unset;
 
         max-width: 88vw;
@@ -1789,12 +1567,9 @@
           );
 
         letter-spacing: 0.03em;
-
       }
 
-
       .scroll-control {
-
         width: 104px;
         height: 104px;
 
@@ -1809,30 +1584,28 @@
               12px
             )
           );
-
       }
-
 
       .scroll-text text {
         font-size: 10px;
       }
 
+      .scroll-pulse {
+        width: 44px;
+        height: 44px;
+      }
 
 
       /* Fold 2 */
 
       .platform-fold {
-
         align-items: flex-start;
 
         background-position:
           center center;
-
       }
 
-
       .platform-inner {
-
         display: flex;
 
         flex-direction: column;
@@ -1845,30 +1618,21 @@
           74px 22px 44px;
 
         gap: 30px;
-
       }
 
-
       .platform-copy {
-
         width: 100%;
 
         text-align: left;
-
       }
 
-
       .platform-eyebrow {
-
         margin-bottom: 16px;
 
         font-size: 11px;
-
       }
 
-
       .platform-title {
-
         margin-bottom: 18px;
 
         font-size:
@@ -1879,12 +1643,9 @@
           );
 
         line-height: 1.02;
-
       }
 
-
       .platform-description {
-
         max-width: 100%;
 
         font-size:
@@ -1895,57 +1656,43 @@
           );
 
         line-height: 1.55;
-
       }
-
 
       .platform-points {
         display: none;
       }
 
-
       .platform-device-wrap {
-
         width: 112%;
 
         margin-left: -6%;
-
       }
-
 
       .platform-device {
         width: 100%;
       }
 
 
-
       /* Contact */
 
       .contact-section-inner {
-
         padding:
           70px 22px;
-
       }
 
-
       .contact-section-title {
-
         font-size:
           clamp(
             36px,
             10vw,
             54px
           );
-
       }
 
 
-
-      /* modal */
+      /* Modal */
 
       .contact-modal {
-
         width: 100%;
 
         max-height:
@@ -1957,19 +1704,15 @@
           27px 18px 22px;
 
         border-radius: 24px;
-
       }
-
 
       .contact-modal-header {
         padding-right: 38px;
       }
 
-
       form {
         grid-template-columns: 1fr;
       }
-
 
       textarea,
       .full,
@@ -1977,13 +1720,11 @@
         grid-column: auto;
       }
 
-
       .submit-button {
         width: 100%;
       }
 
     }
-
 
 
     /* =========================================================
@@ -1999,9 +1740,7 @@
         top: 10px;
       }
 
-
       .logo-mark {
-
         width:
           min(
             48vw,
@@ -2009,46 +1748,37 @@
           );
 
         max-height: 15vh;
-
       }
 
-
       .tag-pill {
-
         margin-top: 1px;
 
         padding:
           8px 14px;
-
       }
-
 
       .scroll-control {
-
         width: 88px;
         height: 88px;
-
       }
 
-
       .scroll-text text {
-
         font-size: 9.6px;
 
         letter-spacing: 1.5px;
-
       }
 
-
       .scroll-arrow {
-
         width: 27px;
         height: 27px;
+      }
 
+      .scroll-pulse {
+        width: 38px;
+        height: 38px;
       }
 
     }
-
 
 
     /* =========================================================
@@ -2059,19 +1789,15 @@
     (prefers-reduced-motion: reduce) {
 
       html {
-
         scroll-behavior: auto;
 
         scroll-snap-type:
           y proximity;
-
       }
-
 
       *,
       *::before,
       *::after {
-
         animation-duration:
           0.01ms !important;
 
@@ -2080,7 +1806,6 @@
 
         transition-duration:
           0.01ms !important;
-
       }
 
     }
@@ -2105,21 +1830,17 @@
 
     <div class="hero-logo">
 
-
       <img
         src="edju-cat-type-logo-svg.svg"
         class="logo-mark"
         alt="Edju Cat"
       >
 
-
       <div class="tag-pill">
         WHAT WILL YOU LEARN TODAY?
       </div>
 
-
     </div>
-
 
 
     <!-- =====================================================
@@ -2137,15 +1858,15 @@
       <div class="scroll-control-inner">
 
 
-        <!--
-          The text occupies only a small section
-          of the circumference.
+        <!-- soft pulse sits well inside the text path -->
 
-          The entire SVG rotates slowly.
+        <div
+          class="scroll-pulse"
+          aria-hidden="true"
+        ></div>
 
-          The centre arrow is outside this SVG,
-          so remains fixed.
-        -->
+
+        <!-- rotating arc text -->
 
         <svg
           class="scroll-text"
@@ -2153,24 +1874,20 @@
           aria-hidden="true"
         >
 
-
           <defs>
-
 
             <path
               id="scroll-text-path"
               d="
-                M 17,60
-                A 43,43 0 0,1 103,60
+                M 19,60
+                A 41,41 0 0,1 101,60
               "
             />
-
 
           </defs>
 
 
           <text>
-
 
             <textPath
               href="#scroll-text-path"
@@ -2180,21 +1897,18 @@
               FIND OUT MORE
             </textPath>
 
-
           </text>
 
 
         </svg>
 
 
-
-        <!-- FIXED DOWN ARROW -->
+        <!-- fixed arrow -->
 
         <div
           class="scroll-arrow"
           aria-hidden="true"
         >
-
 
           <svg
             viewBox="0 0 40 40"
@@ -2202,14 +1916,12 @@
             xmlns="http://www.w3.org/2000/svg"
           >
 
-
             <path
               d="M20 7V30"
               stroke="currentColor"
               stroke-width="3"
               stroke-linecap="round"
             />
-
 
             <path
               d="M10.5 21.5L20 31L29.5 21.5"
@@ -2219,9 +1931,7 @@
               stroke-linejoin="round"
             />
 
-
           </svg>
-
 
         </div>
 
@@ -2247,7 +1957,6 @@
 
 
     <div class="platform-inner">
-
 
 
       <!-- LEFT COPY -->
@@ -2280,14 +1989,10 @@
         </p>
 
 
-
-        <!-- SUPPORT POINTS -->
-
         <div class="platform-points">
 
 
           <div class="platform-point">
-
 
             <div
               class="platform-point-icon"
@@ -2296,19 +2001,15 @@
               ◈
             </div>
 
-
             <span>
               Platform,<br>
               not one game
             </span>
 
-
           </div>
 
 
-
           <div class="platform-point">
-
 
             <div
               class="platform-point-icon"
@@ -2317,19 +2018,15 @@
               ◎
             </div>
 
-
             <span>
               Subjects<br>
               become planets
             </span>
 
-
           </div>
 
 
-
           <div class="platform-point">
-
 
             <div
               class="platform-point-icon"
@@ -2338,12 +2035,10 @@
               ★
             </div>
 
-
             <span>
               Progression,<br>
               rewards, discovery
             </span>
-
 
           </div>
 
@@ -2354,8 +2049,7 @@
       </div>
 
 
-
-      <!-- IPAD -->
+      <!-- IPAD MOCKUP -->
 
       <div class="platform-device-wrap">
 
@@ -2481,7 +2175,6 @@
       </div>
 
 
-
       <form
         action="https://formsubmit.co/steven@edjucat.com"
         method="POST"
@@ -2543,41 +2236,33 @@
           required
         >
 
-
           <option value="">
             I’m interested as...
           </option>
-
 
           <option value="Investor">
             Investor
           </option>
 
-
           <option value="Parent">
             Parent
           </option>
-
 
           <option value="Teacher / School">
             Teacher / School
           </option>
 
-
           <option value="Developer / Content Creator">
             Developer / Content Creator
           </option>
-
 
           <option value="Partnership">
             Partnership
           </option>
 
-
           <option value="Other">
             Other
           </option>
-
 
         </select>
 
@@ -2691,7 +2376,6 @@
       "click",
       function () {
 
-
         platformSection.scrollIntoView({
 
           behavior: "smooth",
@@ -2699,7 +2383,6 @@
           block: "start"
 
         });
-
 
       }
     );
@@ -2887,11 +2570,8 @@
 
 
       const cleanUrl =
-
         window.location.pathname
-
         +
-
         window.location.hash;
 
 
@@ -2933,7 +2613,6 @@
 
       function (event) {
 
-
         if (
           event.target ===
           contactOverlay
@@ -2942,7 +2621,6 @@
           closeContactModal();
 
         }
-
 
       }
 
@@ -2964,7 +2642,6 @@
 
       function (event) {
 
-
         if (
           event.target ===
           successOverlay
@@ -2973,7 +2650,6 @@
           closeSuccessMessage();
 
         }
-
 
       }
 
