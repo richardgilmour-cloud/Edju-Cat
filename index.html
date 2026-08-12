@@ -4,6 +4,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -17,6 +18,7 @@
   >
 
   <style>
+
     /* =========================================================
        BASE
        ========================================================= */
@@ -74,7 +76,6 @@
       --cyan: #45e7e3;
       --deepBlue: #001e70;
       --panel: rgba(0, 23, 46, 0.36);
-      --panelStrong: rgba(0, 24, 47, 0.52);
       --panelBorder: rgba(69, 231, 227, 0.22);
       --whiteSoft: rgba(255, 255, 255, 0.88);
     }
@@ -86,13 +87,10 @@
 
     .shared-space-background {
       position: fixed;
-
       z-index: 0;
-
       inset: 0;
 
       opacity: 0;
-
       pointer-events: none;
 
       background:
@@ -108,8 +106,7 @@
         cover
         no-repeat;
 
-      transition:
-        opacity 0.45s ease;
+      transition: opacity 0.45s ease;
     }
 
     .shared-space-background.is-visible {
@@ -118,9 +115,7 @@
 
     .shared-space-background::after {
       content: "";
-
       position: absolute;
-
       inset: 0;
 
       background:
@@ -140,7 +135,6 @@
 
     .fold {
       position: relative;
-
       z-index: 1;
 
       width: 100%;
@@ -170,27 +164,18 @@
         no-repeat;
     }
 
-
     .hero-logo {
       position: absolute;
-
       z-index: 5;
 
-      top:
-        clamp(
-          18px,
-          3vh,
-          34px
-        );
-
+      top: clamp(18px, 3vh, 34px);
       left: 50%;
 
       width: 100%;
 
       text-align: center;
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
 
       pointer-events: none;
     }
@@ -198,18 +183,12 @@
     .logo-mark {
       display: block;
 
-      width:
-        min(
-          44vw,
-          390px
-        );
-
+      width: min(44vw, 390px);
       height: auto;
 
       max-height: 22vh;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       object-fit: contain;
 
@@ -230,16 +209,12 @@
 
       margin-top: 4px;
 
-      padding:
-        12px 24px;
+      padding: 12px 24px;
 
       border-radius: 999px;
 
-      background:
-        var(--cyan);
-
-      color:
-        var(--deepBlue);
+      background: var(--cyan);
+      color: var(--deepBlue);
 
       font-size:
         clamp(
@@ -252,8 +227,7 @@
 
       line-height: 1;
 
-      letter-spacing:
-        0.05em;
+      letter-spacing: 0.05em;
 
       text-align: center;
 
@@ -272,7 +246,6 @@
 
     .scroll-control {
       position: absolute;
-
       z-index: 10;
 
       left: 50%;
@@ -287,11 +260,9 @@
       width: 126px;
       height: 126px;
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       cursor: pointer;
 
@@ -312,11 +283,8 @@
           0.42
         );
 
-      -webkit-backdrop-filter:
-        blur(12px);
-
-      backdrop-filter:
-        blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
 
       box-shadow:
         0 14px 40px
@@ -355,16 +323,13 @@
 
     .scroll-control-inner {
       position: absolute;
-
       inset: 0;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
     }
 
     .scroll-pulse {
@@ -379,8 +344,7 @@
       transform:
         translate(-50%, -50%);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
         radial-gradient(
@@ -435,16 +399,9 @@
       transform:
         translate(-50%, -50%);
 
-      color:
-        var(--cyan);
+      color: var(--cyan);
 
       z-index: 3;
-
-      filter:
-        drop-shadow(
-          0 3px 10px
-          rgba(69, 231, 227, 0.3)
-        );
     }
 
     .scroll-arrow svg {
@@ -494,27 +451,24 @@
 
       letter-spacing: 2px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     @keyframes rotateScrollText {
 
       from {
-        transform:
-          rotate(0deg);
+        transform: rotate(0deg);
       }
 
       to {
-        transform:
-          rotate(360deg);
+        transform: rotate(360deg);
       }
 
     }
 
 
     /* =========================================================
-       COMMON TYPOGRAPHY
+       COMMON EYEBROWS
        ========================================================= */
 
     .eyebrow {
@@ -524,11 +478,9 @@
 
       gap: 12px;
 
-      margin-bottom:
-        24px;
+      margin-bottom: 24px;
 
-      color:
-        var(--cyan);
+      color: var(--cyan);
 
       font-size:
         clamp(
@@ -539,11 +491,9 @@
 
       font-weight: 700;
 
-      letter-spacing:
-        0.08em;
+      letter-spacing: 0.08em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .eyebrow::after {
@@ -561,8 +511,7 @@
     }
 
     .eyebrow.right {
-      justify-content:
-        flex-end;
+      justify-content: flex-end;
     }
 
     .eyebrow.right::after {
@@ -593,13 +542,11 @@
 
       align-items: center;
 
-      background:
-        transparent;
+      background: transparent;
     }
 
     .platform-inner {
       position: relative;
-
       z-index: 2;
 
       display: grid;
@@ -632,8 +579,7 @@
       min-height: 100vh;
       min-height: 100svh;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       padding:
         clamp(
@@ -642,32 +588,10 @@
           110px
         )
         0;
-
-      transition:
-        opacity 0.24s ease,
-        transform 0.24s ease,
-        filter 0.24s ease;
-    }
-
-    .platform-fold.is-exiting
-    .platform-inner {
-      opacity: 0;
-
-      transform:
-        translateY(-18px)
-        scale(0.99);
-
-      filter:
-        blur(2px);
     }
 
     .platform-copy {
-      position: relative;
-
-      z-index: 4;
-
-      max-width:
-        650px;
+      max-width: 650px;
     }
 
     .platform-eyebrow,
@@ -682,23 +606,19 @@
     }
 
     .platform-eyebrow {
-      transform:
-        translateY(12px);
+      transform: translateY(12px);
     }
 
     .platform-title {
-      transform:
-        translateY(26px);
+      transform: translateY(26px);
     }
 
     .platform-description {
-      transform:
-        translateY(20px);
+      transform: translateY(20px);
     }
 
     .platform-point {
-      transform:
-        translateY(16px);
+      transform: translateY(16px);
     }
 
     .platform-fold.is-active
@@ -830,14 +750,9 @@
     }
 
     .platform-title {
-      max-width:
-        680px;
+      margin-bottom: 25px;
 
-      margin-bottom:
-        25px;
-
-      color:
-        #ffffff;
+      color: #ffffff;
 
       font-size:
         clamp(
@@ -848,24 +763,17 @@
 
       font-weight: 700;
 
-      line-height:
-        0.99;
+      line-height: 0.99;
 
-      letter-spacing:
-        -0.045em;
-
-      text-wrap:
-        balance;
+      letter-spacing: -0.045em;
     }
 
     .platform-title span {
-      color:
-        var(--cyan);
+      color: var(--cyan);
     }
 
     .platform-description {
-      max-width:
-        600px;
+      max-width: 600px;
 
       color:
         rgba(
@@ -882,10 +790,7 @@
           22px
         );
 
-      font-weight: 400;
-
-      line-height:
-        1.6;
+      line-height: 1.6;
     }
 
     .platform-points {
@@ -914,11 +819,9 @@
 
       gap: 11px;
 
-      min-height:
-        74px;
+      min-height: 74px;
 
-      padding:
-        13px 14px;
+      padding: 13px 14px;
 
       border:
         1px solid
@@ -929,8 +832,7 @@
           0.22
         );
 
-      border-radius:
-        16px;
+      border-radius: 16px;
 
       background:
         rgba(
@@ -939,12 +841,6 @@
           46,
           0.36
         );
-
-      -webkit-backdrop-filter:
-        blur(8px);
-
-      backdrop-filter:
-        blur(8px);
     }
 
     .platform-point-icon {
@@ -953,14 +849,12 @@
       align-items: center;
       justify-content: center;
 
-      flex:
-        0 0 auto;
-
       width: 36px;
       height: 36px;
 
-      border-radius:
-        50%;
+      flex: 0 0 auto;
+
+      border-radius: 50%;
 
       background:
         rgba(
@@ -979,27 +873,15 @@
           0.32
         );
 
-      color:
-        var(--cyan);
-
-      font-size: 17px;
+      color: var(--cyan);
     }
 
     .platform-point span {
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.92
-        );
-
       font-size: 12px;
 
       font-weight: 600;
 
-      line-height:
-        1.25;
+      line-height: 1.25;
     }
 
     .platform-device-wrap {
@@ -1010,8 +892,6 @@
       align-items: center;
       justify-content: center;
 
-      width: 100%;
-
       opacity: 0;
 
       transform:
@@ -1021,10 +901,6 @@
             700px
           )
         );
-
-      will-change:
-        opacity,
-        transform;
     }
 
     .platform-fold.is-active
@@ -1044,7 +920,7 @@
 
     @keyframes ipadEnter {
 
-      0% {
+      from {
         opacity: 0;
 
         transform:
@@ -1056,11 +932,7 @@
           );
       }
 
-      68% {
-        opacity: 1;
-      }
-
-      100% {
+      to {
         opacity: 1;
 
         transform:
@@ -1069,43 +941,7 @@
 
     }
 
-    .platform-device-glow {
-      position: absolute;
-
-      z-index: 0;
-
-      left: 52%;
-      top: 54%;
-
-      width: 75%;
-      height: 56%;
-
-      transform:
-        translate(-50%, -50%);
-
-      border-radius:
-        50%;
-
-      background:
-        radial-gradient(
-          ellipse at center,
-          rgba(0, 133, 255, 0.20) 0%,
-          rgba(0, 95, 255, 0.09) 38%,
-          transparent 72%
-        );
-
-      filter:
-        blur(35px);
-
-      pointer-events:
-        none;
-    }
-
     .platform-device-float {
-      position: relative;
-
-      z-index: 2;
-
       width: 100%;
     }
 
@@ -1124,33 +960,17 @@
       0%,
       100% {
         transform:
-          translateY(0)
-          rotate(0deg);
-      }
-
-      25% {
-        transform:
-          translateY(-5px)
-          rotate(-0.18deg);
+          translateY(0);
       }
 
       50% {
         transform:
-          translateY(-9px)
-          rotate(0deg);
-      }
-
-      75% {
-        transform:
-          translateY(-4px)
-          rotate(0.18deg);
+          translateY(-9px);
       }
 
     }
 
     .platform-device {
-      position: relative;
-
       width:
         min(
           100%,
@@ -1159,21 +979,12 @@
 
       height: auto;
 
-      margin:
-        0 auto;
-
-      object-fit:
-        contain;
+      margin: 0 auto;
 
       filter:
         drop-shadow(
           0 28px 35px
           rgba(0, 0, 0, 0.42)
-        )
-
-        drop-shadow(
-          0 0 26px
-          rgba(0, 104, 255, 0.08)
         );
     }
 
@@ -1187,15 +998,10 @@
 
       align-items: center;
 
-      background:
-        transparent;
+      background: transparent;
     }
 
     .content-inner {
-      position: relative;
-
-      z-index: 2;
-
       display: grid;
 
       grid-template-columns:
@@ -1226,8 +1032,7 @@
       min-height: 100vh;
       min-height: 100svh;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       padding:
         clamp(
@@ -1238,10 +1043,7 @@
         0;
     }
 
-
     .carousel-stage {
-      position: relative;
-
       width: 100%;
 
       min-width: 0;
@@ -1255,11 +1057,9 @@
 
       display: flex;
 
-      flex-direction:
-        column;
+      flex-direction: column;
 
-      justify-content:
-        center;
+      justify-content: center;
 
       gap:
         clamp(
@@ -1268,8 +1068,7 @@
           34px
         );
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
       opacity: 0;
 
@@ -1277,23 +1076,8 @@
         translateX(-32px);
 
       transition:
-        opacity
-        0.8s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        ),
-
-        transform
-        0.9s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        );
+        opacity 0.8s ease,
+        transform 0.9s ease;
 
       -webkit-mask-image:
         linear-gradient(
@@ -1320,18 +1104,12 @@
 
       transform:
         translateX(0);
-
-      transition-delay:
-        0.08s;
     }
 
     .carousel-row {
-      position: relative;
-
       width: 100%;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
       padding:
         16px 0 22px;
@@ -1340,11 +1118,7 @@
     .carousel-track {
       display: flex;
 
-      width:
-        max-content;
-
-      will-change:
-        transform;
+      width: max-content;
     }
 
     .carousel-set {
@@ -1389,20 +1163,12 @@
 
       from {
         transform:
-          translate3d(
-            0,
-            0,
-            0
-          );
+          translateX(0);
       }
 
       to {
         transform:
-          translate3d(
-            -50%,
-            0,
-            0
-          );
+          translateX(-50%);
       }
 
     }
@@ -1411,27 +1177,18 @@
 
       from {
         transform:
-          translate3d(
-            -50%,
-            0,
-            0
-          );
+          translateX(-50%);
       }
 
       to {
         transform:
-          translate3d(
-            0,
-            0,
-            0
-          );
+          translateX(0);
       }
 
     }
 
     .module-card {
-      flex:
-        0 0 auto;
+      flex: 0 0 auto;
 
       width:
         clamp(
@@ -1440,8 +1197,7 @@
           305px
         );
 
-      padding:
-        6px;
+      padding: 6px;
     }
 
     .carousel-row-top
@@ -1452,24 +1208,16 @@
           15.5vw,
           280px
         );
-
-      opacity:
-        0.93;
     }
 
     .module-float {
-      position: relative;
-
       width: 100%;
 
-      border-radius:
-        20px;
+      border-radius: 20px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      background:
-        #06172b;
+      background: #06172b;
 
       border:
         1px solid
@@ -1482,45 +1230,20 @@
 
       box-shadow:
         0 26px 55px
-        rgba(0, 0, 0, 0.42),
-
-        0 6px 18px
-        rgba(0, 0, 0, 0.22),
-
-        0 0 0 1px
-        rgba(69, 231, 227, 0.04);
+        rgba(0, 0, 0, 0.42);
     }
 
     .module-float img {
       width: 100%;
-
       height: auto;
-
-      object-fit:
-        contain;
-
-      border-radius:
-        inherit;
     }
 
     .content-copy {
-      position: relative;
+      max-width: 590px;
 
-      z-index: 5;
+      margin-left: auto;
 
-      width: 100%;
-
-      max-width:
-        590px;
-
-      margin-left:
-        auto;
-
-      text-align:
-        right;
-
-      padding:
-        28px 0;
+      text-align: right;
     }
 
     .content-eyebrow,
@@ -1534,73 +1257,21 @@
     }
 
     .content-fold.is-active
-    .content-eyebrow {
-      animation:
-        contentCopyReveal
-        0.62s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        )
-        0.12s
-        forwards;
-    }
-
+    .content-eyebrow,
     .content-fold.is-active
-    .content-title {
-      animation:
-        contentCopyReveal
-        0.82s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        )
-        0.23s
-        forwards;
-    }
-
+    .content-title,
     .content-fold.is-active
-    .content-description {
-      animation:
-        contentCopyReveal
-        0.76s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        )
-        0.42s
-        forwards;
-    }
-
+    .content-description,
     .content-fold.is-active
     .access-pill {
       animation:
         contentCopyReveal
-        0.68s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        )
-        0.60s
+        0.72s
+        ease
         forwards;
     }
 
     @keyframes contentCopyReveal {
-
-      from {
-        opacity: 0;
-
-        transform:
-          translateY(22px);
-      }
 
       to {
         opacity: 1;
@@ -1612,11 +1283,7 @@
     }
 
     .content-title {
-      margin-bottom:
-        25px;
-
-      color:
-        #ffffff;
+      margin-bottom: 25px;
 
       font-size:
         clamp(
@@ -1627,32 +1294,19 @@
 
       font-weight: 700;
 
-      line-height:
-        1.01;
+      line-height: 1.01;
 
-      letter-spacing:
-        -0.045em;
+      letter-spacing: -0.045em;
     }
 
     .content-title span {
-      color:
-        var(--cyan);
+      color: var(--cyan);
     }
 
     .content-description {
-      max-width:
-        555px;
+      max-width: 555px;
 
-      margin-left:
-        auto;
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.88
-        );
+      margin-left: auto;
 
       font-size:
         clamp(
@@ -1661,8 +1315,7 @@
           20px
         );
 
-      line-height:
-        1.65;
+      line-height: 1.65;
     }
 
     .access-pill {
@@ -1672,11 +1325,9 @@
 
       gap: 10px;
 
-      margin-top:
-        28px;
+      margin-top: 28px;
 
-      padding:
-        11px 17px;
+      padding: 11px 17px;
 
       border:
         1px solid
@@ -1687,8 +1338,7 @@
           0.25
         );
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
         rgba(
@@ -1698,23 +1348,9 @@
           0.42
         );
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.90
-        );
+      font-size: 13px;
 
-      font-size:
-        clamp(
-          11px,
-          0.9vw,
-          13px
-        );
-
-      font-weight:
-        600;
+      font-weight: 600;
     }
 
     .access-pill-icon {
@@ -1726,11 +1362,7 @@
       width: 22px;
       height: 22px;
 
-      flex:
-        0 0 22px;
-
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
         rgba(
@@ -1740,17 +1372,13 @@
           0.13
         );
 
-      color:
-        var(--cyan);
-
-      font-size:
-        12px;
+      color: var(--cyan);
     }
 
 
     /* =========================================================
        FOLD 4
-       MODULE SHOWCASE
+       REAL MODULE SCREENSHOT SLIDER
        ========================================================= */
 
     .showcase-fold {
@@ -1758,8 +1386,7 @@
 
       align-items: center;
 
-      background:
-        transparent;
+      background: transparent;
     }
 
     .showcase-inner {
@@ -1793,8 +1420,7 @@
       min-height: 100vh;
       min-height: 100svh;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       padding:
         clamp(
@@ -1806,12 +1432,7 @@
     }
 
     .showcase-copy {
-      position: relative;
-
-      max-width:
-        560px;
-
-      z-index: 3;
+      max-width: 560px;
 
       opacity: 0;
 
@@ -1819,23 +1440,8 @@
         translateY(18px);
 
       transition:
-        opacity
-        0.65s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        ),
-
-        transform
-        0.65s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        );
+        opacity 0.65s ease,
+        transform 0.65s ease;
     }
 
     .showcase-fold.is-active
@@ -1847,6 +1453,8 @@
     }
 
     .showcase-title {
+      margin-bottom: 22px;
+
       font-size:
         clamp(
           42px,
@@ -1854,25 +1462,22 @@
           72px
         );
 
-      line-height:
-        1.02;
+      line-height: 1.02;
 
-      letter-spacing:
-        -0.045em;
+      letter-spacing: -0.045em;
 
-      margin-bottom:
-        22px;
-
-      font-weight:
-        700;
+      font-weight: 700;
     }
 
     .showcase-title span {
-      color:
-        var(--cyan);
+      color: var(--cyan);
     }
 
     .showcase-description {
+      min-height: 185px;
+
+      margin-bottom: 28px;
+
       color:
         rgba(
           255,
@@ -1888,14 +1493,7 @@
           20px
         );
 
-      line-height:
-        1.68;
-
-      margin-bottom:
-        28px;
-
-      min-height:
-        185px;
+      line-height: 1.68;
     }
 
     .showcase-benefit {
@@ -1908,8 +1506,7 @@
       padding:
         11px 16px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       border:
         1px solid
@@ -1928,39 +1525,25 @@
           0.4
         );
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.9
-        );
+      font-size: 13px;
 
-      font-size:
-        13px;
+      font-weight: 600;
 
-      font-weight:
-        600;
-
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
     .showcase-benefit-icon {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
       width: 22px;
       height: 22px;
 
-      border-radius:
-        50%;
+      flex: 0 0 22px;
 
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
+      border-radius: 50%;
 
       background:
         rgba(
@@ -1970,19 +1553,10 @@
           0.13
         );
 
-      color:
-        var(--cyan);
-
-      font-size:
-        12px;
-
-      flex:
-        0 0 22px;
+      color: var(--cyan);
     }
 
     .showcase-right {
-      position: relative;
-
       display: flex;
 
       align-items: center;
@@ -1996,23 +1570,8 @@
         translateX(28px);
 
       transition:
-        opacity
-        0.75s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        ),
-
-        transform
-        0.75s
-        cubic-bezier(
-          0.22,
-          1,
-          0.36,
-          1
-        );
+        opacity 0.75s ease,
+        transform 0.75s ease;
     }
 
     .showcase-fold.is-active
@@ -2039,19 +1598,16 @@
     .showcase-device-glow {
       position: absolute;
 
-      z-index: 0;
-
       left: 50%;
       top: 50%;
 
-      width: 72%;
-      height: 62%;
+      width: 74%;
+      height: 60%;
 
       transform:
         translate(-50%, -50%);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
         radial-gradient(
@@ -2061,8 +1617,7 @@
           transparent 72%
         );
 
-      filter:
-        blur(36px);
+      filter: blur(36px);
     }
 
     .showcase-arrow {
@@ -2072,14 +1627,13 @@
 
       z-index: 5;
 
-      width: 52px;
-      height: 52px;
-
-      border-radius:
-        50%;
+      width: 54px;
+      height: 54px;
 
       transform:
         translateY(-50%);
+
+      border-radius: 50%;
 
       border:
         1px solid
@@ -2087,7 +1641,7 @@
           69,
           231,
           227,
-          0.26
+          0.30
         );
 
       background:
@@ -2095,29 +1649,51 @@
           0,
           24,
           47,
+          0.76
+        );
+
+      color: white;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+
+      box-shadow:
+        0 14px 34px
+        rgba(0, 0, 0, 0.32);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .showcase-arrow:hover {
+      transform:
+        translateY(-50%)
+        scale(1.07);
+
+      border-color:
+        rgba(
+          69,
+          231,
+          227,
           0.7
         );
 
-      color:
-        white;
-
-      cursor:
-        pointer;
-
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      -webkit-backdrop-filter:
-        blur(10px);
-
-      backdrop-filter:
-        blur(10px);
+      background:
+        rgba(
+          0,
+          34,
+          64,
+          0.9
+        );
     }
 
     .showcase-arrow.prev {
@@ -2129,28 +1705,32 @@
     }
 
     .showcase-arrow svg {
-      width: 20px;
-      height: 20px;
+      width: 21px;
+      height: 21px;
     }
+
+
+    /* =========================================================
+       FACE-ON IPAD FRAME
+       ========================================================= */
 
     .showcase-device {
       position: relative;
-
       z-index: 2;
 
       width: 100%;
 
-      aspect-ratio:
-        4 / 3;
+      aspect-ratio: 4 / 3;
 
-      border-radius:
-        34px;
+      padding: 15px;
+
+      border-radius: 34px;
 
       background:
         linear-gradient(
           180deg,
-          #12161d 0%,
-          #090b10 100%
+          #15181d 0%,
+          #08090c 100%
         );
 
       border:
@@ -2159,30 +1739,29 @@
           255,
           255,
           255,
-          0.08
+          0.11
         );
 
       box-shadow:
         0 34px 80px
-        rgba(0, 0, 0, 0.44),
+        rgba(0, 0, 0, 0.46),
 
         0 0 0 1px
-        rgba(255, 255, 255, 0.04);
+        rgba(255, 255, 255, 0.035),
 
-      padding: 16px;
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.06);
 
-      overflow:
-        hidden;
+      overflow: hidden;
     }
 
     .showcase-device::before {
       content: "";
 
-      position:
-        absolute;
+      position: absolute;
 
+      top: 6px;
       left: 50%;
-      top: 7px;
 
       width: 8px;
       height: 8px;
@@ -2190,16 +1769,12 @@
       transform:
         translateX(-50%);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
-        rgba(
-          70,
-          78,
-          89,
-          0.9
-        );
+        #292d34;
+
+      z-index: 3;
     }
 
     .showcase-screen {
@@ -2208,15 +1783,26 @@
       width: 100%;
       height: 100%;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      border-radius:
-        22px;
+      border-radius: 22px;
 
-      background:
-        #0a1120;
+      background: #030915;
+
+      box-shadow:
+        inset 0 0 0 1px
+        rgba(
+          255,
+          255,
+          255,
+          0.035
+        );
     }
+
+
+    /* =========================================================
+       REAL SCREENSHOT TRACK
+       ========================================================= */
 
     .showcase-track {
       display: flex;
@@ -2226,7 +1812,7 @@
 
       transition:
         transform
-        0.55s
+        0.58s
         cubic-bezier(
           0.22,
           1,
@@ -2234,884 +1820,72 @@
           1
         );
 
-      will-change:
-        transform;
+      will-change: transform;
     }
 
     .showcase-slide {
-      position: relative;
-
       flex:
         0 0 20%;
 
+      width: 20%;
       height: 100%;
 
-      padding:
-        22px;
-
-      overflow:
-        hidden;
-    }
-
-    .slide-ui-top {
       display: flex;
 
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
 
-      margin-bottom:
-        16px;
+      background: #030915;
 
-      position: relative;
-
-      z-index: 2;
+      overflow: hidden;
     }
 
-    .slide-chip {
-      padding:
-        8px 12px;
-
-      border-radius:
-        999px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.16
-        );
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.95
-        );
-
-      font-size:
-        12px;
-
-      font-weight:
-        600;
-    }
-
-    .slide-chip.right {
-      min-width:
-        36px;
-
-      text-align:
-        center;
-    }
-
-    .slide-layout {
-      position: relative;
-
-      z-index: 2;
-
-      height:
-        calc(
-          100% - 56px
-        );
-
-      display: grid;
-
-      gap: 14px;
-    }
-
-    .slide-story {
-      background:
-        linear-gradient(
-          140deg,
-          #355ea2 0%,
-          #213f77 32%,
-          #133058 64%,
-          #102641 100%
-        );
-    }
-
-    .slide-story
-    .slide-layout {
-      grid-template-columns:
-        1.08fr 0.92fr;
-
-      align-items:
-        end;
-    }
-
-    .slide-story-left {
-      display: flex;
-
-      flex-direction:
-        column;
-
-      justify-content:
-        flex-end;
-
-      gap: 12px;
-    }
-
-    .placeholder-title {
-      font-size:
-        clamp(
-          22px,
-          2vw,
-          34px
-        );
-
-      line-height:
-        1.02;
-
-      font-weight:
-        700;
-
-      color:
-        white;
-
-      max-width:
-        390px;
-
-      letter-spacing:
-        -0.03em;
-    }
-
-    .placeholder-copy {
-      font-size:
-        14px;
-
-      line-height:
-        1.55;
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.9
-        );
-
-      max-width:
-        350px;
-    }
-
-    .placeholder-btn {
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      width:
-        170px;
-
-      padding:
-        11px 14px;
-
-      border-radius:
-        999px;
-
-      background:
-        rgba(
-          69,
-          231,
-          227,
-          0.9
-        );
-
-      color:
-        #032f60;
-
-      font-size:
-        13px;
-
-      font-weight:
-        700;
-    }
-
-    .story-hero-card {
-      align-self:
-        end;
-
-      justify-self:
-        end;
+    .showcase-slide img {
+      display: block;
 
       width: 100%;
-      height: 88%;
+      height: 100%;
 
-      border-radius:
-        26px;
+      object-fit: contain;
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.22),
-          rgba(255, 255, 255, 0.06)
-        );
+      object-position: center;
 
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.14
-        );
-
-      display: flex;
-
-      align-items:
-        end;
-
-      justify-content:
-        center;
-
-      padding:
-        18px;
-    }
-
-    .story-hero-card span {
-      font-size:
-        18px;
-
-      font-weight:
-        700;
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.94
-        );
-
-      text-align:
-        center;
+      background: #030915;
     }
 
 
-    /* slide 2 */
-
-    .slide-arctic {
-      background:
-        linear-gradient(
-          140deg,
-          #83d9f0 0%,
-          #63c5eb 22%,
-          #278fc0 54%,
-          #1b5479 100%
-        );
-    }
-
-    .slide-arctic
-    .slide-layout {
-      grid-template-columns:
-        1fr 1fr;
-
-      align-items:
-        stretch;
-    }
-
-    .arctic-scene {
-      position:
-        relative;
-
-      border-radius:
-        24px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,0.30),
-          rgba(255,255,255,0.08)
-        );
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.16
-        );
-
-      overflow:
-        hidden;
-    }
-
-    .arctic-scene::after {
-      content:
-        "PANORAMA SCENE";
-
-      position:
-        absolute;
-
-      left: 18px;
-      top: 18px;
-
-      font-size:
-        12px;
-
-      font-weight:
-        700;
-
-      letter-spacing:
-        0.09em;
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.88
-        );
-    }
-
-    .finding-card {
-      margin-left:
-        auto;
-
-      width:
-        72%;
-
-      padding:
-        12px;
-
-      border-radius:
-        16px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.16
-        );
-
-      color:
-        white;
-
-      font-size:
-        13px;
-
-      line-height:
-        1.45;
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.15
-        );
-    }
-
-    .finding-card strong {
-      display:
-        block;
-
-      font-size:
-        14px;
-
-      margin-bottom:
-        4px;
-    }
-
-
-    /* slide 3 */
-
-    .slide-quiz {
-      background:
-        linear-gradient(
-          140deg,
-          #8cd7dc 0%,
-          #86efe0 25%,
-          #4fcfd3 55%,
-          #217ea1 100%
-        );
-    }
-
-    .slide-quiz
-    .slide-layout {
-      grid-template-columns:
-        1.06fr 0.94fr;
-
-      align-items:
-        stretch;
-    }
-
-    .quiz-card {
-      border-radius:
-        24px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.18
-        );
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.18
-        );
-
-      padding:
-        18px;
-
-      display:
-        grid;
-
-      gap: 12px;
-
-      color:
-        white;
-    }
-
-    .quiz-question {
-      font-size:
-        22px;
-
-      line-height:
-        1.25;
-
-      font-weight:
-        700;
-    }
-
-    .quiz-option {
-      padding:
-        13px 14px;
-
-      border-radius:
-        14px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.13
-        );
-
-      font-size:
-        14px;
-
-      font-weight:
-        600;
-    }
-
-    .quiz-option.correct {
-      background:
-        rgba(
-          70,
-          208,
-          124,
-          0.34
-        );
-    }
-
-    .quiz-side-card {
-      display:
-        grid;
-
-      gap: 14px;
-
-      align-content:
-        space-between;
-    }
-
-    .stat-box {
-      border-radius:
-        18px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.16
-        );
-
-      padding:
-        16px;
-
-      color:
-        white;
-    }
-
-    .stat-box strong {
-      display:
-        block;
-
-      font-size:
-        24px;
-
-      margin-bottom:
-        8px;
-    }
-
-
-    /* slide 4 */
-
-    .slide-stickerbook {
-      background:
-        linear-gradient(
-          140deg,
-          #c3a4ff 0%,
-          #d9b9ff 28%,
-          #ffddb7 62%,
-          #d8a76c 100%
-        );
-    }
-
-    .slide-stickerbook
-    .slide-layout {
-      grid-template-columns:
-        1.05fr 0.95fr;
-    }
-
-    .book-panel {
-      border-radius:
-        26px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.20
-        );
-
-      display:
-        grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap:
-        12px;
-
-      padding:
-        16px;
-    }
-
-    .book-page {
-      border-radius:
-        18px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.24
-        );
-
-      padding:
-        14px;
-
-      display:
-        grid;
-
-      gap:
-        12px;
-
-      color:
-        #3d2f55;
-    }
-
-    .page-title {
-      font-size:
-        13px;
-
-      font-weight:
-        700;
-
-      text-transform:
-        uppercase;
-    }
-
-    .sticker-grid {
-      display:
-        grid;
-
-      grid-template-columns:
-        repeat(
-          3,
-          1fr
-        );
-
-      gap:
-        8px;
-    }
-
-    .sticker-dot {
-      aspect-ratio:
-        1 / 1;
-
-      border-radius:
-        12px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.62
-        );
-    }
-
-    .progress-side {
-      display:
-        grid;
-
-      gap:
-        14px;
-
-      align-content:
-        center;
-    }
-
-    .progress-box {
-      padding:
-        16px;
-
-      border-radius:
-        18px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.18
-        );
-
-      color:
-        #35274f;
-    }
-
-    .progress-box strong {
-      display:
-        block;
-
-      font-size:
-        17px;
-
-      margin-bottom:
-        6px;
-    }
-
-
-    /* slide 5 */
-
-    .slide-minigame {
-      background:
-        linear-gradient(
-          140deg,
-          #7fb8ff 0%,
-          #688cff 25%,
-          #5a63d8 55%,
-          #35298f 100%
-        );
-    }
-
-    .slide-minigame
-    .slide-layout {
-      grid-template-columns:
-        1fr 1fr;
-    }
-
-    .minigame-playfield {
-      border-radius:
-        24px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.14
-        );
-
-      display:
-        grid;
-
-      place-items:
-        center;
-    }
-
-    .minigame-grid {
-      display:
-        grid;
-
-      grid-template-columns:
-        repeat(
-          4,
-          60px
-        );
-
-      gap:
-        10px;
-    }
-
-    .minigame-cell {
-      width:
-        60px;
-
-      height:
-        60px;
-
-      border-radius:
-        16px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.18
-        );
-    }
-
-    .minigame-side {
-      display:
-        grid;
-
-      gap:
-        14px;
-    }
-
-    .gem-card,
-    .upgrade-card {
-      border-radius:
-        18px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.16
-        );
-
-      padding:
-        16px;
-
-      color:
-        white;
-    }
-
-    .gem-value {
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        10px;
-
-      font-size:
-        28px;
-
-      font-weight:
-        700;
-
-      margin-bottom:
-        8px;
-    }
-
-    .gem-shape {
-      width: 24px;
-      height: 24px;
-
-      border-radius:
-        8px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #71d3ff,
-          #7e5bff
-        );
-
-      transform:
-        rotate(45deg);
-    }
-
-    .upgrade-track {
-      height:
-        10px;
-
-      border-radius:
-        999px;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.18
-        );
-
-      overflow:
-        hidden;
-
-      margin-top:
-        10px;
-    }
-
-    .upgrade-fill {
-      height:
-        100%;
-
-      width:
-        68%;
-
-      background:
-        linear-gradient(
-          90deg,
-          #66f0e7,
-          #75a8ff
-        );
-    }
+    /* =========================================================
+       SLIDE COUNTER
+       ========================================================= */
 
     .showcase-counter {
-      position:
-        absolute;
+      position: absolute;
 
-      right:
-        84px;
+      right: 84px;
+      bottom: -22px;
 
-      bottom:
-        -22px;
-
-      z-index:
-        4;
+      z-index: 4;
 
       padding:
         10px 14px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
+
+      border:
+        1px solid
+        rgba(
+          69,
+          231,
+          227,
+          0.18
+        );
 
       background:
         rgba(
           0,
           23,
           46,
-          0.42
+          0.52
         );
 
       color:
@@ -3119,14 +1893,15 @@
           255,
           255,
           255,
-          0.85
+          0.86
         );
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      font-weight:
-        600;
+      font-weight: 600;
+
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
 
 
@@ -3155,10 +1930,6 @@
     }
 
     .contact-section-inner {
-      position: relative;
-
-      z-index: 2;
-
       width:
         min(
           92vw,
@@ -3168,33 +1939,25 @@
       padding:
         80px 0;
 
-      text-align:
-        center;
+      text-align: center;
     }
 
     .contact-section-eyebrow {
-      margin-bottom:
-        15px;
+      margin-bottom: 15px;
 
-      color:
-        var(--cyan);
+      color: var(--cyan);
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      letter-spacing:
-        0.1em;
+      letter-spacing: 0.1em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .contact-section-title {
-      margin-bottom:
-        18px;
+      margin-bottom: 18px;
 
       font-size:
         clamp(
@@ -3203,13 +1966,11 @@
           70px
         );
 
-      font-weight:
-        700;
+      font-weight: 700;
     }
 
     .contact-section-copy {
-      max-width:
-        690px;
+      max-width: 690px;
 
       margin:
         0 auto 34px;
@@ -3222,46 +1983,33 @@
           0.8
         );
 
-      font-size:
-        17px;
+      font-size: 17px;
 
-      line-height:
-        1.6;
+      line-height: 1.6;
     }
 
     .primary-button {
-      display:
-        inline-flex;
+      display: inline-flex;
 
-      align-items:
-        center;
+      align-items: center;
+      justify-content: center;
 
-      justify-content:
-        center;
-
-      min-width:
-        170px;
+      min-width: 170px;
 
       padding:
         14px 28px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      background:
-        var(--cyan);
+      background: var(--cyan);
 
-      color:
-        var(--deepBlue);
+      color: var(--deepBlue);
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      cursor:
-        pointer;
+      cursor: pointer;
     }
 
 
@@ -3270,25 +2018,18 @@
        ========================================================= */
 
     .modal-overlay {
-      position:
-        fixed;
+      position: fixed;
 
-      z-index:
-        1000;
+      z-index: 1000;
 
       inset: 0;
 
-      display:
-        none;
+      display: none;
 
-      align-items:
-        center;
+      align-items: center;
+      justify-content: center;
 
-      justify-content:
-        center;
-
-      padding:
-        18px;
+      padding: 18px;
 
       background:
         rgba(
@@ -3298,21 +2039,16 @@
           0.8
         );
 
-      -webkit-backdrop-filter:
-        blur(12px);
-
-      backdrop-filter:
-        blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
     }
 
     .modal-overlay.is-visible {
-      display:
-        flex;
+      display: flex;
     }
 
     .contact-modal {
-      position:
-        relative;
+      position: relative;
 
       width:
         min(
@@ -3320,11 +2056,9 @@
           660px
         );
 
-      padding:
-        30px;
+      padding: 30px;
 
-      border-radius:
-        28px;
+      border-radius: 28px;
 
       background:
         rgba(
@@ -3336,63 +2070,47 @@
     }
 
     .modal-close {
-      position:
-        absolute;
+      position: absolute;
 
-      right:
-        15px;
+      right: 15px;
+      top: 15px;
 
-      top:
-        15px;
+      color: white;
 
-      color:
-        white;
+      font-size: 25px;
 
-      font-size:
-        25px;
-
-      cursor:
-        pointer;
+      cursor: pointer;
     }
 
     .contact-modal-header {
-      margin-bottom:
-        22px;
+      margin-bottom: 22px;
     }
 
     .contact-modal-header p {
-      margin-top:
-        8px;
+      margin-top: 8px;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      line-height:
-        1.55;
+      line-height: 1.55;
     }
 
     form {
-      display:
-        grid;
+      display: grid;
 
       grid-template-columns:
         1fr 1fr;
 
-      gap:
-        12px;
+      gap: 12px;
     }
 
     input,
     select,
     textarea {
-      width:
-        100%;
+      width: 100%;
 
-      border:
-        0;
+      border: 0;
 
-      border-radius:
-        13px;
+      border-radius: 13px;
 
       padding:
         13px 15px;
@@ -3402,8 +2120,7 @@
       grid-column:
         1 / -1;
 
-      min-height:
-        110px;
+      min-height: 110px;
     }
 
     .full {
@@ -3415,27 +2132,20 @@
       grid-column:
         1 / -1;
 
-      justify-self:
-        center;
+      justify-self: center;
     }
 
     .success-overlay {
-      position:
-        fixed;
+      position: fixed;
 
-      z-index:
-        1100;
+      z-index: 1100;
 
       inset: 0;
 
-      display:
-        none;
+      display: none;
 
-      align-items:
-        center;
-
-      justify-content:
-        center;
+      align-items: center;
+      justify-content: center;
 
       background:
         rgba(
@@ -3447,8 +2157,7 @@
     }
 
     .success-overlay.is-visible {
-      display:
-        flex;
+      display: flex;
     }
 
     .success-dialog {
@@ -3458,49 +2167,35 @@
           480px
         );
 
-      padding:
-        36px;
+      padding: 36px;
 
-      border-radius:
-        28px;
+      border-radius: 28px;
 
-      background:
-        #02182a;
+      background: #02182a;
 
-      text-align:
-        center;
+      text-align: center;
     }
 
     .success-icon {
-      width:
-        72px;
-
-      height:
-        72px;
+      width: 72px;
+      height: 72px;
 
       margin:
         0 auto 18px;
 
-      display:
-        grid;
+      display: grid;
 
-      place-items:
-        center;
+      place-items: center;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
-      background:
-        var(--cyan);
+      background: var(--cyan);
 
-      color:
-        var(--deepBlue);
+      color: var(--deepBlue);
 
-      font-size:
-        38px;
+      font-size: 38px;
 
-      font-weight:
-        700;
+      font-weight: 700;
     }
 
 
@@ -3516,17 +2211,14 @@
       .showcase-inner {
         display: flex;
 
-        flex-direction:
-          column;
+        flex-direction: column;
 
-        width:
-          100%;
+        width: 100%;
 
         padding:
           70px 22px 50px;
 
-        gap:
-          30px;
+        gap: 30px;
       }
 
       .platform-title,
@@ -3541,39 +2233,31 @@
       }
 
       .platform-points {
-        display:
-          none;
+        display: none;
       }
 
       .content-copy {
-        order:
-          1;
+        order: 1;
 
-        text-align:
-          left;
+        text-align: left;
       }
 
       .carousel-stage {
-        order:
-          2;
+        order: 2;
 
-        height:
-          420px;
+        height: 420px;
       }
 
       .showcase-copy {
-        max-width:
-          none;
+        max-width: none;
       }
 
       .showcase-description {
-        min-height:
-          auto;
+        min-height: auto;
       }
 
       .showcase-benefit {
-        white-space:
-          normal;
+        white-space: normal;
       }
 
       .showcase-device-wrap {
@@ -3582,36 +2266,28 @@
       }
 
       .showcase-arrow {
-        width:
-          42px;
-
-        height:
-          42px;
+        width: 42px;
+        height: 42px;
       }
 
       .showcase-device {
-        border-radius:
-          24px;
+        border-radius: 24px;
 
-        padding:
-          10px;
+        padding: 10px;
       }
 
       .showcase-screen {
-        border-radius:
-          16px;
+        border-radius: 16px;
       }
 
       form {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
       textarea,
       .full,
       .submit-button {
-        grid-column:
-          auto;
+        grid-column: auto;
       }
 
     }
@@ -3823,8 +2499,6 @@
 
       <div class="platform-device-wrap">
 
-        <div class="platform-device-glow"></div>
-
         <div class="platform-device-float">
 
           <img
@@ -4034,10 +2708,7 @@
 
         <div class="access-pill">
 
-          <span
-            class="access-pill-icon"
-            aria-hidden="true"
-          >
+          <span class="access-pill-icon">
             ✓
           </span>
 
@@ -4103,10 +2774,7 @@
           id="showcase-benefit"
         >
 
-          <span
-            class="showcase-benefit-icon"
-            aria-hidden="true"
-          >
+          <span class="showcase-benefit-icon">
             ✓
           </span>
 
@@ -4120,10 +2788,15 @@
 
       <div class="showcase-right">
 
+
         <div class="showcase-device-wrap">
 
 
-          <div class="showcase-device-glow"></div>
+          <div
+            class="showcase-device-glow"
+            aria-hidden="true"
+          ></div>
+
 
 
           <button
@@ -4152,9 +2825,15 @@
 
 
 
+          <!-- ===============================================
+               FACE-ON IPAD
+               =============================================== -->
+
           <div class="showcase-device">
 
+
             <div class="showcase-screen">
+
 
               <div
                 class="showcase-track"
@@ -4163,361 +2842,80 @@
 
 
                 <!-- ================================
-                     SLIDE 1
+                     1 / STORY
                      ================================ -->
 
-                <div class="showcase-slide slide-story">
+                <div class="showcase-slide">
 
-                  <div class="slide-ui-top">
-
-                    <div class="slide-chip">
-                      Story & Mission
-                    </div>
-
-                    <div class="slide-chip right">
-                      1/5
-                    </div>
-
-                  </div>
-
-
-                  <div class="slide-layout">
-
-                    <div class="slide-story-left">
-
-                      <div class="placeholder-title">
-                        Captain HighTides and the lost Ocean Compass
-                      </div>
-
-                      <div class="placeholder-copy">
-                        Story mission placeholder screen
-                      </div>
-
-                      <div class="placeholder-btn">
-                        Continue Adventure
-                      </div>
-
-                    </div>
-
-
-                    <div class="story-hero-card">
-                      <span>
-                        Hero Artwork Placeholder
-                      </span>
-                    </div>
-
-                  </div>
+                  <img
+                    src="module-screen-01.png"
+                    alt="The Ocean Compass story and Captain HighTides mission screen"
+                  >
 
                 </div>
 
 
-
                 <!-- ================================
-                     SLIDE 2
+                     2 / ARCTIC DISCOVERY
                      ================================ -->
 
-                <div class="showcase-slide slide-arctic">
+                <div class="showcase-slide">
 
-                  <div class="slide-ui-top">
-
-                    <div class="slide-chip">
-                      Explore & Discover
-                    </div>
-
-                    <div class="slide-chip right">
-                      2/5
-                    </div>
-
-                  </div>
-
-
-                  <div class="slide-layout">
-
-                    <div class="arctic-scene"></div>
-
-
-                    <div
-                      style="
-                        display:grid;
-                        gap:14px;
-                        align-content:center;
-                      "
-                    >
-
-                      <div class="finding-card">
-                        <strong>
-                          Hidden Findable
-                        </strong>
-                        Arctic animal placeholder
-                      </div>
-
-
-                      <div class="finding-card">
-                        <strong>
-                          Learning Video
-                        </strong>
-                        Video reveal placeholder
-                      </div>
-
-
-                      <div class="finding-card">
-                        <strong>
-                          Discover
-                        </strong>
-                        Tap to learn more
-                      </div>
-
-                    </div>
-
-                  </div>
+                  <img
+                    src="module-screen-02.png"
+                    alt="Edju Cat interactive Arctic Ocean learning scene"
+                  >
 
                 </div>
 
 
-
                 <!-- ================================
-                     SLIDE 3
+                     3 / QUIZ
                      ================================ -->
 
-                <div class="showcase-slide slide-quiz">
+                <div class="showcase-slide">
 
-                  <div class="slide-ui-top">
-
-                    <div class="slide-chip">
-                      Quiz
-                    </div>
-
-                    <div class="slide-chip right">
-                      3/5
-                    </div>
-
-                  </div>
-
-
-                  <div class="slide-layout">
-
-                    <div class="quiz-card">
-
-                      <div class="quiz-question">
-                        What helps polar bears stay warm in the Arctic?
-                      </div>
-
-                      <div class="quiz-option correct">
-                        A. Thick fur and body fat
-                      </div>
-
-                      <div class="quiz-option">
-                        B. Long necks
-                      </div>
-
-                      <div class="quiz-option">
-                        C. Hot desert caves
-                      </div>
-
-                    </div>
-
-
-                    <div class="quiz-side-card">
-
-                      <div class="stat-box">
-                        <strong>3 / 5</strong>
-                        Questions completed
-                      </div>
-
-                      <div class="stat-box">
-                        <strong>
-                          Quick recall
-                        </strong>
-                        Short quiz loops reinforce what has just been learned.
-                      </div>
-
-                    </div>
-
-                  </div>
+                  <img
+                    src="module-screen-03.png"
+                    alt="Edju Cat quiz screen"
+                  >
 
                 </div>
 
 
-
                 <!-- ================================
-                     SLIDE 4
+                     4 / STICKERBOOK
                      ================================ -->
 
-                <div class="showcase-slide slide-stickerbook">
+                <div class="showcase-slide">
 
-                  <div class="slide-ui-top">
-
-                    <div class="slide-chip">
-                      Stickerbook
-                    </div>
-
-                    <div class="slide-chip right">
-                      4/5
-                    </div>
-
-                  </div>
-
-
-                  <div class="slide-layout">
-
-                    <div class="book-panel">
-
-
-                      <div class="book-page">
-
-                        <div class="page-title">
-                          Collected
-                        </div>
-
-                        <div class="sticker-grid">
-
-                          <div class="sticker-dot"></div>
-                          <div class="sticker-dot"></div>
-                          <div class="sticker-dot"></div>
-                          <div class="sticker-dot"></div>
-                          <div class="sticker-dot"></div>
-                          <div class="sticker-dot"></div>
-
-                        </div>
-
-                      </div>
-
-
-                      <div class="book-page">
-
-                        <div class="page-title">
-                          Badges
-                        </div>
-
-                        <div class="sticker-grid">
-
-                          <div class="sticker-dot"></div>
-                          <div class="sticker-dot"></div>
-                          <div class="sticker-dot"></div>
-
-                        </div>
-
-                      </div>
-
-
-                    </div>
-
-
-                    <div class="progress-side">
-
-                      <div class="progress-box">
-                        <strong>
-                          Module stickerbook
-                        </strong>
-                        Every adventure has its own collection.
-                      </div>
-
-                      <div class="progress-box">
-                        <strong>
-                          Progress & rewards
-                        </strong>
-                        Stickers, badges and upgrades give players a reason to return.
-                      </div>
-
-                    </div>
-
-                  </div>
+                  <img
+                    src="module-screen-04.png"
+                    alt="Edju Cat Ocean Compass stickerbook screen"
+                  >
 
                 </div>
 
 
-
                 <!-- ================================
-                     SLIDE 5
+                     5 / MINIGAME
                      ================================ -->
 
-                <div class="showcase-slide slide-minigame">
+                <div class="showcase-slide">
 
-                  <div class="slide-ui-top">
-
-                    <div class="slide-chip">
-                      Game Systems
-                    </div>
-
-                    <div class="slide-chip right">
-                      5/5
-                    </div>
-
-                  </div>
-
-
-                  <div class="slide-layout">
-
-                    <div class="minigame-playfield">
-
-                      <div class="minigame-grid">
-
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-                        <div class="minigame-cell"></div>
-
-                      </div>
-
-                    </div>
-
-
-                    <div class="minigame-side">
-
-                      <div class="gem-card">
-
-                        <div class="gem-value">
-
-                          <span
-                            class="gem-shape"
-                            aria-hidden="true"
-                          ></span>
-
-                          460
-
-                        </div>
-
-                        In-game gems collected
-
-                      </div>
-
-
-                      <div class="upgrade-card">
-
-                        Upgrade collectibles to Epic editions.
-
-                        <div class="upgrade-track">
-                          <div class="upgrade-fill"></div>
-                        </div>
-
-                      </div>
-
-
-                      <div class="upgrade-card">
-                        Modern minigame loops bring a premium,
-                        console-inspired product feel.
-                      </div>
-
-                    </div>
-
-                  </div>
+                  <img
+                    src="module-screen-05.png"
+                    alt="Edju Cat minigame screen"
+                  >
 
                 </div>
 
 
               </div>
 
+
             </div>
+
 
           </div>
 
@@ -4548,6 +2946,7 @@
           </button>
 
 
+
           <div
             class="showcase-counter"
             id="showcase-counter"
@@ -4558,7 +2957,9 @@
 
         </div>
 
+
       </div>
+
 
     </div>
 
@@ -4615,8 +3016,6 @@
     class="modal-overlay"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="contact-title"
-    aria-hidden="true"
   >
 
     <div class="contact-modal">
@@ -4631,7 +3030,7 @@
 
       <div class="contact-modal-header">
 
-        <h2 id="contact-title">
+        <h2>
           Help Shape Edju Cat
         </h2>
 
@@ -4679,6 +3078,7 @@
           placeholder="Name"
           required
         >
+
 
         <input
           type="email"
@@ -4832,7 +3232,7 @@
 
 
     /* =======================================================
-       NAVIGATION
+       FOLD NAVIGATION
        ======================================================= */
 
     let currentFoldIndex = 0;
@@ -4943,13 +3343,6 @@
         folds[index] ===
         platformSection
       ) {
-
-        platformSection
-          .classList
-          .remove(
-            "is-exiting"
-          );
-
 
         platformSection
           .classList
@@ -5259,7 +3652,7 @@
 
 
     /* =======================================================
-       FOLD 4 SLIDER COPY
+       FOLD 4 SLIDER
        ======================================================= */
 
     const showcaseTrack =
@@ -5325,7 +3718,7 @@
           "Meet Captain HighTides and follow a mission-driven adventure. Story and character give the learning journey purpose, momentum and emotional engagement, helping educational content feel more like a modern game and less like a lesson.",
 
         benefit:
-          '<span class="showcase-benefit-icon" aria-hidden="true">✓</span> Story creates purpose and motivation'
+          '<span class="showcase-benefit-icon">✓</span> Story creates purpose and motivation'
       },
 
 
@@ -5340,7 +3733,7 @@
           "Players move through panoramic scenes and uncover hidden findables. Each discovery can unlock a short educational video, turning exploration into a natural gateway for learning.",
 
         benefit:
-          '<span class="showcase-benefit-icon" aria-hidden="true">✓</span> Explore. Find. Learn.'
+          '<span class="showcase-benefit-icon">✓</span> Explore. Find. Learn.'
       },
 
 
@@ -5355,7 +3748,7 @@
           "Short quiz loops reinforce what players have just learned. This keeps educational content active rather than passive, helping knowledge stick through immediate recall and feedback.",
 
         benefit:
-          '<span class="showcase-benefit-icon" aria-hidden="true">✓</span> Short quizzes reinforce recall'
+          '<span class="showcase-benefit-icon">✓</span> Short quizzes reinforce recall'
       },
 
 
@@ -5370,7 +3763,7 @@
           "Every module has its own stickerbook, turning discoveries into collectible stickers, badges, upgrades and visible progress. That sense of ownership and completion gives learners a reason to return and continue building their collection.",
 
         benefit:
-          '<span class="showcase-benefit-icon" aria-hidden="true">✓</span> Collect. Upgrade. Complete.'
+          '<span class="showcase-benefit-icon">✓</span> Collect. Upgrade. Complete.'
       },
 
 
@@ -5385,7 +3778,7 @@
           "Minigames and in-game gems introduce the kind of reward mechanics players expect from premium games. Collectibles can be upgraded to rarer editions, helping the platform feel closer to a modern console-style production model.",
 
         benefit:
-          '<span class="showcase-benefit-icon" aria-hidden="true">✓</span> Play. Earn. Upgrade.'
+          '<span class="showcase-benefit-icon">✓</span> Play. Earn. Upgrade.'
       }
 
 
