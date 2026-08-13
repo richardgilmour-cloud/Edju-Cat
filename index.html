@@ -42,6 +42,7 @@
 
     body {
       min-height: 100%;
+
       background: #001827;
       color: white;
 
@@ -485,6 +486,7 @@
 
     /* =========================================================
        FOLD 1
+       IMPORTANT: BACKGROUND RESTORED TO CENTER TOP
        ========================================================= */
 
     .hero-fold {
@@ -492,12 +494,12 @@
 
         linear-gradient(
           to bottom,
-          rgba(0, 10, 30, 0.01) 55%,
-          rgba(0, 15, 29, 0.26) 100%
+          rgba(0, 10, 30, 0.02) 55%,
+          rgba(0, 15, 29, 0.42) 100%
         ),
 
         url("background.jpg")
-        center center /
+        center top /
         cover
         no-repeat;
     }
@@ -528,9 +530,9 @@
 
       width:
         clamp(
-          320px,
-          23vw,
-          430px
+          255px,
+          18.5vw,
+          345px
         );
 
       text-align: left;
@@ -566,10 +568,10 @@
 
       width: 90%;
 
-      margin-top: 10px;
+      margin-top: 8px;
 
       padding:
-        11px 16px;
+        10px 14px;
 
       border-radius: 999px;
 
@@ -581,9 +583,9 @@
 
       font-size:
         clamp(
-          12px,
-          1vw,
-          16px
+          11px,
+          0.9vw,
+          14px
         );
 
       font-weight: 700;
@@ -591,12 +593,12 @@
       line-height: 1;
 
       letter-spacing:
-        0.035em;
+        0.03em;
 
       white-space: nowrap;
 
       box-shadow:
-        0 12px 28px
+        0 10px 24px
         rgba(
           0,
           0,
@@ -615,7 +617,7 @@
 
 
     /* =========================================================
-       FIND OUT MORE BUTTON
+       FIND OUT MORE
        ========================================================= */
 
     .scroll-control {
@@ -2330,7 +2332,7 @@
 
 
     /* =========================================================
-       PRE-LAUNCH FORM
+       PRE-LAUNCH SIGNUP
        ========================================================= */
 
     .prelaunch-form {
@@ -2364,7 +2366,7 @@
         );
     }
 
-    .prelaunch-form input {
+    .prelaunch-form input[type="email"] {
       flex: 1;
 
       min-width: 0;
@@ -2481,7 +2483,7 @@
 
 
     /* =========================================================
-       FINAL CONTACT
+       FINAL CONTACT PANEL
        ========================================================= */
 
     .professional-note {
@@ -2884,9 +2886,9 @@
       .hero-logo {
         width:
           clamp(
-            280px,
-            27vw,
-            350px
+            235px,
+            22vw,
+            290px
           );
 
         left: 28px;
@@ -2933,27 +2935,18 @@
 
 
     /* =========================================================
-       MOBILE AUDIT
+       MOBILE
        ========================================================= */
 
     @media
     (max-width: 700px) {
 
-
-      /* -------------------------------------------------------
-         GENERAL
-         ------------------------------------------------------- */
-
       .fold {
         min-height: 100svh;
-
-        overflow: hidden;
       }
 
 
-      /* -------------------------------------------------------
-         COUNTDOWN
-         ------------------------------------------------------- */
+      /* countdown */
 
       .launch-countdown {
         top:
@@ -3018,13 +3011,11 @@
       }
 
 
-      /* -------------------------------------------------------
-         FOLD 1
-         ------------------------------------------------------- */
+      /* hero */
 
       .hero-fold {
         background-position:
-          center center;
+          center top;
       }
 
       .hero-logo {
@@ -3038,29 +3029,29 @@
 
         width:
           clamp(
-            145px,
-            41vw,
-            175px
+            125px,
+            35vw,
+            150px
           );
       }
 
       .tag-pill {
         width: 90%;
 
-        margin-top: 5px;
+        margin-top: 4px;
 
         padding:
-          7px 7px;
+          6px 6px;
 
         font-size:
           clamp(
-            7px,
-            2.35vw,
-            10px
+            6.5px,
+            2vw,
+            9px
           );
 
         letter-spacing:
-          0.015em;
+          0.01em;
       }
 
       .scroll-control {
@@ -3092,9 +3083,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         FOLDS 2-4 SHARED MOBILE LAYOUT
-         ------------------------------------------------------- */
+      /* shared mobile section layouts */
 
       .platform-inner,
       .content-inner,
@@ -3114,9 +3103,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         FOLD 2
-         ------------------------------------------------------- */
+      /* fold 2 */
 
       .platform-copy {
         width: 100%;
@@ -3165,9 +3152,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         FOLD 3
-         ------------------------------------------------------- */
+      /* fold 3 */
 
       .content-fold {
         overflow: visible;
@@ -3306,9 +3291,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         FOLD 4
-         ------------------------------------------------------- */
+      /* fold 4 */
 
       .showcase-copy {
         width: 100%;
@@ -3407,9 +3390,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         FINAL FOLD
-         ------------------------------------------------------- */
+      /* final fold */
 
       .final-fold {
         overflow: visible;
@@ -3463,8 +3444,7 @@
       .final-copy {
         margin-bottom: 22px;
 
-        font-size:
-          14px;
+        font-size: 14px;
 
         line-height: 1.55;
       }
@@ -3479,7 +3459,7 @@
         padding: 6px;
       }
 
-      .prelaunch-form input {
+      .prelaunch-form input[type="email"] {
         width: 100%;
 
         padding:
@@ -3513,9 +3493,7 @@
       }
 
 
-      /* -------------------------------------------------------
-         CONTACT MODAL
-         ------------------------------------------------------- */
+      /* modal */
 
       .contact-modal {
         width: 100%;
@@ -3557,7 +3535,7 @@
     (max-width: 380px) {
 
       .hero-logo {
-        width: 140px;
+        width: 120px;
       }
 
       .launch-countdown {
@@ -4456,7 +4434,7 @@
     <div class="final-inner">
 
 
-      <!-- LEFT -->
+      <!-- LEFT: LAUNCH LIST -->
 
       <div class="final-panel join-panel">
 
@@ -4491,6 +4469,8 @@
           method="POST"
         >
 
+          <!-- FormSubmit system fields -->
+
           <input
             type="hidden"
             name="_captcha"
@@ -4516,9 +4496,30 @@
           >
 
 
+          <!--
+            IMPORTANT:
+            This is deliberately NOT prefixed with "_".
+            FormSubmit will therefore include it in the
+            body of the email it sends you.
+          -->
+
+          <input
+            type="hidden"
+            name="Request"
+            value="Join Edju Cat Launch List"
+          >
+
+
+          <input
+            type="hidden"
+            name="Source"
+            value="Edju Cat Website Pre-Launch Form"
+          >
+
+
           <input
             type="email"
-            name="email"
+            name="Email"
             placeholder="Your email address"
             autocomplete="email"
             required
@@ -4557,7 +4558,7 @@
 
 
 
-      <!-- RIGHT -->
+      <!-- RIGHT: PROFESSIONAL CONTACT -->
 
       <div class="final-panel work-panel">
 
@@ -4685,9 +4686,16 @@
 
 
         <input
+          type="hidden"
+          name="Request"
+          value="General / Professional Enquiry"
+        >
+
+
+        <input
           id="contact-name"
           type="text"
-          name="name"
+          name="Name"
           placeholder="Name"
           autocomplete="name"
           required
@@ -4696,7 +4704,7 @@
 
         <input
           type="email"
-          name="email"
+          name="Email"
           placeholder="Email"
           autocomplete="email"
           required
@@ -4705,7 +4713,7 @@
 
         <select
           class="full"
-          name="interest"
+          name="Interest"
           required
         >
 
@@ -4741,7 +4749,7 @@
 
 
         <textarea
-          name="message"
+          name="Message"
           placeholder="Short message"
           required
         ></textarea>
@@ -5710,7 +5718,7 @@
 
 
     /* =======================================================
-       CONTACT + SIGNUP SUCCESS
+       CONTACT + SUCCESS
        ======================================================= */
 
     const openContactButton =
