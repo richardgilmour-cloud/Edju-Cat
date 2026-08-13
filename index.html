@@ -3,16 +3,6 @@
 
 <head>
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNQ4T14HD8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HNQ4T14HD8');
-</script>
-
   <link
     rel="icon"
     type="image/png"
@@ -32,6 +22,32 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-HNQ4T14HD8"
+  ></script>
+
+  <script>
+    window.dataLayer =
+      window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag(
+      "js",
+      new Date()
+    );
+
+    gtag(
+      "config",
+      "G-HNQ4T14HD8"
+    );
+  </script>
+
 
   <style>
 
@@ -88,6 +104,7 @@
       display: block;
       max-width: 100%;
     }
+
 
     :root {
       --cyan: #45e7e3;
@@ -203,6 +220,7 @@
 
     /* =========================================================
        FIXED COUNTDOWN
+       DESKTOP / TABLET
        ========================================================= */
 
     .launch-countdown {
@@ -275,6 +293,7 @@
           0.06
         );
     }
+
 
     .launch-countdown-orb {
       position: relative;
@@ -516,7 +535,7 @@
 
     /* =========================================================
        HERO APP STORE PANEL
-       HERO ONLY, NOT FIXED
+       HERO ONLY
        ========================================================= */
 
     .store-coming-soon {
@@ -592,9 +611,6 @@
 
 
     .store-coming-soon-label {
-      flex:
-        0 0 auto;
-
       color:
         var(--cyan);
 
@@ -700,7 +716,7 @@
 
 
     /* =========================================================
-       HERO CENTRED BRAND LOCKUP
+       HERO CENTRED LOGO
        ========================================================= */
 
     .hero-logo {
@@ -2530,7 +2546,7 @@
 
 
     /* =========================================================
-       PRE-LAUNCH SIGNUP
+       PRE-LAUNCH
        ========================================================= */
 
     .prelaunch-form {
@@ -2681,7 +2697,7 @@
 
 
     /* =========================================================
-       FINAL CONTACT PANEL
+       FINAL CONTACT
        ========================================================= */
 
     .professional-note {
@@ -3073,6 +3089,16 @@
 
 
     /* =========================================================
+       MOBILE UTILITY HEADER
+       HIDDEN ON DESKTOP
+       ========================================================= */
+
+    .mobile-hero-utility {
+      display: none;
+    }
+
+
+    /* =========================================================
        TABLET
        ========================================================= */
 
@@ -3143,7 +3169,7 @@
 
 
     /* =========================================================
-       MOBILE
+       MOBILE HERO ART-DIRECTION FIX
        ========================================================= */
 
     @media
@@ -3154,220 +3180,447 @@
       }
 
 
-      /* countdown */
+      /* -------------------------------------------------------
+         HIDE DESKTOP CORNER HUD ELEMENTS
+         ------------------------------------------------------- */
 
-      .launch-countdown {
-        top:
+      body > .launch-countdown {
+        display: none;
+      }
+
+      .hero-fold
+      > .store-coming-soon {
+        display: none;
+      }
+
+
+      /* -------------------------------------------------------
+         MOBILE HERO STRUCTURE
+         ------------------------------------------------------- */
+
+      .hero-fold {
+        display: flex;
+
+        flex-direction: column;
+
+        min-height: 100svh;
+
+        background:
+          none;
+
+        overflow: hidden;
+      }
+
+
+      .mobile-hero-utility {
+        position: relative;
+
+        z-index: 30;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr auto;
+
+        align-items: center;
+
+        gap: 10px;
+
+        min-height: 78px;
+
+        padding:
           max(
             10px,
             env(safe-area-inset-top)
+          )
+          12px
+          10px;
+
+        background:
+          linear-gradient(
+            180deg,
+            rgba(
+              0,
+              18,
+              36,
+              0.99
+            ) 0%,
+            rgba(
+              0,
+              24,
+              43,
+              0.97
+            ) 100%
           );
 
-        right:
-          max(
-            8px,
-            env(safe-area-inset-right)
+        border-bottom:
+          1px solid
+          rgba(
+            69,
+            231,
+            227,
+            0.12
           );
+
+        box-shadow:
+          0 8px 24px
+          rgba(
+            0,
+            0,
+            0,
+            0.20
+          );
+      }
+
+
+      .mobile-store-block {
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
 
         min-width: 0;
-
-        width: 104px;
-
-        padding:
-          6px 8px 6px 6px;
-
-        gap: 6px;
-      }
-
-      .launch-countdown-orb {
-        width: 32px;
-        height: 32px;
-
-        flex:
-          0 0 32px;
-      }
-
-      .launch-countdown-orb svg {
-        width: 14px;
-        height: 14px;
-      }
-
-      .launch-countdown-label {
-        display: none;
-      }
-
-      .countdown-unit:not(:first-child),
-      .countdown-separator {
-        display: none;
-      }
-
-      .countdown-unit {
-        align-items:
-          flex-start;
-
-        min-width: 44px;
-      }
-
-      .countdown-value {
-        font-size: 14px;
-      }
-
-      .countdown-caption {
-        margin-top: 2px;
-
-        font-size: 6px;
       }
 
 
-      /* store panel */
-
-      .store-coming-soon {
-        top:
-          max(
-            10px,
-            env(safe-area-inset-top)
-          );
-
-        left:
-          max(
-            8px,
-            env(safe-area-inset-left)
-          );
-
-        min-width: 0;
-
-        width: 132px;
-
-        padding:
-          6px 8px;
-
-        gap: 7px;
-
-        border-radius: 18px;
-      }
-
-      .store-coming-soon-label {
-        font-size: 6px;
-
-        letter-spacing:
-          0.04em;
-      }
-
-      .store-divider {
-        height: 27px;
-      }
-
-      .store-platforms {
-        gap: 7px;
-      }
-
-      .store-platform {
-        gap: 4px;
-      }
-
-      .store-platform img {
-        width: 17px;
-        height: 17px;
-
-        flex:
-          0 0 17px;
-      }
-
-      .store-platform-copy small {
-        display: none;
-      }
-
-      .store-platform-copy strong {
-        margin-top: 0;
+      .mobile-store-copy {
+        color:
+          var(--cyan);
 
         font-size: 7px;
 
-        line-height: 1.1;
+        font-weight: 700;
+
+        letter-spacing:
+          0.06em;
+
+        line-height: 1.2;
+
+        text-transform: uppercase;
+
+        white-space: nowrap;
       }
 
 
-      /* hero */
+      .mobile-store-icons {
+        display: flex;
 
-      .hero-fold {
-        background-position:
-          center top;
+        align-items: center;
+
+        gap: 8px;
       }
+
+
+      .mobile-store-icon {
+        display: flex;
+
+        align-items: center;
+
+        gap: 4px;
+      }
+
+
+      .mobile-store-icon img {
+        width: 18px;
+        height: 18px;
+
+        flex:
+          0 0 18px;
+      }
+
+
+      .mobile-store-icon span {
+        color: white;
+
+        font-size: 8px;
+
+        font-weight: 600;
+
+        line-height: 1;
+      }
+
+
+      .mobile-countdown {
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        padding:
+          7px 10px 7px 7px;
+
+        border:
+          1px solid
+          rgba(
+            69,
+            231,
+            227,
+            0.20
+          );
+
+        border-radius: 999px;
+
+        background:
+          rgba(
+            0,
+            12,
+            29,
+            0.54
+          );
+      }
+
+
+      .mobile-countdown-orb {
+        position: relative;
+
+        display: grid;
+
+        place-items: center;
+
+        width: 31px;
+        height: 31px;
+
+        flex:
+          0 0 31px;
+
+        border-radius: 50%;
+
+        border:
+          1px solid
+          rgba(
+            69,
+            231,
+            227,
+            0.24
+          );
+
+        color:
+          var(--cyan);
+      }
+
+
+      .mobile-countdown-orb::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 4px;
+
+        border-radius: 50%;
+
+        border-top:
+          1px solid
+          rgba(
+            69,
+            231,
+            227,
+            0.90
+          );
+
+        border-left:
+          1px solid
+          rgba(
+            69,
+            231,
+            227,
+            0.38
+          );
+
+        border-right:
+          1px solid
+          rgba(
+            69,
+            231,
+            227,
+            0.10
+          );
+
+        border-bottom:
+          1px solid
+          rgba(
+            69,
+            231,
+            227,
+            0.06
+          );
+
+        animation:
+          countdownSpin
+          9s
+          linear
+          infinite;
+      }
+
+
+      .mobile-countdown-orb svg {
+        width: 13px;
+        height: 13px;
+      }
+
+
+      .mobile-countdown-copy {
+        display: flex;
+
+        flex-direction: column;
+
+        line-height: 1;
+      }
+
+
+      .mobile-countdown-copy strong {
+        color: white;
+
+        font-size: 16px;
+
+        font-weight: 700;
+      }
+
+
+      .mobile-countdown-copy span {
+        margin-top: 3px;
+
+        color:
+          rgba(
+            255,
+            255,
+            255,
+            0.50
+          );
+
+        font-size: 6px;
+
+        font-weight: 600;
+
+        letter-spacing:
+          0.06em;
+
+        text-transform: uppercase;
+      }
+
+
+      /* -------------------------------------------------------
+         MOBILE HERO IMAGE REGION
+         ------------------------------------------------------- */
+
+      .mobile-hero-art {
+        position: relative;
+
+        flex: 1;
+
+        min-height:
+          calc(
+            100svh - 78px
+          );
+
+        overflow: hidden;
+
+        background:
+
+          linear-gradient(
+            to bottom,
+            rgba(
+              0,
+              10,
+              30,
+              0.02
+            ) 52%,
+            rgba(
+              0,
+              15,
+              29,
+              0.27
+            ) 100%
+          ),
+
+          url("background.jpg")
+          50% 18% /
+          auto 116%
+          no-repeat;
+      }
+
+
+      /* -------------------------------------------------------
+         MOBILE LOGO
+         ------------------------------------------------------- */
 
       .hero-logo {
-        top:
-          max(
-            64px,
-            calc(
-              env(
-                safe-area-inset-top
-              )
-              +
-              54px
-            )
-          );
+        top: 28px;
 
         left: 50%;
 
         width:
           clamp(
-            128px,
-            36vw,
-            155px
+            142px,
+            39vw,
+            170px
           );
 
         transform:
           translateX(-50%);
       }
 
+
       .tag-pill {
         width: 90%;
 
-        margin-top: 4px;
+        margin-top: 6px;
 
         padding:
-          6px 5px;
+          7px 6px;
 
         font-size:
           clamp(
-            6.5px,
-            2vw,
-            9px
+            7px,
+            2.15vw,
+            9.5px
           );
 
         letter-spacing:
           0.01em;
       }
 
+
+      /* -------------------------------------------------------
+         MOBILE FIND OUT MORE
+         ------------------------------------------------------- */
+
       .scroll-control {
-        width: 88px;
-        height: 88px;
+        width: 102px;
+        height: 102px;
 
         bottom:
           max(
-            16px,
+            52px,
             calc(
               env(
                 safe-area-inset-bottom
               )
               +
-              12px
+              38px
             )
           );
       }
 
+
       .scroll-arrow {
-        width: 27px;
-        height: 27px;
+        width: 31px;
+        height: 31px;
       }
+
 
       .scroll-text text {
-        font-size: 9.3px;
+        font-size: 10px;
 
-        letter-spacing: 1.5px;
+        letter-spacing:
+          1.6px;
       }
 
 
-      /* shared mobile section layouts */
+      /* -------------------------------------------------------
+         FOLDS 2 - 4 MOBILE
+         ------------------------------------------------------- */
 
       .platform-inner,
       .content-inner,
@@ -3818,16 +4071,58 @@
     @media
     (max-width: 380px) {
 
-      .store-coming-soon {
-        width: 122px;
+      .mobile-hero-utility {
+        min-height: 72px;
+
+        padding-left: 8px;
+        padding-right: 8px;
+
+        gap: 6px;
       }
 
-      .launch-countdown {
-        width: 98px;
+      .mobile-store-icons {
+        gap: 5px;
+      }
+
+      .mobile-store-icon span {
+        font-size: 7px;
+      }
+
+      .mobile-countdown {
+        padding-right: 8px;
+      }
+
+      .mobile-hero-art {
+        min-height:
+          calc(
+            100svh - 72px
+          );
+
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(
+              0,
+              10,
+              30,
+              0.02
+            ) 52%,
+            rgba(
+              0,
+              15,
+              29,
+              0.27
+            ) 100%
+          ),
+
+          url("background.jpg")
+          50% 18% /
+          auto 120%
+          no-repeat;
       }
 
       .hero-logo {
-        width: 122px;
+        width: 132px;
       }
 
       .platform-inner,
@@ -3892,6 +4187,7 @@
 
   <!-- =======================================================
        FIXED COUNTDOWN
+       DESKTOP/TABLET
        ======================================================= -->
 
   <aside
@@ -4054,7 +4350,7 @@
   >
 
 
-    <!-- HERO-ONLY APP STORE PANEL -->
+    <!-- DESKTOP / TABLET HERO-ONLY STORE PANEL -->
 
     <div
       class="store-coming-soon"
@@ -4128,102 +4424,221 @@
 
 
 
-    <!-- CENTRED LOGO + TAGLINE -->
+    <!-- MOBILE-ONLY UTILITY HEADER -->
 
-    <div class="hero-logo">
+    <div class="mobile-hero-utility">
 
-      <img
-        src="edju-cat-type-logo-svg.svg"
-        class="logo-mark"
-        alt="Edju Cat"
-      >
 
-      <div class="tag-pill">
-        WHAT WILL YOU LEARN TODAY?
+      <div class="mobile-store-block">
+
+
+        <div class="mobile-store-copy">
+          Coming<br>
+          soon to
+        </div>
+
+
+        <div class="mobile-store-icons">
+
+
+          <div class="mobile-store-icon">
+
+            <img
+              src="https://cdn.simpleicons.org/googleplay/FFFFFF"
+              alt="Google Play"
+            >
+
+            <span>
+              Play
+            </span>
+
+          </div>
+
+
+          <div class="mobile-store-icon">
+
+            <img
+              src="https://cdn.simpleicons.org/apple/FFFFFF"
+              alt="Apple App Store"
+            >
+
+            <span>
+              App Store
+            </span>
+
+          </div>
+
+
+        </div>
+
+
       </div>
 
-    </div>
 
 
-
-    <button
-      class="scroll-control"
-      id="scroll-to-platform"
-      type="button"
-      aria-label="Find out more"
-    >
-
-      <div class="scroll-control-inner">
-
-        <div
-          class="scroll-pulse"
-          aria-hidden="true"
-        ></div>
-
-
-        <svg
-          class="scroll-text"
-          viewBox="0 0 120 120"
-          aria-hidden="true"
-        >
-
-          <defs>
-
-            <path
-              id="scroll-text-path"
-              d="M 19,60 A 41,41 0 0,1 101,60"
-            />
-
-          </defs>
-
-
-          <text>
-
-            <textPath
-              href="#scroll-text-path"
-              startOffset="50%"
-              text-anchor="middle"
-            >
-              FIND OUT MORE
-            </textPath>
-
-          </text>
-
-        </svg>
+      <div
+        class="mobile-countdown"
+        aria-label="Days until launch"
+      >
 
 
         <div
-          class="scroll-arrow"
+          class="mobile-countdown-orb"
           aria-hidden="true"
         >
 
           <svg
-            viewBox="0 0 40 40"
+            viewBox="0 0 24 24"
             fill="none"
           >
 
-            <path
-              d="M20 7V30"
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
               stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
+              stroke-width="1.6"
             />
 
             <path
-              d="M10.5 21.5L20 31L29.5 21.5"
+              d="M12 4V7M12 17V20M4 12H7M17 12H20"
               stroke="currentColor"
-              stroke-width="3"
+              stroke-width="1.6"
               stroke-linecap="round"
-              stroke-linejoin="round"
             />
 
           </svg>
 
         </div>
 
+
+        <div class="mobile-countdown-copy">
+
+          <strong
+            id="mobile-countdown-days"
+          >
+            000
+          </strong>
+
+          <span>
+            Days to launch
+          </span>
+
+        </div>
+
+
       </div>
 
-    </button>
+
+    </div>
+
+
+
+    <!-- MOBILE ART WRAPPER -->
+
+    <div class="mobile-hero-art">
+
+
+      <!-- CENTRED LOGO -->
+
+      <div class="hero-logo">
+
+        <img
+          src="edju-cat-type-logo-svg.svg"
+          class="logo-mark"
+          alt="Edju Cat"
+        >
+
+        <div class="tag-pill">
+          WHAT WILL YOU LEARN TODAY?
+        </div>
+
+      </div>
+
+
+
+      <button
+        class="scroll-control"
+        id="scroll-to-platform"
+        type="button"
+        aria-label="Find out more"
+      >
+
+        <div class="scroll-control-inner">
+
+          <div
+            class="scroll-pulse"
+            aria-hidden="true"
+          ></div>
+
+
+          <svg
+            class="scroll-text"
+            viewBox="0 0 120 120"
+            aria-hidden="true"
+          >
+
+            <defs>
+
+              <path
+                id="scroll-text-path"
+                d="M 19,60 A 41,41 0 0,1 101,60"
+              />
+
+            </defs>
+
+
+            <text>
+
+              <textPath
+                href="#scroll-text-path"
+                startOffset="50%"
+                text-anchor="middle"
+              >
+                FIND OUT MORE
+              </textPath>
+
+            </text>
+
+          </svg>
+
+
+          <div
+            class="scroll-arrow"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 40 40"
+              fill="none"
+            >
+
+              <path
+                d="M20 7V30"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M10.5 21.5L20 31L29.5 21.5"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+            </svg>
+
+          </div>
+
+        </div>
+
+      </button>
+
+
+    </div>
+
 
   </section>
 
@@ -4799,8 +5214,6 @@
     <div class="final-inner">
 
 
-      <!-- LEFT: LAUNCH LIST -->
-
       <div class="final-panel join-panel">
 
 
@@ -4911,8 +5324,6 @@
       </div>
 
 
-
-      <!-- RIGHT -->
 
       <div class="final-panel work-panel">
 
@@ -5206,6 +5617,11 @@
         "countdown-seconds"
       );
 
+    const mobileCountdownDays =
+      document.getElementById(
+        "mobile-countdown-days"
+      );
+
 
     function pad(
       value,
@@ -5299,6 +5715,13 @@
       countdownSeconds.textContent =
         pad(
           seconds
+        );
+
+
+      mobileCountdownDays.textContent =
+        pad(
+          days,
+          3
         );
 
     }
