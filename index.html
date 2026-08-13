@@ -42,7 +42,6 @@
 
     body {
       min-height: 100%;
-
       background: #001827;
       color: white;
 
@@ -81,7 +80,7 @@
 
     :root {
       --cyan: #45e7e3;
-      --deepBlue: #001e70;
+      --deep-blue: #001e70;
 
       --panel:
         rgba(
@@ -91,7 +90,7 @@
           0.36
         );
 
-      --panelStrong:
+      --panel-strong:
         rgba(
           0,
           24,
@@ -99,7 +98,7 @@
           0.58
         );
 
-      --panelBorder:
+      --panel-border:
         rgba(
           69,
           231,
@@ -107,7 +106,7 @@
           0.22
         );
 
-      --whiteSoft:
+      --white-soft:
         rgba(
           255,
           255,
@@ -174,7 +173,7 @@
 
 
     /* =========================================================
-       FULL SCREEN FOLDS
+       FOLDS
        ========================================================= */
 
     .fold {
@@ -192,23 +191,23 @@
 
 
     /* =========================================================
-       FIXED LAUNCH COUNTDOWN
+       FIXED COUNTDOWN
        ========================================================= */
 
     .launch-countdown {
       position: fixed;
 
-      z-index: 80;
+      z-index: 90;
 
       top:
         max(
-          20px,
+          26px,
           env(safe-area-inset-top)
         );
 
       right:
         max(
-          22px,
+          34px,
           env(safe-area-inset-right)
         );
 
@@ -216,12 +215,12 @@
 
       align-items: center;
 
-      gap: 12px;
+      gap: 14px;
 
-      min-width: 298px;
+      min-width: 340px;
 
       padding:
-        9px 15px 9px 9px;
+        11px 18px 11px 10px;
 
       border:
         1px solid
@@ -229,7 +228,7 @@
           69,
           231,
           227,
-          0.26
+          0.28
         );
 
       border-radius: 999px;
@@ -239,22 +238,22 @@
           0,
           19,
           39,
-          0.58
+          0.62
         );
 
       -webkit-backdrop-filter:
-        blur(16px);
+        blur(18px);
 
       backdrop-filter:
-        blur(16px);
+        blur(18px);
 
       box-shadow:
-        0 14px 38px
+        0 18px 44px
         rgba(
           0,
           0,
           0,
-          0.26
+          0.28
         ),
 
         inset 0 1px 0
@@ -264,51 +263,22 @@
           255,
           0.06
         );
-
-      transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
     }
-
-    .launch-countdown:hover {
-      transform:
-        translateY(-2px);
-
-      border-color:
-        rgba(
-          69,
-          231,
-          227,
-          0.48
-        );
-    }
-
-
-    /* spinning mission-control circle */
 
     .launch-countdown-orb {
       position: relative;
 
-      display: flex;
+      display: grid;
 
-      align-items: center;
-      justify-content: center;
+      place-items: center;
+
+      width: 58px;
+      height: 58px;
 
       flex:
-        0 0 52px;
-
-      width: 52px;
-      height: 52px;
+        0 0 58px;
 
       border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(69, 231, 227, 0.12),
-          rgba(69, 231, 227, 0.03) 55%,
-          transparent 70%
-        );
 
       border:
         1px solid
@@ -316,7 +286,15 @@
           69,
           231,
           227,
-          0.20
+          0.22
+        );
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(69, 231, 227, 0.13),
+          rgba(69, 231, 227, 0.025) 65%,
+          transparent 72%
         );
 
       color:
@@ -328,7 +306,7 @@
 
       position: absolute;
 
-      inset: 4px;
+      inset: 5px;
 
       border-radius: 50%;
 
@@ -347,7 +325,7 @@
           69,
           231,
           227,
-          0.22
+          0.18
         );
 
       border-bottom:
@@ -356,7 +334,7 @@
           69,
           231,
           227,
-          0.08
+          0.06
         );
 
       border-left:
@@ -365,17 +343,17 @@
           69,
           231,
           227,
-          0.42
+          0.45
         );
 
       animation:
-        launchRing
+        countdownSpin
         9s
         linear
         infinite;
     }
 
-    @keyframes launchRing {
+    @keyframes countdownSpin {
 
       from {
         transform:
@@ -390,25 +368,11 @@
     }
 
     .launch-countdown-orb svg {
-      width: 22px;
-      height: 22px;
-
-      filter:
-        drop-shadow(
-          0 0 8px
-          rgba(
-            69,
-            231,
-            227,
-            0.25
-          )
-        );
+      width: 23px;
+      height: 23px;
     }
 
-
     .launch-countdown-content {
-      min-width: 0;
-
       flex: 1;
     }
 
@@ -421,22 +385,21 @@
 
       gap: 12px;
 
-      margin-bottom: 3px;
+      margin-bottom: 5px;
     }
 
     .launch-countdown-label strong {
       color:
         var(--cyan);
 
-      font-size: 10px;
+      font-size: 11px;
 
       font-weight: 700;
 
       letter-spacing:
-        0.09em;
+        0.08em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .launch-date {
@@ -448,21 +411,17 @@
           0.56
         );
 
-      font-size: 9px;
+      font-size: 10px;
 
       font-weight: 600;
-
-      letter-spacing:
-        0.04em;
     }
-
 
     .countdown-numbers {
       display: flex;
 
       align-items: flex-end;
 
-      gap: 7px;
+      gap: 8px;
     }
 
     .countdown-unit {
@@ -472,13 +431,13 @@
 
       align-items: center;
 
-      min-width: 38px;
+      min-width: 42px;
     }
 
     .countdown-value {
       color: white;
 
-      font-size: 17px;
+      font-size: 19px;
 
       font-weight: 700;
 
@@ -489,7 +448,7 @@
     }
 
     .countdown-caption {
-      margin-top: 3px;
+      margin-top: 4px;
 
       color:
         rgba(
@@ -506,26 +465,21 @@
       letter-spacing:
         0.07em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .countdown-separator {
+      margin-bottom: 12px;
+
       color:
         rgba(
           69,
           231,
           227,
-          0.55
+          0.52
         );
 
-      font-size: 13px;
-
-      font-weight: 600;
-
-      line-height: 17px;
-
-      margin-bottom: 11px;
+      font-size: 14px;
     }
 
 
@@ -538,36 +492,48 @@
 
         linear-gradient(
           to bottom,
-          rgba(0, 10, 30, 0.02) 55%,
-          rgba(0, 15, 29, 0.42) 100%
+          rgba(0, 10, 30, 0.01) 55%,
+          rgba(0, 15, 29, 0.26) 100%
         ),
 
         url("background.jpg")
-        center top /
+        center center /
         cover
         no-repeat;
     }
 
+
+    /* =========================================================
+       FOLD 1 BRAND LOCKUP
+       ========================================================= */
+
     .hero-logo {
       position: absolute;
 
-      z-index: 5;
+      z-index: 12;
 
       top:
         clamp(
-          18px,
-          3vh,
-          34px
+          28px,
+          4vh,
+          48px
         );
 
-      left: 50%;
+      left:
+        clamp(
+          34px,
+          4.3vw,
+          76px
+        );
 
-      width: 100%;
+      width:
+        clamp(
+          320px,
+          23vw,
+          430px
+        );
 
-      text-align: center;
-
-      transform:
-        translateX(-50%);
+      text-align: left;
 
       pointer-events: none;
     }
@@ -575,45 +541,35 @@
     .logo-mark {
       display: block;
 
-      width:
-        min(
-          44vw,
-          390px
-        );
-
+      width: 100%;
       height: auto;
-
-      max-height: 22vh;
-
-      margin:
-        0 auto;
 
       object-fit: contain;
 
       filter:
         drop-shadow(
-          0 10px 25px
+          0 12px 26px
           rgba(
             0,
             0,
             0,
-            0.25
+            0.24
           )
         );
     }
 
     .tag-pill {
-      display: inline-flex;
+      display: flex;
 
       align-items: center;
       justify-content: center;
 
-      min-width: 420px;
+      width: 90%;
 
-      margin-top: 4px;
+      margin-top: 10px;
 
       padding:
-        12px 24px;
+        11px 16px;
 
       border-radius: 999px;
 
@@ -621,13 +577,13 @@
         var(--cyan);
 
       color:
-        var(--deepBlue);
+        var(--deep-blue);
 
       font-size:
         clamp(
-          13px,
-          1.25vw,
-          18px
+          12px,
+          1vw,
+          16px
         );
 
       font-weight: 700;
@@ -635,17 +591,17 @@
       line-height: 1;
 
       letter-spacing:
-        0.05em;
+        0.035em;
 
-      text-align: center;
+      white-space: nowrap;
 
       box-shadow:
-        0 12px 30px
+        0 12px 28px
         rgba(
           0,
           0,
           0,
-          0.22
+          0.20
         ),
 
         inset 0 1px 0
@@ -653,7 +609,7 @@
           255,
           255,
           255,
-          0.25
+          0.30
         );
     }
 
@@ -665,15 +621,15 @@
     .scroll-control {
       position: absolute;
 
-      z-index: 10;
+      z-index: 12;
 
       left: 50%;
 
       bottom:
         clamp(
-          20px,
+          28px,
           4vh,
-          42px
+          46px
         );
 
       width: 126px;
@@ -691,7 +647,7 @@
           0,
           24,
           43,
-          0.48
+          0.58
         );
 
       border:
@@ -716,14 +672,6 @@
           0,
           0,
           0.35
-        ),
-
-        inset 0 0 30px
-        rgba(
-          69,
-          231,
-          227,
-          0.04
         );
     }
 
@@ -757,19 +705,13 @@
 
       background:
         radial-gradient(
-          circle at center,
+          circle,
           rgba(
             69,
             231,
             227,
             0.18
-          ) 0%,
-          rgba(
-            69,
-            231,
-            227,
-            0.10
-          ) 35%,
+          ),
           transparent 72%
         );
 
@@ -890,7 +832,7 @@
 
 
     /* =========================================================
-       COMMON EYEBROW
+       COMMON EYEBROWS
        ========================================================= */
 
     .eyebrow {
@@ -917,8 +859,7 @@
       letter-spacing:
         0.08em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .eyebrow::after {
@@ -936,8 +877,7 @@
     }
 
     .eyebrow.right {
-      justify-content:
-        flex-end;
+      justify-content: flex-end;
     }
 
     .eyebrow.right::after {
@@ -968,8 +908,7 @@
 
       align-items: center;
 
-      background:
-        transparent;
+      background: transparent;
     }
 
     .platform-inner {
@@ -1003,8 +942,7 @@
       min-height: 100vh;
       min-height: 100svh;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       padding:
         clamp(
@@ -1032,58 +970,58 @@
     .platform-fold.is-active
     .platform-eyebrow {
       animation:
-        copyReveal
-        0.65s ease
-        0.10s
+        reveal
+        0.62s ease
+        0.08s
         forwards;
     }
 
     .platform-fold.is-active
     .platform-title {
       animation:
-        copyReveal
-        0.82s ease
-        0.22s
+        reveal
+        0.78s ease
+        0.20s
         forwards;
     }
 
     .platform-fold.is-active
     .platform-description {
       animation:
-        copyReveal
-        0.76s ease
-        0.42s
+        reveal
+        0.72s ease
+        0.38s
         forwards;
     }
 
     .platform-fold.is-active
     .platform-point:nth-child(1) {
       animation:
-        copyReveal
-        0.64s ease
-        0.64s
+        reveal
+        0.60s ease
+        0.58s
         forwards;
     }
 
     .platform-fold.is-active
     .platform-point:nth-child(2) {
       animation:
-        copyReveal
-        0.64s ease
-        0.74s
+        reveal
+        0.60s ease
+        0.68s
         forwards;
     }
 
     .platform-fold.is-active
     .platform-point:nth-child(3) {
       animation:
-        copyReveal
-        0.64s ease
-        0.84s
+        reveal
+        0.60s ease
+        0.78s
         forwards;
     }
 
-    @keyframes copyReveal {
+    @keyframes reveal {
 
       to {
         opacity: 1;
@@ -1123,7 +1061,7 @@
       max-width: 600px;
 
       color:
-        var(--whiteSoft);
+        var(--white-soft);
 
       font-size:
         clamp(
@@ -1168,7 +1106,7 @@
 
       border:
         1px solid
-        var(--panelBorder);
+        var(--panel-border);
 
       border-radius: 16px;
 
@@ -1177,16 +1115,15 @@
     }
 
     .platform-point-icon {
-      display: flex;
+      display: grid;
 
-      align-items: center;
-      justify-content: center;
+      place-items: center;
 
       width: 36px;
       height: 36px;
 
       flex:
-        0 0 auto;
+        0 0 36px;
 
       border-radius: 50%;
 
@@ -1227,7 +1164,7 @@
     .platform-device-wrap {
       animation:
         ipadEnter
-        1.35s
+        1.30s
         cubic-bezier(
           0.16,
           1,
@@ -1259,7 +1196,7 @@
         zeroGravity
         8s
         ease-in-out
-        1.55s
+        1.5s
         infinite;
     }
 
@@ -1285,8 +1222,7 @@
           980px
         );
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       filter:
         drop-shadow(
@@ -1310,8 +1246,7 @@
 
       align-items: center;
 
-      background:
-        transparent;
+      background: transparent;
     }
 
     .content-inner {
@@ -1345,8 +1280,7 @@
       min-height: 100vh;
       min-height: 100svh;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       padding:
         clamp(
@@ -1572,32 +1506,43 @@
       opacity: 0;
 
       transform:
-        translateY(22px);
+        translateY(20px);
     }
 
     .content-fold.is-active
-    .content-eyebrow,
-    .content-fold.is-active
-    .content-title,
-    .content-fold.is-active
-    .content-description,
-    .content-fold.is-active
-    .access-pill {
+    .content-eyebrow {
       animation:
-        contentCopyReveal
-        0.72s ease
+        reveal
+        0.60s ease
+        0.08s
         forwards;
     }
 
-    @keyframes contentCopyReveal {
+    .content-fold.is-active
+    .content-title {
+      animation:
+        reveal
+        0.75s ease
+        0.20s
+        forwards;
+    }
 
-      to {
-        opacity: 1;
+    .content-fold.is-active
+    .content-description {
+      animation:
+        reveal
+        0.70s ease
+        0.38s
+        forwards;
+    }
 
-        transform:
-          translateY(0);
-      }
-
+    .content-fold.is-active
+    .access-pill {
+      animation:
+        reveal
+        0.65s ease
+        0.56s
+        forwards;
     }
 
     .content-title {
@@ -1675,10 +1620,9 @@
     }
 
     .access-pill-icon {
-      display: flex;
+      display: grid;
 
-      align-items: center;
-      justify-content: center;
+      place-items: center;
 
       width: 22px;
       height: 22px;
@@ -1700,7 +1644,6 @@
 
     /* =========================================================
        FOLD 4
-       MODULE FORMULA SLIDER
        ========================================================= */
 
     .showcase-fold {
@@ -1708,8 +1651,7 @@
 
       align-items: center;
 
-      background:
-        transparent;
+      background: transparent;
     }
 
     .showcase-inner {
@@ -1743,8 +1685,7 @@
       min-height: 100vh;
       min-height: 100svh;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       padding:
         clamp(
@@ -1805,7 +1746,7 @@
       margin-bottom: 28px;
 
       color:
-        var(--whiteSoft);
+        var(--white-soft);
 
       font-size:
         clamp(
@@ -1850,15 +1791,13 @@
 
       font-weight: 600;
 
-      white-space:
-        nowrap;
+      white-space: nowrap;
     }
 
     .showcase-benefit-icon {
-      display: inline-flex;
+      display: grid;
 
-      align-items: center;
-      justify-content: center;
+      place-items: center;
 
       width: 22px;
       height: 22px;
@@ -1938,19 +1877,13 @@
 
       background:
         radial-gradient(
-          ellipse at center,
+          ellipse,
           rgba(
             0,
             118,
             255,
             0.16
-          ) 0%,
-          rgba(
-            0,
-            118,
-            255,
-            0.06
-          ) 42%,
+          ),
           transparent 72%
         );
 
@@ -1964,6 +1897,10 @@
       top: 50%;
 
       z-index: 5;
+
+      display: grid;
+
+      place-items: center;
 
       width: 54px;
       height: 54px;
@@ -1987,17 +1924,12 @@
           0,
           24,
           47,
-          0.76
+          0.78
         );
 
       color: white;
 
       cursor: pointer;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
     }
 
     .showcase-arrow.prev {
@@ -2055,28 +1987,6 @@
       overflow: hidden;
     }
 
-    .showcase-device::before {
-      content: "";
-
-      position: absolute;
-
-      top: 6px;
-      left: 50%;
-
-      width: 8px;
-      height: 8px;
-
-      transform:
-        translateX(-50%);
-
-      border-radius: 50%;
-
-      background:
-        #292d34;
-
-      z-index: 3;
-    }
-
     .showcase-screen {
       width: 100%;
       height: 100%;
@@ -2096,7 +2006,8 @@
       height: 100%;
 
       transition:
-        transform 0.58s
+        transform
+        0.58s
         cubic-bezier(
           0.22,
           1,
@@ -2127,11 +2038,7 @@
 
       object-fit: contain;
 
-      object-position:
-        center;
-
-      background:
-        #030915;
+      object-position: center;
     }
 
     .showcase-counter {
@@ -2145,8 +2052,6 @@
       padding:
         10px 14px;
 
-      border-radius: 999px;
-
       border:
         1px solid
         rgba(
@@ -2155,6 +2060,8 @@
           227,
           0.18
         );
+
+      border-radius: 999px;
 
       background:
         rgba(
@@ -2172,38 +2079,36 @@
 
     /* =========================================================
        FINAL FOLD
-       JOIN / WORK WITH US
        ========================================================= */
 
     .final-fold {
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       background:
 
         radial-gradient(
-          circle at 25% 48%,
+          circle at 24% 50%,
           rgba(
             0,
             165,
             221,
             0.18
           ),
-          transparent 35%
+          transparent 38%
         ),
 
         radial-gradient(
-          circle at 78% 48%,
+          circle at 78% 50%,
           rgba(
             59,
             72,
             183,
-            0.17
+            0.16
           ),
-          transparent 38%
+          transparent 40%
         ),
 
         linear-gradient(
@@ -2213,37 +2118,24 @@
         );
     }
 
-    .final-fold::before {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background-image:
-        radial-gradient(
-          rgba(
-            255,
-            255,
-            255,
-            0.35
-          )
-          0.65px,
-          transparent 0.8px
-        );
-
-      background-size:
-        43px 43px;
-
-      opacity: 0.13;
-
-      pointer-events: none;
-    }
-
     .final-inner {
       position: relative;
 
       z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      align-items: stretch;
+
+      gap:
+        clamp(
+          24px,
+          3vw,
+          48px
+        );
 
       width:
         min(
@@ -2254,23 +2146,9 @@
       min-height: 100vh;
       min-height: 100svh;
 
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      align-items: center;
-
-      gap:
-        clamp(
-          24px,
-          3vw,
-          48px
-        );
-
       padding:
         clamp(
-          80px,
+          86px,
           10vh,
           120px
         )
@@ -2278,22 +2156,19 @@
     }
 
     .final-panel {
-      position: relative;
-
       display: flex;
 
       flex-direction: column;
 
       justify-content: center;
 
-      min-height:
-        570px;
+      min-height: 560px;
 
       padding:
         clamp(
           38px,
           4vw,
-          62px
+          58px
         );
 
       border:
@@ -2306,8 +2181,6 @@
         );
 
       border-radius: 30px;
-
-      overflow: hidden;
 
       -webkit-backdrop-filter:
         blur(14px);
@@ -2390,8 +2263,7 @@
       letter-spacing:
         0.09em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .final-eyebrow::after {
@@ -2416,13 +2288,13 @@
       font-size:
         clamp(
           38px,
-          4vw,
-          64px
+          3.8vw,
+          60px
         );
 
       font-weight: 700;
 
-      line-height: 1.02;
+      line-height: 1.04;
 
       letter-spacing:
         -0.04em;
@@ -2434,7 +2306,7 @@
     }
 
     .final-copy {
-      max-width: 540px;
+      max-width: 520px;
 
       margin-bottom: 30px;
 
@@ -2443,13 +2315,13 @@
           255,
           255,
           255,
-          0.82
+          0.80
         );
 
       font-size:
         clamp(
           15px,
-          1.05vw,
+          1vw,
           18px
         );
 
@@ -2457,7 +2329,9 @@
     }
 
 
-    /* prelaunch signup */
+    /* =========================================================
+       PRE-LAUNCH FORM
+       ========================================================= */
 
     .prelaunch-form {
       display: flex;
@@ -2488,15 +2362,6 @@
           32,
           0.45
         );
-
-      box-shadow:
-        inset 0 1px 0
-        rgba(
-          255,
-          255,
-          255,
-          0.04
-        );
     }
 
     .prelaunch-form input {
@@ -2509,10 +2374,7 @@
 
       border: none;
 
-      border-radius: 999px;
-
-      background:
-        transparent;
+      background: transparent;
 
       color: white;
 
@@ -2532,10 +2394,11 @@
     }
 
     .prelaunch-submit {
-      flex: 0 0 auto;
+      flex:
+        0 0 auto;
 
       padding:
-        12px 21px;
+        12px 20px;
 
       border-radius: 999px;
 
@@ -2543,21 +2406,13 @@
         var(--cyan);
 
       color:
-        var(--deepBlue);
+        var(--deep-blue);
 
       font-size: 13px;
 
       font-weight: 700;
 
       cursor: pointer;
-
-      transition:
-        transform 0.2s ease;
-    }
-
-    .prelaunch-submit:hover {
-      transform:
-        translateY(-1px);
     }
 
     .prelaunch-note {
@@ -2568,12 +2423,12 @@
           255,
           255,
           255,
-          0.50
+          0.48
         );
 
       font-size: 11px;
 
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .pricing-note {
@@ -2581,9 +2436,11 @@
 
       align-items: center;
 
+      align-self: flex-start;
+
       gap: 8px;
 
-      margin-top: 24px;
+      margin-top: 22px;
 
       padding:
         9px 13px;
@@ -2604,20 +2461,12 @@
           255,
           255,
           255,
-          0.74
+          0.70
         );
 
       font-size: 11px;
 
       font-weight: 600;
-
-      background:
-        rgba(
-          0,
-          20,
-          39,
-          0.26
-        );
     }
 
     .pricing-note-dot {
@@ -2628,80 +2477,47 @@
 
       background:
         var(--cyan);
-
-      box-shadow:
-        0 0 8px
-        rgba(
-          69,
-          231,
-          227,
-          0.5
-        );
     }
 
 
-    /* business routes */
+    /* =========================================================
+       FINAL CONTACT
+       ========================================================= */
 
-    .work-routes {
-      display: grid;
+    .professional-note {
+      display: inline-flex;
 
-      grid-template-columns:
-        repeat(
-          3,
-          1fr
-        );
+      align-items: center;
 
-      gap: 10px;
+      align-self: flex-start;
 
-      margin-bottom: 28px;
-    }
+      margin-bottom: 26px;
 
-    .work-route {
       padding:
-        16px 13px;
+        10px 14px;
 
       border:
         1px solid
         rgba(
-          255,
-          255,
-          255,
-          0.10
+          69,
+          231,
+          227,
+          0.16
         );
 
-      border-radius: 16px;
+      border-radius: 999px;
 
-      background:
-        rgba(
-          0,
-          17,
-          35,
-          0.30
-        );
-    }
-
-    .work-route strong {
-      display: block;
-
-      margin-bottom: 6px;
-
-      color: white;
-
-      font-size: 12px;
-    }
-
-    .work-route p {
       color:
         rgba(
           255,
           255,
           255,
-          0.56
+          0.68
         );
 
-      font-size: 10px;
+      font-size: 11px;
 
-      line-height: 1.45;
+      font-weight: 600;
     }
 
     .work-button {
@@ -2711,7 +2527,7 @@
 
 
     /* =========================================================
-       PRIMARY BUTTON
+       BUTTONS
        ========================================================= */
 
     .primary-button {
@@ -2731,30 +2547,13 @@
         var(--cyan);
 
       color:
-        var(--deepBlue);
+        var(--deep-blue);
 
       font-size: 14px;
 
       font-weight: 700;
 
       cursor: pointer;
-
-      box-shadow:
-        0 10px 25px
-        rgba(
-          0,
-          0,
-          0,
-          0.2
-        );
-
-      transition:
-        transform 0.2s ease;
-    }
-
-    .primary-button:hover {
-      transform:
-        translateY(-2px);
     }
 
 
@@ -2831,15 +2630,6 @@
         );
 
       overflow-y: auto;
-
-      box-shadow:
-        0 28px 90px
-        rgba(
-          0,
-          0,
-          0,
-          0.55
-        );
     }
 
     .modal-close {
@@ -2848,10 +2638,9 @@
       top: 15px;
       right: 15px;
 
-      display: flex;
+      display: grid;
 
-      align-items: center;
-      justify-content: center;
+      place-items: center;
 
       width: 38px;
       height: 38px;
@@ -2874,7 +2663,7 @@
     }
 
     .contact-modal-header {
-      padding-right: 38px;
+      padding-right: 40px;
 
       margin-bottom: 22px;
     }
@@ -2896,7 +2685,7 @@
           255,
           255,
           255,
-          0.75
+          0.74
         );
 
       font-size: 14px;
@@ -2960,7 +2749,6 @@
         1 / -1;
     }
 
-    .contact-form
     .submit-button {
       grid-column:
         1 / -1;
@@ -2970,7 +2758,7 @@
 
 
     /* =========================================================
-       SUCCESS MODAL
+       SUCCESS
        ========================================================= */
 
     .success-overlay {
@@ -3016,15 +2804,6 @@
       padding:
         36px 30px 30px;
 
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.16
-        );
-
       border-radius: 28px;
 
       background:
@@ -3055,7 +2834,7 @@
         var(--cyan);
 
       color:
-        var(--deepBlue);
+        var(--deep-blue);
 
       font-size: 38px;
 
@@ -3084,7 +2863,7 @@
           255,
           255,
           255,
-          0.76
+          0.74
         );
 
       font-size: 15px;
@@ -3102,12 +2881,42 @@
     and
     (min-width: 701px) {
 
+      .hero-logo {
+        width:
+          clamp(
+            280px,
+            27vw,
+            350px
+          );
+
+        left: 28px;
+      }
+
       .launch-countdown {
         transform:
           scale(0.88);
 
         transform-origin:
           top right;
+      }
+
+      .platform-inner {
+        grid-template-columns:
+          0.9fr 1.1fr;
+      }
+
+      .content-inner {
+        grid-template-columns:
+          1fr 0.9fr;
+
+        gap: 34px;
+      }
+
+      .showcase-inner {
+        grid-template-columns:
+          0.8fr 1.2fr;
+
+        gap: 28px;
       }
 
       .final-inner {
@@ -3117,28 +2926,39 @@
       .final-panel {
         padding: 34px;
 
-        min-height: 540px;
-      }
-
-      .work-routes {
-        grid-template-columns:
-          1fr;
+        min-height: 530px;
       }
 
     }
 
 
     /* =========================================================
-       MOBILE
+       MOBILE AUDIT
        ========================================================= */
 
     @media
     (max-width: 700px) {
 
+
+      /* -------------------------------------------------------
+         GENERAL
+         ------------------------------------------------------- */
+
+      .fold {
+        min-height: 100svh;
+
+        overflow: hidden;
+      }
+
+
+      /* -------------------------------------------------------
+         COUNTDOWN
+         ------------------------------------------------------- */
+
       .launch-countdown {
         top:
           max(
-            10px,
+            12px,
             env(safe-area-inset-top)
           );
 
@@ -3150,36 +2970,28 @@
 
         min-width: 0;
 
-        width: auto;
+        width: 114px;
 
         padding:
-          7px 10px 7px 7px;
+          6px 9px 6px 6px;
 
-        gap: 8px;
+        gap: 7px;
       }
 
       .launch-countdown-orb {
-        width: 38px;
-        height: 38px;
+        width: 34px;
+        height: 34px;
 
         flex:
-          0 0 38px;
+          0 0 34px;
       }
 
       .launch-countdown-orb svg {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
       }
 
       .launch-countdown-label {
-        margin-bottom: 1px;
-      }
-
-      .launch-countdown-label strong {
-        font-size: 8px;
-      }
-
-      .launch-date {
         display: none;
       }
 
@@ -3189,9 +3001,10 @@
       }
 
       .countdown-unit {
-        min-width: 48px;
+        align-items:
+          flex-start;
 
-        align-items: flex-start;
+        min-width: 48px;
       }
 
       .countdown-value {
@@ -3199,40 +3012,89 @@
       }
 
       .countdown-caption {
-        font-size: 7px;
+        margin-top: 2px;
+
+        font-size: 6px;
       }
 
+
+      /* -------------------------------------------------------
+         FOLD 1
+         ------------------------------------------------------- */
+
+      .hero-fold {
+        background-position:
+          center center;
+      }
 
       .hero-logo {
-        top: 16px;
-      }
-
-      .logo-mark {
-        width:
-          min(
-            64vw,
-            300px
+        top:
+          max(
+            14px,
+            env(safe-area-inset-top)
           );
 
-        max-height: 18vh;
+        left: 14px;
+
+        width:
+          clamp(
+            145px,
+            41vw,
+            175px
+          );
       }
 
       .tag-pill {
-        min-width: unset;
+        width: 90%;
 
-        max-width: 88vw;
+        margin-top: 5px;
 
         padding:
-          10px 17px;
+          7px 7px;
 
         font-size:
           clamp(
-            12px,
-            3.8vw,
-            15px
+            7px,
+            2.35vw,
+            10px
+          );
+
+        letter-spacing:
+          0.015em;
+      }
+
+      .scroll-control {
+        width: 88px;
+        height: 88px;
+
+        bottom:
+          max(
+            16px,
+            calc(
+              env(
+                safe-area-inset-bottom
+              )
+              +
+              12px
+            )
           );
       }
 
+      .scroll-arrow {
+        width: 27px;
+        height: 27px;
+      }
+
+      .scroll-text text {
+        font-size: 9.3px;
+
+        letter-spacing: 1.5px;
+      }
+
+
+      /* -------------------------------------------------------
+         FOLDS 2-4 SHARED MOBILE LAYOUT
+         ------------------------------------------------------- */
 
       .platform-inner,
       .content-inner,
@@ -3243,63 +3105,311 @@
 
         width: 100%;
 
-        padding:
-          76px 22px 50px;
+        min-height: 100svh;
 
-        gap: 30px;
+        padding:
+          78px 20px 42px;
+
+        gap: 26px;
       }
 
-      .platform-title,
-      .content-title,
-      .showcase-title {
+
+      /* -------------------------------------------------------
+         FOLD 2
+         ------------------------------------------------------- */
+
+      .platform-copy {
+        width: 100%;
+
+        max-width: none;
+      }
+
+      .platform-title {
+        margin-bottom: 18px;
+
         font-size:
           clamp(
             38px,
             11vw,
-            57px
+            54px
           );
+
+        line-height: 1.02;
+      }
+
+      .platform-description {
+        max-width: 100%;
+
+        font-size:
+          clamp(
+            14px,
+            4vw,
+            17px
+          );
+
+        line-height: 1.55;
       }
 
       .platform-points {
         display: none;
       }
 
+      .platform-device-wrap {
+        width: 116%;
+
+        margin-left: -8%;
+      }
+
+      .platform-device {
+        width: 100%;
+      }
+
+
+      /* -------------------------------------------------------
+         FOLD 3
+         ------------------------------------------------------- */
+
+      .content-fold {
+        overflow: visible;
+      }
+
+      .content-inner {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
       .content-copy {
         order: 1;
 
+        width:
+          calc(
+            100% - 40px
+          );
+
+        margin:
+          0 20px;
+
+        max-width: none;
+
         text-align: left;
+      }
+
+      .content-eyebrow {
+        justify-content: flex-start;
+      }
+
+      .content-eyebrow::before {
+        display: none;
+      }
+
+      .content-eyebrow::after {
+        content: "";
+
+        display: block;
+
+        width: 48px;
+        height: 1px;
+
+        background:
+          linear-gradient(
+            90deg,
+            var(--cyan),
+            transparent
+          );
+      }
+
+      .content-title {
+        margin-bottom: 17px;
+
+        font-size:
+          clamp(
+            38px,
+            10.6vw,
+            52px
+          );
+
+        line-height: 1.02;
+      }
+
+      .content-description {
+        max-width: 100%;
+
+        margin-left: 0;
+
+        font-size:
+          clamp(
+            14px,
+            4vw,
+            17px
+          );
+
+        line-height: 1.55;
+      }
+
+      .access-pill {
+        margin-top: 19px;
+
+        padding:
+          9px 12px;
+
+        font-size: 10px;
       }
 
       .carousel-stage {
         order: 2;
 
-        height: 420px;
+        width: 100%;
+
+        height: 360px;
+
+        min-height: 360px;
+
+        gap: 8px;
+
+        -webkit-mask-image:
+          linear-gradient(
+            to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+          );
+
+        mask-image:
+          linear-gradient(
+            to right,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+          );
       }
 
+      .carousel-row {
+        padding:
+          8px 0 12px;
+      }
+
+      .module-card {
+        width: 190px;
+      }
+
+      .carousel-row-top
+      .module-card {
+        width: 170px;
+      }
+
+      .carousel-set {
+        gap: 14px;
+
+        padding-right: 14px;
+      }
+
+
+      /* -------------------------------------------------------
+         FOLD 4
+         ------------------------------------------------------- */
+
       .showcase-copy {
+        width: 100%;
+
         max-width: none;
       }
 
+      .showcase-title {
+        margin-bottom: 16px;
+
+        font-size:
+          clamp(
+            36px,
+            10vw,
+            50px
+          );
+
+        line-height: 1.03;
+      }
+
       .showcase-description {
-        min-height: auto;
+        min-height: 0;
+
+        margin-bottom: 18px;
+
+        font-size:
+          clamp(
+            14px,
+            3.9vw,
+            17px
+          );
+
+        line-height: 1.55;
       }
 
       .showcase-benefit {
+        max-width: 100%;
+
+        padding:
+          9px 12px;
+
         white-space: normal;
+
+        font-size: 10px;
+
+        line-height: 1.4;
+      }
+
+      .showcase-right {
+        width: 100%;
       }
 
       .showcase-device-wrap {
+        width: 100%;
+
         padding:
-          0 48px;
+          0 34px 18px;
       }
 
       .showcase-arrow {
-        width: 42px;
-        height: 42px;
+        width: 38px;
+        height: 38px;
+      }
+
+      .showcase-arrow.prev {
+        left: 0;
+      }
+
+      .showcase-arrow.next {
+        right: 0;
+      }
+
+      .showcase-arrow svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .showcase-device {
+        padding: 8px;
+
+        border-radius: 22px;
+      }
+
+      .showcase-screen {
+        border-radius: 15px;
+      }
+
+      .showcase-counter {
+        right: 40px;
+        bottom: -2px;
+
+        padding:
+          7px 10px;
+
+        font-size: 9px;
       }
 
 
-      /* final fold stacks */
+      /* -------------------------------------------------------
+         FINAL FOLD
+         ------------------------------------------------------- */
 
       .final-fold {
         overflow: visible;
@@ -3315,29 +3425,48 @@
         min-height: 100svh;
 
         padding:
-          80px 20px 50px;
+          76px 16px 34px;
 
-        gap: 18px;
+        gap: 16px;
       }
 
       .final-panel {
         width: 100%;
 
-        min-height: auto;
+        min-height: 0;
 
         padding:
-          34px 24px;
+          30px 22px;
 
-        border-radius: 24px;
+        border-radius: 23px;
+      }
+
+      .final-eyebrow {
+        margin-bottom: 14px;
+
+        font-size: 10px;
       }
 
       .final-title {
+        margin-bottom: 14px;
+
         font-size:
           clamp(
-            36px,
-            10vw,
-            52px
+            33px,
+            9.6vw,
+            46px
           );
+
+        line-height: 1.04;
+      }
+
+      .final-copy {
+        margin-bottom: 22px;
+
+        font-size:
+          14px;
+
+        line-height: 1.55;
       }
 
       .prelaunch-form {
@@ -3345,28 +3474,36 @@
 
         align-items: stretch;
 
-        border-radius: 20px;
+        border-radius: 18px;
 
-        padding: 7px;
+        padding: 6px;
       }
 
       .prelaunch-form input {
         width: 100%;
 
         padding:
-          14px 13px;
+          13px 12px;
       }
 
       .prelaunch-submit {
         width: 100%;
 
         padding:
-          13px 18px;
+          12px 15px;
       }
 
-      .work-routes {
-        grid-template-columns:
-          1fr;
+      .prelaunch-note {
+        margin-top: 12px;
+      }
+
+      .pricing-note,
+      .professional-note {
+        align-self: stretch;
+
+        border-radius: 14px;
+
+        line-height: 1.4;
       }
 
       .work-button {
@@ -3376,6 +3513,24 @@
       }
 
 
+      /* -------------------------------------------------------
+         CONTACT MODAL
+         ------------------------------------------------------- */
+
+      .contact-modal {
+        width: 100%;
+
+        max-height:
+          calc(
+            100svh - 20px
+          );
+
+        padding:
+          26px 17px 20px;
+
+        border-radius: 22px;
+      }
+
       .contact-form {
         grid-template-columns:
           1fr;
@@ -3383,9 +3538,50 @@
 
       .contact-form textarea,
       .contact-form .full,
-      .contact-form
       .submit-button {
         grid-column: auto;
+      }
+
+      .submit-button {
+        width: 100%;
+      }
+
+    }
+
+
+    /* =========================================================
+       VERY NARROW MOBILE
+       ========================================================= */
+
+    @media
+    (max-width: 380px) {
+
+      .hero-logo {
+        width: 140px;
+      }
+
+      .launch-countdown {
+        width: 108px;
+      }
+
+      .platform-inner,
+      .showcase-inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .showcase-device-wrap {
+        padding:
+          0 30px 18px;
+      }
+
+      .module-card {
+        width: 175px;
+      }
+
+      .carousel-row-top
+      .module-card {
+        width: 158px;
       }
 
     }
@@ -3400,6 +3596,10 @@
       prefers-reduced-motion:
       reduce
     ) {
+
+      html {
+        scroll-behavior: auto;
+      }
 
       *,
       *::before,
@@ -3425,7 +3625,7 @@
 
 
   <!-- =======================================================
-       FIXED COUNTDOWN
+       COUNTDOWN
        ======================================================= -->
 
   <aside
@@ -3442,20 +3642,6 @@
         viewBox="0 0 24 24"
         fill="none"
       >
-
-        <path
-          d="M14.5 4.5C17.9 5.2 20 7.8 20 11.2C20 15.5 16.5 19 12.2 19H11"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        />
-
-        <path
-          d="M8.2 15.8L4.8 19.2"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        />
 
         <path
           d="M7.2 11.2L12.7 5.7C13.3 5.1 14.2 4.9 15 5.2L18.8 6.6L20.2 10.4C20.5 11.2 20.3 12.1 19.7 12.7L14.2 18.2L9.5 17.1L7.2 14.8L7.2 11.2Z"
@@ -3601,6 +3787,7 @@
     id="hero"
   >
 
+
     <div class="hero-logo">
 
       <img
@@ -3724,7 +3911,9 @@
           A Gamified<br>
 
           Learning
-          <span>Universe.</span>
+          <span>
+            Universe.
+          </span>
 
         </h1>
 
@@ -3834,7 +4023,6 @@
 
             <div class="carousel-set">
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3843,7 +4031,6 @@
                   >
                 </div>
               </div>
-
 
               <div class="module-card">
                 <div class="module-float">
@@ -3854,7 +4041,6 @@
                 </div>
               </div>
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3864,16 +4050,13 @@
                 </div>
               </div>
 
-
             </div>
-
 
 
             <div
               class="carousel-set"
               aria-hidden="true"
             >
-
 
               <div class="module-card">
                 <div class="module-float">
@@ -3884,7 +4067,6 @@
                 </div>
               </div>
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3894,7 +4076,6 @@
                 </div>
               </div>
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3903,7 +4084,6 @@
                   >
                 </div>
               </div>
-
 
             </div>
 
@@ -3921,7 +4101,6 @@
 
             <div class="carousel-set">
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3930,7 +4109,6 @@
                   >
                 </div>
               </div>
-
 
               <div class="module-card">
                 <div class="module-float">
@@ -3941,7 +4119,6 @@
                 </div>
               </div>
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3951,16 +4128,13 @@
                 </div>
               </div>
 
-
             </div>
-
 
 
             <div
               class="carousel-set"
               aria-hidden="true"
             >
-
 
               <div class="module-card">
                 <div class="module-float">
@@ -3971,7 +4145,6 @@
                 </div>
               </div>
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3981,7 +4154,6 @@
                 </div>
               </div>
 
-
               <div class="module-card">
                 <div class="module-float">
                   <img
@@ -3990,7 +4162,6 @@
                   >
                 </div>
               </div>
-
 
             </div>
 
@@ -4080,10 +4251,12 @@
           class="showcase-title"
           id="showcase-title"
         >
+
           Story-led learning
           <span>
             missions.
           </span>
+
         </h2>
 
 
@@ -4280,13 +4453,10 @@
     id="join"
   >
 
-
     <div class="final-inner">
 
 
-      <!-- ===============================================
-           CUSTOMER / PRE-LAUNCH
-           =============================================== -->
+      <!-- LEFT -->
 
       <div class="final-panel join-panel">
 
@@ -4315,13 +4485,11 @@
         </p>
 
 
-
         <form
           class="prelaunch-form"
           action="https://formsubmit.co/steven@edjucat.com"
           method="POST"
         >
-
 
           <input
             type="hidden"
@@ -4329,20 +4497,17 @@
             value="false"
           >
 
-
           <input
             type="hidden"
             name="_subject"
             value="New Edju Cat Pre-Launch Signup"
           >
 
-
           <input
             type="hidden"
             name="_next"
             value="https://www.edjucat.com/?signup=true"
           >
-
 
           <input
             type="hidden"
@@ -4367,7 +4532,6 @@
             Join the launch list
           </button>
 
-
         </form>
 
 
@@ -4381,10 +4545,7 @@
 
         <div class="pricing-note">
 
-          <span
-            class="pricing-note-dot"
-            aria-hidden="true"
-          ></span>
+          <span class="pricing-note-dot"></span>
 
           Affordable subscriptions and individual
           module access available at launch
@@ -4396,23 +4557,21 @@
 
 
 
-      <!-- ===============================================
-           INVESTORS / PARTNERS / B2B
-           =============================================== -->
+      <!-- RIGHT -->
 
       <div class="final-panel work-panel">
 
 
         <div class="final-eyebrow">
-          Build the Universe
+          Work With Us
         </div>
 
 
         <h2 class="final-title">
 
-          Interested in building
+          Help us build
           <span>
-            Edju Cat with us?
+            Edju Cat.
           </span>
 
         </h2>
@@ -4421,57 +4580,17 @@
         <p class="final-copy">
 
           We’re speaking with investors, educators,
-          creative partners and organisations interested
-          in helping shape and grow the platform.
+          creative professionals and organisations
+          interested in helping shape and grow the platform.
 
         </p>
 
 
+        <div class="professional-note">
 
-        <div class="work-routes">
-
-
-          <div class="work-route">
-
-            <strong>
-              Investor
-            </strong>
-
-            <p>
-              Funding and strategic conversations.
-            </p>
-
-          </div>
-
-
-          <div class="work-route">
-
-            <strong>
-              Creative Partner
-            </strong>
-
-            <p>
-              Museums, attractions, educators and storytellers.
-            </p>
-
-          </div>
-
-
-          <div class="work-route">
-
-            <strong>
-              Business & Schools
-            </strong>
-
-            <p>
-              Partnerships, licensing and educational opportunities.
-            </p>
-
-          </div>
-
+          Investors · creative partners · schools · organisations
 
         </div>
-
 
 
         <button
@@ -4487,7 +4606,6 @@
 
 
     </div>
-
 
   </section>
 
@@ -4505,7 +4623,6 @@
     aria-labelledby="contact-title"
     aria-hidden="true"
   >
-
 
     <div class="contact-modal">
 
@@ -4529,15 +4646,11 @@
 
 
         <p>
-
-          Tell us how you’d like to get involved
-          with Edju Cat.
-
+          Tell us how you’d like to get involved with Edju Cat.
         </p>
 
 
       </div>
-
 
 
       <form
@@ -4546,13 +4659,11 @@
         method="POST"
       >
 
-
         <input
           type="hidden"
           name="_captcha"
           value="false"
         >
-
 
         <input
           type="hidden"
@@ -4560,13 +4671,11 @@
           value="New Edju Cat Enquiry"
         >
 
-
         <input
           type="hidden"
           name="_next"
           value="https://www.edjucat.com/?sent=true"
         >
-
 
         <input
           type="hidden"
@@ -4600,41 +4709,33 @@
           required
         >
 
-
           <option value="">
             I’m interested as...
           </option>
-
 
           <option value="Investor">
             Investor
           </option>
 
-
           <option value="Creative Partner">
             Creative Partner
           </option>
-
 
           <option value="Teacher / School">
             Teacher / School
           </option>
 
-
           <option value="Business / Organisation">
             Business / Organisation
           </option>
-
 
           <option value="Developer / Content Creator">
             Developer / Content Creator
           </option>
 
-
           <option value="Other">
             Other
           </option>
-
 
         </select>
 
@@ -4653,19 +4754,17 @@
           Send Message
         </button>
 
-
       </form>
 
 
     </div>
-
 
   </div>
 
 
 
   <!-- =======================================================
-       SUCCESS MODAL
+       SUCCESS
        ======================================================= -->
 
   <div
@@ -4673,18 +4772,13 @@
     class="success-overlay"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="success-title"
     aria-hidden="true"
   >
-
 
     <div class="success-dialog">
 
 
-      <div
-        class="success-icon"
-        aria-hidden="true"
-      >
+      <div class="success-icon">
         ✓
       </div>
 
@@ -4713,7 +4807,6 @@
 
     </div>
 
-
   </div>
 
 
@@ -4727,8 +4820,13 @@
 
     /* =======================================================
        COUNTDOWN
-       Launch: 30 November 2026, midnight UK time
        ======================================================= */
+
+    const launchDate =
+      new Date(
+        "2026-11-30T00:00:00+00:00"
+      );
+
 
     const countdownDays =
       document.getElementById(
@@ -4751,18 +4849,7 @@
       );
 
 
-    /*
-      UK is on GMT by 30 November.
-      This targets midnight entering launch day.
-    */
-
-    const launchDate =
-      new Date(
-        "2026-11-30T00:00:00+00:00"
-      );
-
-
-    function padCountdown(
+    function pad(
       value,
       length = 2
     ) {
@@ -4783,31 +4870,13 @@
         new Date();
 
 
-      let remaining =
-        launchDate.getTime()
-        -
-        now.getTime();
-
-
-      if (
-        remaining <= 0
-      ) {
-
-        countdownDays.textContent =
-          "000";
-
-        countdownHours.textContent =
-          "00";
-
-        countdownMinutes.textContent =
-          "00";
-
-        countdownSeconds.textContent =
-          "00";
-
-        return;
-
-      }
+      const remaining =
+        Math.max(
+          0,
+          launchDate.getTime()
+          -
+          now.getTime()
+        );
 
 
       const totalSeconds =
@@ -4851,26 +4920,26 @@
 
 
       countdownDays.textContent =
-        padCountdown(
+        pad(
           days,
           3
         );
 
 
       countdownHours.textContent =
-        padCountdown(
+        pad(
           hours
         );
 
 
       countdownMinutes.textContent =
-        padCountdown(
+        pad(
           minutes
         );
 
 
       countdownSeconds.textContent =
-        padCountdown(
+        pad(
           seconds
         );
 
@@ -4888,7 +4957,7 @@
 
 
     /* =======================================================
-       FOLD REFERENCES
+       FOLD NAVIGATION
        ======================================================= */
 
     const folds =
@@ -4911,7 +4980,7 @@
       );
 
 
-    const moduleShowcaseSection =
+    const showcaseSection =
       document.getElementById(
         "module-showcase"
       );
@@ -4929,22 +4998,21 @@
       );
 
 
-
-    /* =======================================================
-       FOLD NAVIGATION
-       ======================================================= */
-
     let currentFoldIndex =
       0;
+
 
     let isFoldScrolling =
       false;
 
+
     let wheelAccumulator =
       0;
 
+
     let wheelResetTimer =
       null;
+
 
     let scrollUnlockTimer =
       null;
@@ -4955,6 +5023,7 @@
 
       let nearestIndex =
         0;
+
 
       let nearestDistance =
         Infinity;
@@ -5015,7 +5084,7 @@
         contentSection
         ||
         fold ===
-        moduleShowcaseSection
+        showcaseSection
       ) {
 
         sharedSpaceBackground
@@ -5077,10 +5146,10 @@
 
       if (
         folds[index] ===
-        moduleShowcaseSection
+        showcaseSection
       ) {
 
-        moduleShowcaseSection
+        showcaseSection
           .classList
           .add(
             "is-active"
@@ -5190,7 +5259,9 @@
           window.innerWidth <=
           700
         ) {
+
           return;
+
         }
 
 
@@ -5201,7 +5272,9 @@
               "modal-open"
             )
         ) {
+
           return;
+
         }
 
 
@@ -5211,7 +5284,9 @@
         if (
           isFoldScrolling
         ) {
+
           return;
+
         }
 
 
@@ -5246,7 +5321,9 @@
           <
           45
         ) {
+
           return;
+
         }
 
 
@@ -5260,13 +5337,17 @@
         ) {
 
           scrollToFold(
-            currentFoldIndex + 1
+            currentFoldIndex
+            +
+            1
           );
 
         } else {
 
           scrollToFold(
-            currentFoldIndex - 1
+            currentFoldIndex
+            -
+            1
           );
 
         }
@@ -5278,16 +5359,13 @@
       },
 
       {
-        passive: false
+        passive:
+          false
       }
 
     );
 
 
-
-    /* =======================================================
-       SECTION OBSERVER
-       ======================================================= */
 
     const sectionObserver =
       new IntersectionObserver(
@@ -5307,9 +5385,11 @@
                 ||
                 entry.intersectionRatio
                 <
-                0.55
+                0.50
               ) {
+
                 return;
+
               }
 
 
@@ -5336,7 +5416,7 @@
         {
           threshold:
             [
-              0.55
+              0.50
             ]
         }
 
@@ -5417,6 +5497,7 @@
 
 
       {
+
         eyebrow:
           "The Module Formula",
 
@@ -5428,10 +5509,12 @@
 
         benefit:
           '<span class="showcase-benefit-icon">✓</span> Story creates purpose and motivation'
+
       },
 
 
       {
+
         eyebrow:
           "Learning Through Discovery",
 
@@ -5443,10 +5526,12 @@
 
         benefit:
           '<span class="showcase-benefit-icon">✓</span> Explore. Find. Learn.'
+
       },
 
 
       {
+
         eyebrow:
           "Learning That Sticks",
 
@@ -5458,25 +5543,29 @@
 
         benefit:
           '<span class="showcase-benefit-icon">✓</span> Short quizzes reinforce recall'
+
       },
 
 
       {
+
         eyebrow:
           "Persistent Progress",
 
         title:
-          'Reward loops that <span>keep learners coming back.</span>',
+          'Progress that <span>lasts.</span>',
 
         description:
-          "Every module has its own stickerbook, turning discoveries into collectible stickers, badges, upgrades and visible progress. That sense of ownership and completion gives learners a reason to return and continue building their collection.",
+          "Every module has its own stickerbook, turning discoveries into collectible stickers, badges, upgrades and visible progress. Persistent reward loops give learners a reason to return, continue building their collection and get more lasting value from every module.",
 
         benefit:
-          '<span class="showcase-benefit-icon">✓</span> Collect. Upgrade. Complete.'
+          '<span class="showcase-benefit-icon">✓</span> Collect. Progress. Return.'
+
       },
 
 
       {
+
         eyebrow:
           "Console-Inspired Game Systems",
 
@@ -5488,6 +5577,7 @@
 
         benefit:
           '<span class="showcase-benefit-icon">✓</span> Play. Earn. Upgrade.'
+
       }
 
 
@@ -5620,7 +5710,7 @@
 
 
     /* =======================================================
-       CONTACT MODAL
+       CONTACT + SIGNUP SUCCESS
        ======================================================= */
 
     const openContactButton =
@@ -5769,20 +5859,24 @@
         "signup"
       ) {
 
-        successTitle.textContent =
+        successTitle
+          .textContent =
           "You’re on the list";
 
 
-        successMessage.textContent =
+        successMessage
+          .textContent =
           "Thanks for joining Edju Cat. We’ll keep you updated as launch approaches.";
 
       } else {
 
-        successTitle.textContent =
+        successTitle
+          .textContent =
           "Message Sent";
 
 
-        successMessage.textContent =
+        successMessage
+          .textContent =
           "Thanks for getting in touch. We’ve received your message and will get back to you soon.";
 
       }
@@ -5817,20 +5911,7 @@
         );
 
 
-      successOverlay
-        .setAttribute(
-          "aria-hidden",
-          "true"
-        );
-
-
       unlockPage();
-
-
-      const cleanUrl =
-        window.location.pathname
-        +
-        window.location.hash;
 
 
       window.history
@@ -5840,7 +5921,7 @@
 
           document.title,
 
-          cleanUrl
+          window.location.pathname
 
         );
 
@@ -5915,49 +5996,50 @@
       );
 
 
+    document
+      .addEventListener(
 
-    document.addEventListener(
+        "keydown",
 
-      "keydown",
-
-      function (
-        event
-      ) {
-
-        if (
-          event.key ===
-          "Escape"
-          &&
-          contactOverlay
-            .classList
-            .contains(
-              "is-visible"
-            )
+        function (
+          event
         ) {
 
-          closeContactModal();
+          if (
+            event.key ===
+            "Escape"
+          ) {
+
+            if (
+              contactOverlay
+                .classList
+                .contains(
+                  "is-visible"
+                )
+            ) {
+
+              closeContactModal();
+
+            }
+
+
+            if (
+              successOverlay
+                .classList
+                .contains(
+                  "is-visible"
+                )
+            ) {
+
+              closeSuccess();
+
+            }
+
+          }
 
         }
 
-
-        if (
-          event.key ===
-          "Escape"
-          &&
-          successOverlay
-            .classList
-            .contains(
-              "is-visible"
-            )
-        ) {
-
-          closeSuccess();
-
-        }
-
-      }
-
-    );
+      );
 
 
 
@@ -5989,6 +6071,7 @@
 
 
   </script>
+
 
 </body>
 
