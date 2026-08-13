@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T20:21:34.478Z",
+  "generatedAt": "2026-08-13T07:30:07.765Z",
   "packs": {
     "ocean-compass-en": {
-      "archiveBytes": 725364200,
-      "downloadUrl": "https://dlc.edjucat.com/modules/ocean-compass/ocean-compass-en-v1.1.6.zip",
+      "archiveBytes": 725364001,
+      "downloadUrl": "https://dlc.edjucat.com/modules/ocean-compass/ocean-compass-en-v1.1.7.zip",
       "fileCount": 456,
       "language": "en",
-      "md5": "2405363141c6bde6ec2dffd191d97114",
+      "md5": "389e041886a9138333e5da8606e11c02",
       "minimumAppVersion": "1.0.1",
       "moduleId": "ocean-compass",
       "packId": "ocean-compass-en",
-      "sha256": "3720c5c44893761f8248174c236c2945382e2a0c50a30dae6c4c699a7c3cacab",
-      "unpackedBytes": 725162967,
-      "version": "1.1.6"
+      "sha256": "4ee4eb0a7995e6f84c37101e822ecfbfafaf9f5245956d88e5da132570ea2870",
+      "unpackedBytes": 725162768,
+      "version": "1.1.7"
     }
   }
 }
