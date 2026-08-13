@@ -3,6 +3,16 @@
 
 <head>
 
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNQ4T14HD8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNQ4T14HD8');
+</script>
+
   <link
     rel="icon"
     type="image/png"
@@ -486,7 +496,6 @@
 
     /* =========================================================
        FOLD 1
-       IMPORTANT: BACKGROUND RESTORED TO CENTER TOP
        ========================================================= */
 
     .hero-fold {
@@ -506,45 +515,232 @@
 
 
     /* =========================================================
-       FOLD 1 BRAND LOCKUP
+       HERO APP STORE PANEL
+       HERO ONLY, NOT FIXED
+       ========================================================= */
+
+    .store-coming-soon {
+      position: absolute;
+
+      z-index: 20;
+
+      top:
+        max(
+          26px,
+          env(safe-area-inset-top)
+        );
+
+      left:
+        max(
+          34px,
+          env(safe-area-inset-left)
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      min-width: 340px;
+
+      padding:
+        11px 17px;
+
+      border:
+        1px solid
+        rgba(
+          69,
+          231,
+          227,
+          0.28
+        );
+
+      border-radius: 999px;
+
+      background:
+        rgba(
+          0,
+          19,
+          39,
+          0.62
+        );
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        0 18px 44px
+        rgba(
+          0,
+          0,
+          0,
+          0.28
+        ),
+
+        inset 0 1px 0
+        rgba(
+          255,
+          255,
+          255,
+          0.06
+        );
+    }
+
+
+    .store-coming-soon-label {
+      flex:
+        0 0 auto;
+
+      color:
+        var(--cyan);
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing:
+        0.08em;
+
+      line-height: 1.25;
+
+      text-transform: uppercase;
+    }
+
+
+    .store-divider {
+      width: 1px;
+      height: 38px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(
+            69,
+            231,
+            227,
+            0.30
+          ),
+          transparent
+        );
+    }
+
+
+    .store-platforms {
+      display: flex;
+
+      align-items: center;
+
+      gap: 16px;
+    }
+
+
+    .store-platform {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+    }
+
+
+    .store-platform img {
+      width: 25px;
+      height: 25px;
+
+      flex:
+        0 0 25px;
+
+      object-fit: contain;
+    }
+
+
+    .store-platform-copy {
+      display: flex;
+
+      flex-direction: column;
+
+      line-height: 1.05;
+    }
+
+
+    .store-platform-copy small {
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.48
+        );
+
+      font-size: 7px;
+
+      font-weight: 600;
+
+      letter-spacing:
+        0.04em;
+
+      text-transform: uppercase;
+    }
+
+
+    .store-platform-copy strong {
+      margin-top: 3px;
+
+      color: white;
+
+      font-size: 11px;
+
+      font-weight: 600;
+    }
+
+
+    /* =========================================================
+       HERO CENTRED BRAND LOCKUP
        ========================================================= */
 
     .hero-logo {
       position: absolute;
 
-      z-index: 12;
+      z-index: 18;
 
       top:
         clamp(
-          28px,
-          4vh,
-          48px
+          22px,
+          3vh,
+          36px
         );
 
-      left:
-        clamp(
-          34px,
-          4.3vw,
-          76px
-        );
+      left: 50%;
 
       width:
         clamp(
-          255px,
-          18.5vw,
-          345px
+          225px,
+          16.7vw,
+          310px
         );
 
-      text-align: left;
+      transform:
+        translateX(-50%);
+
+      text-align: center;
 
       pointer-events: none;
     }
+
 
     .logo-mark {
       display: block;
 
       width: 100%;
       height: auto;
+
+      margin:
+        0 auto;
 
       object-fit: contain;
 
@@ -560,6 +756,7 @@
         );
     }
 
+
     .tag-pill {
       display: flex;
 
@@ -568,10 +765,11 @@
 
       width: 90%;
 
-      margin-top: 8px;
+      margin:
+        7px auto 0;
 
       padding:
-        10px 14px;
+        9px 12px;
 
       border-radius: 999px;
 
@@ -583,9 +781,9 @@
 
       font-size:
         clamp(
-          11px,
-          0.9vw,
-          14px
+          10px,
+          0.82vw,
+          13px
         );
 
       font-weight: 700;
@@ -593,7 +791,7 @@
       line-height: 1;
 
       letter-spacing:
-        0.03em;
+        0.025em;
 
       white-space: nowrap;
 
@@ -2886,17 +3084,27 @@
       .hero-logo {
         width:
           clamp(
-            235px,
-            22vw,
-            290px
+            205px,
+            18vw,
+            260px
           );
+      }
 
-        left: 28px;
+      .store-coming-soon {
+        left: 22px;
+
+        transform:
+          scale(0.84);
+
+        transform-origin:
+          top left;
       }
 
       .launch-countdown {
+        right: 22px;
+
         transform:
-          scale(0.88);
+          scale(0.84);
 
         transform-origin:
           top right;
@@ -2951,37 +3159,37 @@
       .launch-countdown {
         top:
           max(
-            12px,
+            10px,
             env(safe-area-inset-top)
           );
 
         right:
           max(
-            10px,
+            8px,
             env(safe-area-inset-right)
           );
 
         min-width: 0;
 
-        width: 114px;
+        width: 104px;
 
         padding:
-          6px 9px 6px 6px;
+          6px 8px 6px 6px;
 
-        gap: 7px;
+        gap: 6px;
       }
 
       .launch-countdown-orb {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
 
         flex:
-          0 0 34px;
+          0 0 32px;
       }
 
       .launch-countdown-orb svg {
-        width: 15px;
-        height: 15px;
+        width: 14px;
+        height: 14px;
       }
 
       .launch-countdown-label {
@@ -2997,17 +3205,84 @@
         align-items:
           flex-start;
 
-        min-width: 48px;
+        min-width: 44px;
       }
 
       .countdown-value {
-        font-size: 15px;
+        font-size: 14px;
       }
 
       .countdown-caption {
         margin-top: 2px;
 
         font-size: 6px;
+      }
+
+
+      /* store panel */
+
+      .store-coming-soon {
+        top:
+          max(
+            10px,
+            env(safe-area-inset-top)
+          );
+
+        left:
+          max(
+            8px,
+            env(safe-area-inset-left)
+          );
+
+        min-width: 0;
+
+        width: 132px;
+
+        padding:
+          6px 8px;
+
+        gap: 7px;
+
+        border-radius: 18px;
+      }
+
+      .store-coming-soon-label {
+        font-size: 6px;
+
+        letter-spacing:
+          0.04em;
+      }
+
+      .store-divider {
+        height: 27px;
+      }
+
+      .store-platforms {
+        gap: 7px;
+      }
+
+      .store-platform {
+        gap: 4px;
+      }
+
+      .store-platform img {
+        width: 17px;
+        height: 17px;
+
+        flex:
+          0 0 17px;
+      }
+
+      .store-platform-copy small {
+        display: none;
+      }
+
+      .store-platform-copy strong {
+        margin-top: 0;
+
+        font-size: 7px;
+
+        line-height: 1.1;
       }
 
 
@@ -3021,18 +3296,27 @@
       .hero-logo {
         top:
           max(
-            14px,
-            env(safe-area-inset-top)
+            64px,
+            calc(
+              env(
+                safe-area-inset-top
+              )
+              +
+              54px
+            )
           );
 
-        left: 14px;
+        left: 50%;
 
         width:
           clamp(
-            125px,
-            35vw,
-            150px
+            128px,
+            36vw,
+            155px
           );
+
+        transform:
+          translateX(-50%);
       }
 
       .tag-pill {
@@ -3041,7 +3325,7 @@
         margin-top: 4px;
 
         padding:
-          6px 6px;
+          6px 5px;
 
         font-size:
           clamp(
@@ -3534,12 +3818,16 @@
     @media
     (max-width: 380px) {
 
-      .hero-logo {
-        width: 120px;
+      .store-coming-soon {
+        width: 122px;
       }
 
       .launch-countdown {
-        width: 108px;
+        width: 98px;
+      }
+
+      .hero-logo {
+        width: 122px;
       }
 
       .platform-inner,
@@ -3603,7 +3891,7 @@
 
 
   <!-- =======================================================
-       COUNTDOWN
+       FIXED COUNTDOWN
        ======================================================= -->
 
   <aside
@@ -3766,6 +4054,82 @@
   >
 
 
+    <!-- HERO-ONLY APP STORE PANEL -->
+
+    <div
+      class="store-coming-soon"
+      aria-label="Coming soon to Google Play and Apple App Store"
+    >
+
+
+      <div class="store-coming-soon-label">
+        Coming<br>
+        soon to
+      </div>
+
+
+      <div
+        class="store-divider"
+        aria-hidden="true"
+      ></div>
+
+
+      <div class="store-platforms">
+
+
+        <div class="store-platform">
+
+          <img
+            src="https://cdn.simpleicons.org/googleplay/FFFFFF"
+            alt="Google Play"
+          >
+
+          <div class="store-platform-copy">
+
+            <small>
+              Google
+            </small>
+
+            <strong>
+              Play
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="store-platform">
+
+          <img
+            src="https://cdn.simpleicons.org/apple/FFFFFF"
+            alt="Apple"
+          >
+
+          <div class="store-platform-copy">
+
+            <small>
+              Apple
+            </small>
+
+            <strong>
+              App Store
+            </strong>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- CENTRED LOGO + TAGLINE -->
+
     <div class="hero-logo">
 
       <img
@@ -3779,6 +4143,7 @@
       </div>
 
     </div>
+
 
 
     <button
@@ -4469,8 +4834,6 @@
           method="POST"
         >
 
-          <!-- FormSubmit system fields -->
-
           <input
             type="hidden"
             name="_captcha"
@@ -4495,20 +4858,11 @@
             value="table"
           >
 
-
-          <!--
-            IMPORTANT:
-            This is deliberately NOT prefixed with "_".
-            FormSubmit will therefore include it in the
-            body of the email it sends you.
-          -->
-
           <input
             type="hidden"
             name="Request"
             value="Join Edju Cat Launch List"
           >
-
 
           <input
             type="hidden"
@@ -4558,7 +4912,7 @@
 
 
 
-      <!-- RIGHT: PROFESSIONAL CONTACT -->
+      <!-- RIGHT -->
 
       <div class="final-panel work-panel">
 
@@ -4640,16 +4994,13 @@
 
       <div class="contact-modal-header">
 
-
         <h2 id="contact-title">
           Start a Conversation
         </h2>
 
-
         <p>
           Tell us how you’d like to get involved with Edju Cat.
         </p>
-
 
       </div>
 
@@ -4683,7 +5034,6 @@
           name="_template"
           value="table"
         >
-
 
         <input
           type="hidden"
