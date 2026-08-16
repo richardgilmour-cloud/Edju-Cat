@@ -2546,153 +2546,135 @@
 
 
     /* =========================================================
-       PRE-LAUNCH
+       MAILERLITE PRE-LAUNCH FORM
        ========================================================= */
 
-    .prelaunch-form {
-      display: flex;
-
-      align-items: center;
-
+    .mailerlite-launch-form {
       width: 100%;
-
       max-width: 520px;
-
-      padding: 6px;
-
-      border:
-        1px solid
-        rgba(
-          69,
-          231,
-          227,
-          0.20
-        );
-
-      border-radius: 999px;
-
-      background:
-        rgba(
-          0,
-          16,
-          32,
-          0.45
-        );
     }
 
-    .prelaunch-form input[type="email"] {
-      flex: 1;
-
-      min-width: 0;
-
-      padding:
-        14px 17px;
-
-      border: none;
-
-      background: transparent;
-
-      color: white;
-
-      outline: none;
-
-      font-size: 14px;
+    /* Keep MailerLite inside the Edju Cat visual system. */
+    .mailerlite-launch-form .ml-embedded,
+    .mailerlite-launch-form .ml-form-embedContainer,
+    .mailerlite-launch-form .ml-form-embedWrapper,
+    .mailerlite-launch-form .ml-form-embedBody {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      border: 0 !important;
     }
 
-    .prelaunch-form input::placeholder {
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.48
-        );
+    .mailerlite-launch-form .ml-form-embedContent,
+    .mailerlite-launch-form .ml-form-formContent {
+      display: none !important;
     }
 
-    .prelaunch-submit {
-      flex:
-        0 0 auto;
+    .mailerlite-launch-form form {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0 !important;
+      width: 100% !important;
+      padding: 6px !important;
+      border: 1px solid rgba(69, 231, 227, 0.20) !important;
+      border-radius: 999px !important;
+      background: rgba(0, 16, 32, 0.45) !important;
+    }
 
-      padding:
-        12px 20px;
+    .mailerlite-launch-form .ml-form-fieldRow,
+    .mailerlite-launch-form .ml-field-group {
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
 
-      border-radius: 999px;
+    .mailerlite-launch-form input[type="email"],
+    .mailerlite-launch-form input[type="text"] {
+      width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      padding: 14px 17px !important;
+      border: 0 !important;
+      outline: 0 !important;
+      border-radius: 999px !important;
+      background: transparent !important;
+      color: white !important;
+      font-family: "Poppins", sans-serif !important;
+      font-size: 14px !important;
+      box-shadow: none !important;
+    }
 
-      background:
-        var(--cyan);
+    .mailerlite-launch-form input::placeholder {
+      color: rgba(255, 255, 255, 0.48) !important;
+    }
 
-      color:
-        var(--deep-blue);
+    .mailerlite-launch-form .ml-form-embedSubmit {
+      flex: 0 0 auto !important;
+      width: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
 
-      font-size: 13px;
+    .mailerlite-launch-form .ml-form-embedSubmit button,
+    .mailerlite-launch-form button.primary {
+      width: auto !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      padding: 12px 20px !important;
+      border: 0 !important;
+      border-radius: 999px !important;
+      background: var(--cyan) !important;
+      color: var(--deep-blue) !important;
+      font-family: "Poppins", sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      cursor: pointer !important;
+    }
 
-      font-weight: 700;
+    .mailerlite-launch-form .ml-error input {
+      border-color: rgba(255, 120, 120, 0.9) !important;
+    }
 
-      cursor: pointer;
+    .mailerlite-launch-form .ml-form-successBody {
+      padding: 16px 18px !important;
+      border: 1px solid rgba(69, 231, 227, 0.20) !important;
+      border-radius: 18px !important;
+      background: rgba(0, 16, 32, 0.45) !important;
+      color: white !important;
+      font-family: "Poppins", sans-serif !important;
     }
 
     .prelaunch-note {
       margin-top: 15px;
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.48
-        );
-
+      color: rgba(255, 255, 255, 0.48);
       font-size: 11px;
-
       line-height: 1.5;
     }
 
     .pricing-note {
       display: inline-flex;
-
       align-items: center;
-
       align-self: flex-start;
-
       gap: 8px;
-
       margin-top: 22px;
-
-      padding:
-        9px 13px;
-
-      border:
-        1px solid
-        rgba(
-          69,
-          231,
-          227,
-          0.16
-        );
-
+      padding: 9px 13px;
+      border: 1px solid rgba(69, 231, 227, 0.16);
       border-radius: 999px;
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.70
-        );
-
+      color: rgba(255, 255, 255, 0.70);
       font-size: 11px;
-
       font-weight: 600;
     }
 
     .pricing-note-dot {
       width: 5px;
       height: 5px;
-
       border-radius: 50%;
-
-      background:
-        var(--cyan);
+      background: var(--cyan);
     }
 
 
@@ -3535,7 +3517,7 @@
           ),
 
           url("background.jpg")
-          50% 18% /
+          50% 8% /
           auto 116%
           no-repeat;
       }
@@ -3986,28 +3968,29 @@
         line-height: 1.55;
       }
 
-      .prelaunch-form {
-        flex-direction: column;
-
-        align-items: stretch;
-
-        border-radius: 18px;
-
-        padding: 6px;
+      .mailerlite-launch-form form {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+        border-radius: 18px !important;
+        padding: 6px !important;
       }
 
-      .prelaunch-form input[type="email"] {
-        width: 100%;
-
-        padding:
-          13px 12px;
+      .mailerlite-launch-form .ml-form-fieldRow,
+      .mailerlite-launch-form .ml-field-group,
+      .mailerlite-launch-form .ml-form-embedSubmit {
+        width: 100% !important;
       }
 
-      .prelaunch-submit {
-        width: 100%;
+      .mailerlite-launch-form input[type="email"],
+      .mailerlite-launch-form input[type="text"] {
+        padding: 13px 12px !important;
+      }
 
-        padding:
-          12px 15px;
+      .mailerlite-launch-form .ml-form-embedSubmit button,
+      .mailerlite-launch-form button.primary {
+        width: 100% !important;
+        padding: 12px 15px !important;
       }
 
       .prelaunch-note {
@@ -4116,7 +4099,7 @@
           ),
 
           url("background.jpg")
-          50% 18% /
+          50% 6% /
           auto 120%
           no-repeat;
       }
@@ -4181,7 +4164,7 @@
 
   <!-- MailerLite Universal -->
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]function(){(w[f].q=w[f].q[])
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
     .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
     n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
     (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
@@ -5251,66 +5234,12 @@
         </p>
 
 
-        <form
-          class="prelaunch-form"
-          action="https://formsubmit.co/steven@edjucat.com"
-          method="POST"
-        >
-
-          <input
-            type="hidden"
-            name="_captcha"
-            value="false"
-          >
-
-          <input
-            type="hidden"
-            name="_subject"
-            value="New Edju Cat Pre-Launch Signup"
-          >
-
-          <input
-            type="hidden"
-            name="_next"
-            value="https://www.edjucat.com/?signup=true"
-          >
-
-          <input
-            type="hidden"
-            name="_template"
-            value="table"
-          >
-
-          <input
-            type="hidden"
-            name="Request"
-            value="Join Edju Cat Launch List"
-          >
-
-          <input
-            type="hidden"
-            name="Source"
-            value="Edju Cat Website Pre-Launch Form"
-          >
-
-
-          <input
-            type="email"
-            name="Email"
-            placeholder="Your email address"
-            autocomplete="email"
-            required
-          >
-
-
-          <button
-            class="prelaunch-submit"
-            type="submit"
-          >
-            Join the launch list
-          </button>
-
-        </form>
+        <div class="mailerlite-launch-form">
+          <div
+            class="ml-embedded"
+            data-form="nKGGb5"
+          ></div>
+        </div>
 
 
         <p class="prelaunch-note">
@@ -5563,14 +5492,14 @@
 
 
       <h2 id="success-title">
-        You’re on the list
+        Message Sent
       </h2>
 
 
       <p id="success-message">
 
-        Thanks for joining Edju Cat.
-        We’ll keep you updated as launch approaches.
+        Thanks for getting in touch.
+        We’ll get back to you soon.
 
       </p>
 
@@ -6645,32 +6574,14 @@
       type
     ) {
 
-      if (
-        type ===
-        "signup"
-      ) {
-
-        successTitle
-          .textContent =
-          "You’re on the list";
+      successTitle
+        .textContent =
+        "Message Sent";
 
 
-        successMessage
-          .textContent =
-          "Thanks for joining Edju Cat. We’ll keep you updated as launch approaches.";
-
-      } else {
-
-        successTitle
-          .textContent =
-          "Message Sent";
-
-
-        successMessage
-          .textContent =
-          "Thanks for getting in touch. We’ve received your message and will get back to you soon.";
-
-      }
+      successMessage
+        .textContent =
+        "Thanks for getting in touch. We’ve received your message and will get back to you soon.";
 
 
       successOverlay
@@ -6836,18 +6747,6 @@
 
     if (
       urlParams.get(
-        "signup"
-      )
-      ===
-      "true"
-    ) {
-
-      showSuccess(
-        "signup"
-      );
-
-    } else if (
-      urlParams.get(
         "sent"
       )
       ===
@@ -6863,7 +6762,6 @@
 
   </script>
   
-<div class="ml-embedded" data-form="nKGGb5"></div>
 
 </body>
 
