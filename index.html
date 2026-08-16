@@ -2710,8 +2710,9 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      background: rgba(0, 8, 20, 0.88);
+      padding: 20px;
+      overflow-y: auto;
+      background: rgba(0, 8, 20, 0.90);
       -webkit-backdrop-filter: blur(14px);
       backdrop-filter: blur(14px);
     }
@@ -2722,38 +2723,33 @@
 
     .launch-list-modal {
       position: relative;
-      width: min(92vw, 720px);
-      max-height: 86svh;
-      overflow-y: auto;
-      padding: clamp(28px, 4vw, 46px);
+      width: min(94vw, 860px);
+      padding: 28px 34px 32px;
       border: 1px solid rgba(69, 231, 227, 0.24);
-      border-radius: 30px;
+      border-radius: 28px;
       background:
-        radial-gradient(circle at 50% 0%, rgba(0, 121, 171, 0.14), transparent 38%),
-        rgba(2, 24, 42, 0.98);
+        radial-gradient(circle at 50% 0%, rgba(0, 121, 171, 0.12), transparent 38%),
+        rgba(2, 24, 42, 0.985);
       box-shadow:
         0 32px 100px rgba(0, 0, 0, 0.58),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      scrollbar-width: thin;
-      scrollbar-color: rgba(69, 231, 227, 0.35) transparent;
+      overflow: visible;
     }
 
     .launch-list-close {
-      position: sticky;
-      float: right;
-      top: 0;
+      position: absolute;
+      top: 18px;
+      right: 18px;
       z-index: 5;
       display: grid;
       place-items: center;
-      width: 42px;
-      height: 42px;
-      margin-top: -8px;
-      margin-right: -8px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 1px solid rgba(69, 231, 227, 0.18);
-      background: rgba(0, 20, 39, 0.84);
+      background: rgba(0, 20, 39, 0.86);
       color: white;
-      font-size: 26px;
+      font-size: 25px;
       line-height: 1;
       cursor: pointer;
       -webkit-backdrop-filter: blur(10px);
@@ -2761,37 +2757,16 @@
     }
 
     .launch-list-header {
-      clear: both;
-      max-width: 560px;
-      margin: 0 auto 26px;
-      text-align: center;
+      margin: 0 56px 18px 0;
+      text-align: left;
     }
 
     .launch-list-header .final-eyebrow {
-      justify-content: center;
-      margin-bottom: 14px;
+      margin-bottom: 0;
     }
 
     .launch-list-header .final-eyebrow::after {
-      display: none;
-    }
-
-    .launch-list-header h2 {
-      margin-bottom: 12px;
-      font-size: clamp(34px, 5vw, 54px);
-      font-weight: 700;
-      line-height: 1.04;
-      letter-spacing: -0.04em;
-    }
-
-    .launch-list-header h2 span {
-      color: var(--cyan);
-    }
-
-    .launch-list-header p {
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 14px;
-      line-height: 1.6;
+      display: block;
     }
 
     .launch-list-cta-note {
@@ -2813,11 +2788,10 @@
 
     .launch-mailerlite-shell {
       width: 100%;
-      max-width: 620px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
     }
 
-    /* Constrain MailerLite's injected wrappers without squeezing its consent content. */
     .launch-mailerlite-shell .ml-embedded,
     .launch-mailerlite-shell .ml-form-embedContainer,
     .launch-mailerlite-shell .ml-form-embedWrapper,
@@ -2844,33 +2818,44 @@
       border-radius: 0 !important;
     }
 
-    /* Our modal already supplies the heading and description. */
+    /* User has already clicked to join, so MailerLite's repeated intro is hidden. */
     .launch-mailerlite-shell .ml-form-embedContent {
       display: none !important;
+    }
+
+    .launch-mailerlite-shell .ml-form-fieldRow,
+    .launch-mailerlite-shell .ml-field-group {
+      margin-bottom: 12px !important;
     }
 
     .launch-mailerlite-shell input[type="email"],
     .launch-mailerlite-shell input[type="text"] {
       width: 100% !important;
       max-width: 100% !important;
-      min-height: 52px !important;
-      padding: 13px 16px !important;
+      min-height: 50px !important;
+      padding: 12px 15px !important;
       border: 1px solid rgba(69, 231, 227, 0.22) !important;
-      border-radius: 14px !important;
-      background: rgba(255, 255, 255, 0.96) !important;
+      border-radius: 13px !important;
+      background: rgba(255, 255, 255, 0.97) !important;
       color: #07121f !important;
       font-family: "Poppins", sans-serif !important;
       font-size: 14px !important;
       outline: none !important;
     }
 
+    .launch-mailerlite-shell input[type="email"]::placeholder,
+    .launch-mailerlite-shell input[type="text"]::placeholder {
+      color: #5c6570 !important;
+      opacity: 1 !important;
+    }
+
     .launch-mailerlite-shell button,
     .launch-mailerlite-shell .primary,
     .launch-mailerlite-shell .ml-form-embedSubmit button {
       width: 100% !important;
-      min-height: 50px !important;
+      min-height: 48px !important;
       margin-top: 10px !important;
-      padding: 13px 20px !important;
+      padding: 12px 20px !important;
       border: 0 !important;
       border-radius: 999px !important;
       background: var(--cyan) !important;
@@ -2881,29 +2866,64 @@
       cursor: pointer !important;
     }
 
-    .launch-mailerlite-shell label,
+    /* Force all MailerLite consent / permission copy to remain readable. */
+    .launch-mailerlite-shell h1,
+    .launch-mailerlite-shell h2,
+    .launch-mailerlite-shell h3,
+    .launch-mailerlite-shell h4,
+    .launch-mailerlite-shell h5,
+    .launch-mailerlite-shell h6,
     .launch-mailerlite-shell p,
+    .launch-mailerlite-shell label,
+    .launch-mailerlite-shell span,
+    .launch-mailerlite-shell strong,
+    .launch-mailerlite-shell em,
+    .launch-mailerlite-shell small,
+    .launch-mailerlite-shell .label-description,
+    .launch-mailerlite-shell .ml-form-embedPermissions,
+    .launch-mailerlite-shell .ml-form-checkboxRow,
+    .launch-mailerlite-shell .ml-form-checkboxRow * {
+      color: rgba(255, 255, 255, 0.80) !important;
+      font-family: "Poppins", sans-serif !important;
+    }
+
+    .launch-mailerlite-shell h1,
+    .launch-mailerlite-shell h2,
+    .launch-mailerlite-shell h3,
+    .launch-mailerlite-shell h4,
+    .launch-mailerlite-shell h5,
+    .launch-mailerlite-shell h6,
+    .launch-mailerlite-shell strong {
+      color: rgba(255, 255, 255, 0.94) !important;
+      font-weight: 600 !important;
+    }
+
+    .launch-mailerlite-shell p,
+    .launch-mailerlite-shell label,
+    .launch-mailerlite-shell span,
+    .launch-mailerlite-shell em,
+    .launch-mailerlite-shell small,
     .launch-mailerlite-shell .label-description,
     .launch-mailerlite-shell .ml-form-embedPermissions,
     .launch-mailerlite-shell .ml-form-checkboxRow {
-      color: rgba(255, 255, 255, 0.76) !important;
-      font-family: "Poppins", sans-serif !important;
       font-size: 12px !important;
-      line-height: 1.55 !important;
+      line-height: 1.48 !important;
     }
 
     .launch-mailerlite-shell .ml-form-checkboxRow,
     .launch-mailerlite-shell .ml-form-embedPermissions {
       width: 100% !important;
       max-width: 100% !important;
-      margin-top: 14px !important;
+      margin-top: 10px !important;
       padding: 0 !important;
     }
 
     .launch-mailerlite-shell input[type="checkbox"] {
-      width: auto !important;
-      height: auto !important;
+      width: 18px !important;
+      height: 18px !important;
       margin-right: 8px !important;
+      vertical-align: middle !important;
+      accent-color: var(--cyan);
     }
 
     .launch-mailerlite-shell a {
@@ -2911,7 +2931,9 @@
     }
 
     .launch-mailerlite-shell .ml-form-successBody,
-    .launch-mailerlite-shell .ml-form-successContent {
+    .launch-mailerlite-shell .ml-form-successContent,
+    .launch-mailerlite-shell .ml-form-successBody *,
+    .launch-mailerlite-shell .ml-form-successContent * {
       color: white !important;
       text-align: center !important;
     }
@@ -3755,7 +3777,7 @@
           ),
 
           url("background.jpg")
-          50% 0% /
+          50% 28px /
           auto 116%
           no-repeat;
       }
@@ -4281,18 +4303,19 @@
       /* launch-list modal */
 
       .launch-list-overlay {
-        padding: 10px;
+        align-items: flex-start;
+        padding: 12px;
       }
 
       .launch-list-modal {
         width: 100%;
-        max-height: 90svh;
-        padding: 24px 16px 18px;
+        margin: auto 0;
+        padding: 22px 16px 24px;
         border-radius: 22px;
       }
 
       .launch-list-header {
-        margin-bottom: 20px;
+        margin: 0 48px 14px 0;
       }
 
       .launch-list-header h2 {
@@ -4402,7 +4425,7 @@
           ),
 
           url("background.jpg")
-          50% 0% /
+          50% 24px /
           auto 120%
           no-repeat;
       }
@@ -5635,26 +5658,22 @@
 
       <div class="launch-list-header">
 
-        <div class="final-eyebrow">
-          Join the Adventure
+        <div
+          class="final-eyebrow"
+          id="launch-list-title"
+        >
+          Join the Edju Cat launch list
         </div>
-
-        <h2 id="launch-list-title">
-          Be first into the <span>EdjuVerse.</span>
-        </h2>
-
-        <p>
-          Join the pre-launch list for early access, launch offers and
-          updates as new learning adventures are released.
-        </p>
 
       </div>
 
       <div class="launch-mailerlite-shell">
+
         <div
           class="ml-embedded"
           data-form="nKGGb5"
         ></div>
+
       </div>
 
     </div>
