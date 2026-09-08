@@ -277,8 +277,8 @@ try {
   const now = new Date().toISOString();
   await d1(
     `UPDATE module_releases SET status='ready', package_object_key=?, package_byte_size=?,
-            package_sha256=?, package_md5=?, error_message=NULL, updated_at=?, completed_at=? WHERE id=?`,
-    [packageKey, archiveStat.size, sha256, md5, now, now, releaseId]
+            package_sha256=?, package_md5=?, package_file_count=?, package_unpacked_bytes=?, error_message=NULL, updated_at=?, completed_at=? WHERE id=?`,
+    [packageKey, archiveStat.size, sha256, md5, manifest.fileCount, manifest.unpackedBytes, now, now, releaseId]
   );
   console.log(`DLC ready: ${packageKey}`);
   console.log(`Bytes: ${archiveStat.size}`);
