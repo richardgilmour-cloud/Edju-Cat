@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T12:01:39.854Z",
+  "generatedAt": "2026-10-28T16:41:01.863Z",
   "packs": {
     "ocean-compass-en": {
       "archiveBytes": 708657818,
@@ -29,17 +29,17 @@
       "version": "0.1.4"
     },
     "congo-quest-en": {
-      "archiveBytes": 601904966,
-      "downloadUrl": "https://dlc.edjucat.com/modules/congo-quest/congo-quest-en-v0.1.3.zip",
+      "archiveBytes": 601419894,
+      "downloadUrl": "https://dlc.edjucat.com/modules/congo-quest/congo-quest-en-v0.1.4.zip",
       "fileCount": 537,
       "language": "en",
-      "md5": "521b49ab25a0c40cfb9f9dc72a5b7179",
+      "md5": "8fceff9f008334240f0ba46a43c9e88e",
       "minimumAppVersion": "1.0.22",
       "moduleId": "congo-quest",
       "packId": "congo-quest-en",
-      "sha256": "01df0ba58172eaba18b3328a39ce5df0b9d6f184a606f2c9ddaec69ff6bac8e1",
-      "unpackedBytes": 601695275,
-      "version": "0.1.3"
+      "sha256": "439e834a5833ad34665b1d2bae5b0ca44336268e9be88a7d5854048b8d9fb9f6",
+      "unpackedBytes": 601210203,
+      "version": "0.1.4"
     }
   }
 }
