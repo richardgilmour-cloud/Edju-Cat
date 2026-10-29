@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T09:56:12.892Z",
+  "generatedAt": "2026-10-29T10:03:35.635Z",
   "packs": {
     "ocean-compass-en": {
       "archiveBytes": 708657818,
@@ -16,17 +16,17 @@
       "version": "1.1.10"
     },
     "jurassic-rescue-en": {
-      "archiveBytes": 777180285,
-      "downloadUrl": "https://dlc.edjucat.com/modules/jurassic-rescue/jurassic-rescue-en-v0.1.4.zip",
-      "fileCount": 429,
+      "archiveBytes": 810472179,
+      "downloadUrl": "https://dlc.edjucat.com/modules/jurassic-rescue/jurassic-rescue-en-v0.1.5.zip",
+      "fileCount": 435,
       "language": "en",
-      "md5": "63bce78174a66acf3b617d12d2df2217",
-      "minimumAppVersion": "1.0.20",
+      "md5": "b2fd1faccb3ff94da6f63463365d54d5",
+      "minimumAppVersion": "1.0.26",
       "moduleId": "jurassic-rescue",
       "packId": "jurassic-rescue-en",
-      "sha256": "bc41fd2455c1f42fd4fc95a1a201ee4e0b432d67c3c70255d0f2b77770b341b6",
-      "unpackedBytes": 777012697,
-      "version": "0.1.4"
+      "sha256": "8685355b53d4f94a7235dc78b9c585b681d99640274193f8bae01c273224973d",
+      "unpackedBytes": 810302232,
+      "version": "0.1.5"
     },
     "congo-quest-en": {
       "archiveBytes": 632345581,
