@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T10:07:42.859Z",
+  "generatedAt": "2026-11-06T21:42:28.332Z",
   "packs": {
     "ocean-compass-en": {
-      "archiveBytes": 739779512,
-      "downloadUrl": "https://dlc.edjucat.com/modules/ocean-compass/ocean-compass-en-v1.1.11.zip",
+      "archiveBytes": 739148403,
+      "downloadUrl": "https://dlc.edjucat.com/modules/ocean-compass/ocean-compass-en-v1.1.12.zip",
       "fileCount": 395,
       "language": "en",
-      "md5": "f6d53e792ea3efff44877fdf8f695eef",
+      "md5": "6e7b96e0f0f2ce095d67a6f0c4db48a5",
       "minimumAppVersion": "1.0.26",
       "moduleId": "ocean-compass",
       "packId": "ocean-compass-en",
-      "sha256": "4de0c410edcfd5cb6aba374aeada672520cc4ae909edfe1d2ca176b379e1450d",
-      "unpackedBytes": 739603141,
-      "version": "1.1.11"
+      "sha256": "912822a39c2c9788f9a56a336233b738d3e614b6e61f999fe1968699e28818a4",
+      "unpackedBytes": 738971961,
+      "version": "1.1.12"
     },
     "jurassic-rescue-en": {
       "archiveBytes": 810472179,
