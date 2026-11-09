@@ -24,8 +24,10 @@ function showSlide(index) {
   slides.forEach(slide => slide.classList.remove('is-leaving'));
   outgoing.classList.add('is-leaving');
   outgoing.classList.remove('is-active');
+  outgoing.inert = true;
   outgoing.setAttribute('aria-hidden', 'true');
   incoming.classList.add('is-active');
+  incoming.inert = false;
   incoming.removeAttribute('aria-hidden');
   current = next;
   transitionTimer = setTimeout(() => outgoing.classList.remove('is-leaving'), transitionDuration);
