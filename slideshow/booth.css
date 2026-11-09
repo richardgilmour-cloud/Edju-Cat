@@ -104,20 +104,6 @@ h1, h2 {
 .opening .copy { max-width: 48vw; }
 .opening h1 { font-size: clamp(2rem, 6.65vmin, 7.25rem); text-wrap: balance; line-height: 1.08; }
 .opening .lead { max-width: 34ch; }
-.launch-link {
-  display: inline-flex;
-  align-items: center;
-  gap: .55em;
-  margin-top: 1em;
-  padding: .65em 1.08em;
-  border-radius: 999px;
-  background: var(--accent);
-  color: #041320;
-  font-size: clamp(.88rem, 2.15vmin, 2.1rem);
-  font-weight: 700;
-  text-decoration: none;
-}
-.launch-link:focus-visible { outline: 2px solid white; outline-offset: 4px; }
 em { color: var(--accent); font-style: normal; }
 .eyebrow {
   margin-bottom: clamp(9px, 1.65vh, 25px);
