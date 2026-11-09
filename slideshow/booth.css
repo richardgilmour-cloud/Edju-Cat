@@ -77,7 +77,7 @@ body { overflow: hidden; }
     linear-gradient(0deg, #020b1688, transparent 52%);
 }
 .scene .copy { max-width: 50vw; }
-.opening, .closing { --focus: 52% 52%; }
+.opening { --focus: 52% 52%; }
 .egypt { --accent: #ffc976; --focus: 56% 47%; }
 .congo, .stories { --accent: #adf2a3; --focus: 58% 47%; }
 .jurassic { --accent: #f5d095; --focus: 60% 55%; }
@@ -123,7 +123,29 @@ em { color: var(--accent); font-style: normal; }
   text-wrap: pretty;
 }
 .brand-logo { display: block; width: clamp(85px, 16vmin, 270px); margin-bottom: clamp(14px, 3.4vh, 48px); filter: drop-shadow(0 4px 18px #0008); }
-.site-name { color: var(--accent); font-size: clamp(1.15rem, 3.8vmin, 3.8rem); font-weight: 700; margin-top: .53em; }
+.closing {
+  place-items: center;
+  text-align: center;
+  background: #051728;
+}
+.closing::after {
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  background:
+    radial-gradient(ellipse at 25% 30%, #532797bf, transparent 42%),
+    radial-gradient(ellipse at 77% 72%, #087ea0ce, transparent 41%),
+    radial-gradient(ellipse at 70% 14%, #244ab49c, transparent 38%),
+    #051728;
+  animation: closing-gradient 15s ease-in-out infinite alternate paused;
+}
+.closing.is-active::after, .closing.is-leaving::after { animation-play-state: running; }
+@keyframes closing-gradient {
+  from { transform: translate3d(-6%, -3%, 0) rotate(-6deg); }
+  to { transform: translate3d(6%, 3%, 0) rotate(7deg); }
+}
+.closing .brand-logo { width: clamp(150px, 33vmin, 460px); margin: 0 auto clamp(18px, 3.7vmin, 48px); }
+.site-name { color: #d5fbff; font-size: clamp(1.35rem, 4.4vmin, 4.5rem); font-weight: 700; }
 
 .feature { grid-template-columns: minmax(0, .76fr) minmax(0, 1.24fr); gap: 4vw; }
 .feature .backdrop { filter: saturate(.85) brightness(.61); }
@@ -193,7 +215,7 @@ body.has-controls .controls, .controls:hover, .controls:focus-within { opacity: 
   .scene { align-items: end; padding-bottom: 11vh; }
   .scene .copy { max-width: 93%; }
   .scene::after { background: linear-gradient(0deg, #020b16f5, #020b16bb 33%, transparent 77%); }
-  .opening, .closing { --focus: 60% 50%; }
+  .opening { --focus: 60% 50%; }
   .egypt, .congo, .ocean { --focus: 70% 40%; }
   .feature { grid-template-columns: 1fr; align-content: center; gap: 3vh; }
   .feature h2, .gallery h2 { font-size: clamp(2rem, 8vmin, 5rem); }
@@ -210,4 +232,5 @@ body.has-controls .controls, .controls:hover, .controls:focus-within { opacity: 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0ms !important; transition-delay: 0ms !important; }
   .backdrop, .copy, .visual { transform: none !important; }
+  .closing::after { animation: none; }
 }
