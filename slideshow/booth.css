@@ -113,7 +113,13 @@ em { color: var(--accent); font-style: normal; }
   letter-spacing: .17em;
   text-transform: uppercase;
 }
-.subtitle { margin-top: .46em; font-weight: 700; font-size: clamp(1.2rem, 3.5vmin, 3.65rem); line-height: 1.1; color: var(--accent); }
+.title-mark img {
+  display: block;
+  width: min(100%, 44vw, 58vmin, 760px);
+  height: auto;
+  filter: drop-shadow(0 8px 22px #0009);
+}
+.title-mark + .lead { margin-top: .9em; }
 .lead {
   max-width: 31ch;
   margin-top: .68em;
@@ -214,6 +220,7 @@ body.has-controls .controls, .controls:hover, .controls:focus-within { opacity: 
   .slide { padding: 5vh 6vw; }
   .scene { align-items: end; padding-bottom: 11vh; }
   .scene .copy { max-width: 93%; }
+  .title-mark img { width: min(100%, 81vw, 460px); }
   .scene::after { background: linear-gradient(0deg, #020b16f5, #020b16bb 33%, transparent 77%); }
   .opening { --focus: 60% 50%; }
   .egypt, .congo, .ocean { --focus: 70% 40%; }
