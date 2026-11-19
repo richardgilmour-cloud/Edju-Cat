@@ -1,0 +1,1 @@
+var e=`/staging/ui-polish`;function t(t){let[n,r]=t.split(`#`);return[`/`,`/content`,`/pricing`,`/parents`].includes(n)?`${e}${n===`/`?`/`:`${n}/`}${r?`#${r}`:``}`:t}export{e as n,t};
