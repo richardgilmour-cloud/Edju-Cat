@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-22T14:50:15.690Z",
+  "generatedAt": "2026-11-27T22:53:40.096Z",
   "packs": {
     "ocean-compass-en": {
       "archiveBytes": 742603034,
@@ -40,6 +40,19 @@
       "sha256": "97125fa3986ab621cee6a1688e347fe7ce410ac78829ccfcd8832f972bee7003",
       "unpackedBytes": 608630405,
       "version": "0.1.10"
+    },
+    "ancient-egypt-en": {
+      "archiveBytes": 449978528,
+      "downloadUrl": "https://dlc.edjucat.com/modules/ancient-egypt/ancient-egypt-en-v0.1.1.zip",
+      "fileCount": 603,
+      "language": "en",
+      "md5": "e48353650a5d29ebd1d7a89f0ce8da49",
+      "minimumAppVersion": "1.0.26",
+      "moduleId": "ancient-egypt",
+      "packId": "ancient-egypt-en",
+      "sha256": "a7afc883663dd242cf09d22857bb90b14779c22755bf6825897d1de44e5a3e12",
+      "unpackedBytes": 449743170,
+      "version": "0.1.1"
     }
   }
 }
